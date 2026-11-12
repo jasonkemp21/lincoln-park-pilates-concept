@@ -1,0 +1,160 @@
+<div class="scrim" id="scrim" data-action="overlay-close"></div>
+
+<!-- booking / inquiry / cart sheet -->
+<aside class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheet-title" aria-hidden="true">
+  <div class="sheet__head">
+    <div><p id="sheet-label">Book a class</p><h2 id="sheet-title"></h2></div>
+    <button class="round" type="button" data-action="overlay-close" aria-label="Close"><svg class="ic"><use href="#i-x"/></svg></button>
+  </div>
+  <div class="sheet__body" id="sheet-body"></div>
+  <div class="sheet__foot" id="sheet-foot"></div>
+</aside>
+
+<!-- pitch notes -->
+<aside class="pitch" id="pitch" role="dialog" aria-modal="true" aria-labelledby="pitch-title" aria-hidden="true">
+  <div class="pitch__head">
+    <div><p>For Susan Dolan, Lincoln Park Pilates</p><h2 id="pitch-title">Pitch notes</h2></div>
+    <button class="round" type="button" data-action="overlay-close" aria-label="Close pitch notes"><svg class="ic"><use href="#i-x"/></svg></button>
+  </div>
+  <div class="ptabs" role="tablist">
+    <button class="on" data-ptab="changed">What changed</button>
+    <button data-ptab="model">Modeled on</button>
+    <button data-ptab="today">Today's site</button>
+    <button data-ptab="plan">The plan</button>
+    <button data-ptab="questions">Questions for Susan</button>
+    <button data-ptab="inbox">Staff portal <span class="cnt" id="inbox-cnt" hidden>0</span></button>
+  </div>
+  <div class="pitch__body">
+
+    <section class="on" data-ptab="changed">
+      <h3>The short version</h3>
+      <p>Lincoln Park Pilates has a 4.9 on Google, a full weekend schedule and reviews that name the instructors. The website is the one part of the business that undersells all of that. It still carries the Heat 3.0 name, breaks on a phone, hides its schedule and shop from Google, has a dead link behind its main button, and sends every visitor to WellnessLiving the moment they try to book or buy.</p>
+      <p>This concept keeps WellnessLiving for payments and memberships and puts a front door on it that works the way the biggest reformer studios' sites do. The <button class="jumpto" type="button" data-ptab-go="model">Modeled on</button> tab shows which ideas came from where.</p>
+
+      <div class="finding"><span>1</span><div><b>Booking starts on the site, two ways.</b><p>The real weekly timetable, with filters for class, instructor and time of day, spots left, and a waitlist. Every Book and Buy button opens the same panel with a choice. <b>Quick sign-up</b> asks for a name, email and mobile, with no account or password, and holds the spot. <b>WellnessLiving</b> sends members, and anyone who wants to pay by card, straight to the right page of the studio's WellnessLiving schedule or store. It is the pattern Jason built for Hammer Fitness and Boxing in Old Town, where the platform is Mindbody.</p><a class="jumpto" href="#schedule" data-action="pitch-jump">Show me</a></div></div>
+      <div class="finding"><span>2</span><div><b>The home page answers three questions in one screen.</b><p>What this is, where it is, and how to start: "Reformer Pilates on Southport", a Book button and the Google rating, with today's classes directly underneath, each with a Book button of its own.</p><a class="jumpto" href="#home" data-action="pitch-jump">Show me</a></div></div>
+      <div class="finding"><span>3</span><div><b>The intro offer leads.</b><p>WellnessLiving already sells a "3 classes for $39" intro pack. The current site never mentions it. Here it's in a bar across the top of every page, in a red block on the home page and the first-timer page, and as the first row on the pricing page.</p></div></div>
+      <div class="finding"><span>4</span><div><b>First-timers get their own page.</b><p>What happens at a first class, which class to take first, and the questions new people ask, in the first slot of the menu.</p><a class="jumpto" href="#new" data-action="pitch-jump">Show me</a></div></div>
+      <div class="finding"><span>5</span><div><b>It's built for a phone.</b><p>Most people find the studio from Google Maps or Instagram on their phone. Every page here is laid out for that width first, with Book pinned to the bottom of the screen. The current site's headline and menu run off the edge.</p></div></div>
+      <div class="finding"><span>6</span><div><b>Every price on one page, matched to WellnessLiving.</b><p>Memberships, class packs, training and sauna, plus a slider that works out which plan is cheapest for how often someone will come.</p><a class="jumpto" href="#pricing" data-action="pitch-jump">Show me</a></div></div>
+      <div class="finding"><span>7</span><div><b>The rebrand is finished.</b><p>No "Formerly Heat 3.0", no Heat 3.0 page titles, no links to the old Heat social accounts. One name everywhere, including the booking links.</p></div></div>
+      <div class="finding"><span>8</span><div><b>Google can find all of it.</b><p>Every page indexable (today the schedule and shop pages carry a noindex tag), real titles and descriptions, LocalBusiness data with the address, hours and rating, and clean addresses instead of /copy-of-pricing.</p></div></div>
+      <div class="finding"><span>9</span><div><b>Reviews are chosen, not piped in.</b><p>The current site embeds the raw WellnessLiving review feed on every page, which today includes a spam post linking to a betting site. This shows the Google rating and three real quotes.</p></div></div>
+      <div class="finding"><span>10</span><div><b>The front desk gets a CRM.</b><p>Quick sign-ups, bookings, pack and membership sign-ups, training and sauna requests, event inquiries, messages and shop orders land in one staff portal. Each person is one row with a status, notes, a next step and their history, and the portal counts how many visitors clicked through to WellnessLiving. It sits at /admin behind a staff login, as on the Hammer site.</p><a class="jumpto" href="#admin" data-action="pitch-jump">Open the staff portal</a></div></div>
+    </section>
+
+    <section data-ptab="model">
+      <h3>What the biggest reformer studios do</h3>
+      <p>This design started with the home pages of five studios that are plainly doing something right: <b>solidcore</b> (about 130 studios), <b>JETSET Pilates</b> (more than 400 franchise territories sold), <b>SLT</b> (21 studios), <b>New York Pilates</b> (nine studios, 1,000+ five-star Google reviews) and <b>Heartcore</b> (eight studios in London). They look different from each other, but they all make the same handful of decisions. This concept makes the same ones.</p>
+
+      <div class="finding"><span>1</span><div><b>A full-width photo, a few words, one button.</b><p>solidcore opens with "Stronger for it." and Book now. New York Pilates opens with "Feel Yourself" and Book class. Nobody opens with a paragraph.</p><p><b>Here:</b> "Reformer Pilates on Southport" and Book a class, over the studio's own photo of two people mid-plank on the reformers.</p></div></div>
+      <div class="finding"><span>2</span><div><b>First-timers get the first slot in the menu.</b><p>solidcore and JETSET call it "New clients", SLT "First timers", Heartcore "Get started". All five keep the menu to about five items and pin a Book button at the right.</p><p><b>Here:</b> "New here" comes first, the menu has six items, and Book a class never leaves the screen.</p></div></div>
+      <div class="finding"><span>3</span><div><b>The intro offer sits above everything.</b><p>SLT runs "Special intro offer: get 3 classes for $60" in a bar above its menu. New York Pilates scrolls "Your intro offer is here" across the top and makes intro pricing the second thing on the page.</p><p><b>Here:</b> the red bar on every page and the red $39 block on the home page. It appears twice on the home page, not five times.</p></div></div>
+      <div class="finding"><span>4</span><div><b>Proof in one line.</b><p>New York Pilates puts five stars and "1,000+ verified 5-star Google reviews" directly under its headline.</p><p><b>Here:</b> "4.9 on Google from 162 reviews" in the same spot, and again as the heading over three quotes.</p></div></div>
+      <div class="finding"><span>5</span><div><b>Short sections that each do one job.</b><p>solidcore's and JETSET's home pages are about four screens long on a laptop. Each section has one idea and one button.</p><p><b>Here:</b> every home page section has a single heading and a single next step.</p></div></div>
+      <div class="finding"><span>6</span><div><b>One brand colour, used for buttons and one big block.</b><p>solidcore's blue, SLT's turquoise. The photographs supply everything else.</p><p><b>Here:</b> the red from the studio's logo, with white, black and one pale grey. The photographs are black and white, so red is the only colour on the page.</p></div></div>
+      <div class="finding"><span>7</span><div><b>Where a one-studio site can beat the chains.</b><p>The chains have to send you to a studio picker before they can show a schedule. Lincoln Park Pilates has one address, so the home page shows today's classes straight under the photo, each with its own Book button.</p></div></div>
+
+      <h3>Why it looks like this</h3>
+      <ul>
+        <li><b>Headlines</b> are set in Big Shoulders, the typeface made for the City of Chicago's own design system. It's free, it's tall and condensed like the lettering on a lot of Chicago signage, and it suits a studio named after a Chicago neighbourhood.</li>
+        <li><b>Photos</b> are the studio's own, from the current site, converted to black and white. That makes the phone shots and the professional shots read as one set, and it matches the black and red of the logo. A half-day shoot would lift the whole site.</li>
+        <li><b>Shape:</b> anything you can press is rounded and everything else is square.</li>
+        <li><b>Lists, not cards.</b> Classes, prices and facts are set as plain rows with a rule between them, the way a timetable is, so the page reads as a schedule you can act on.</li>
+      </ul>
+    </section>
+
+    <section data-ptab="today">
+      <h3>What the current site does today</h3>
+      <p>Checked on November 5–6, 2026, on lincolnparkpilates.com and the studio's WellnessLiving account. Screenshots are from the same days.</p>
+      <div class="shots2">
+        <figure><div class="shot"><img src="img/today-home.webp" alt="The current homepage on a laptop" loading="lazy"></div><figcaption>Homepage on a laptop: overlapping header text at top right, a floating social bar, two chat widgets.</figcaption></figure>
+        <figure><div class="shot" style="max-width:260px"><img src="img/today-mobile.webp" alt="The current homepage on a phone, with the headline cut off at the right edge" loading="lazy"></div><figcaption>The same page at phone width: the headline and the navigation run off the screen.</figcaption></figure>
+      </div>
+
+      <div class="finding"><span>1</span><div><b>The homepage's main button is broken.</b><p>"CLASS SCHEDULE", the only call to action in the hero, opens a WellnessLiving page that says "Promotion does not exist." The Events page's "BUY NOW" button for the New Year promo goes to the same dead link.</p><figure><div class="shot"><img src="img/today-error.webp" alt="WellnessLiving error page: Promotion does not exist" loading="lazy"></div><figcaption>Where the hero button lands.</figcaption></figure></div></div>
+      <div class="finding"><span>2</span><div><b>So are most of the other buy buttons.</b><p>On the pricing page, the Membership, Packages and Training buttons and the Events page's "Join Now" open the WellnessLiving catalog at its old Heat address and get "Business does not exist." The "$360 / 10 classes + 2 sauna sessions" and "Unlimited sauna $199/mo" links return "Promotion does not exist." All eleven price links on the Shop page return "Product does not exist." On the homepage, the "10 CLASSES" label and the "$45 private training intro" both link to the 5-class package, and the $40 drop-in link is missing the studio's ID. Roughly one in two purchase links on the site works.</p></div></div>
+      <div class="finding"><span>3</span><div><b>It doesn't fit a phone.</b><p>At 390px wide the hero headline, the menu and the pinned social bar overlap and spill past the right edge (screenshot above). Worth confirming on your own phone before the meeting.</p></div></div>
+      <div class="finding"><span>4</span><div><b>Two pages tell Google not to list them.</b><p>The Schedule and Shop pages carry a <code>noindex</code> tag, so the page people most need to find, the schedule, is hidden from search. The Shop page also borrows its search title and description from the Schedule page ("Book a Class | Pilates Reformer Community").</p></div></div>
+      <div class="finding"><span>5</span><div><b>The Heat 3.0 rebrand is half done.</b><p>The logo says "Formerly Heat 3.0". The FAQ page's browser title is "FAQ'S | Heat 3.0 Pilates Barre Yoga Stretch"; the pricing, FAQ and events pages all share the title "Pricing | Heat 3.0 Pilates" when shared or searched, and the homepage's search description still says Heat 3.0. The pinned social bar's Facebook, Instagram, TikTok and YouTube icons go to the Heat 3.0 accounts while the footer links to the Lincoln Park Pilates ones. The review links go to ClassPass and Yelp pages for "Heat 3.0" and to a Google search for "heat 3.0".</p></div></div>
+      <div class="finding"><span>6</span><div><b>It advertises classes that aren't on the schedule.</b><p>The homepage promises "heated and non-heated classes", a Studio 2 of "Barre * Mat Pilates" with Barre Sweat Burn, Mat Pilates and "Pilates Abs &amp; Botty", and the FAQ lists Barre, Heated Yoga, Mat Pilates, FLX Stretch and Meditation. The WellnessLiving schedule for November 2–8 has 39 classes under five names, every one a reformer class, taught by eight instructors. The homepage says "50+ weekly workouts" and "18 trainers". If the other formats still run, nowhere on the site lets anyone book them.</p></div></div>
+      <div class="finding"><span>7</span><div><b>Prices disagree with each other.</b><p>The 10-class package is $380 on the homepage and in WellnessLiving, but "$360 with 2 free sauna sessions" on the pricing page. The 20-class membership is "annual contract" on the homepage, "month-to-month" on the pricing page and "3-month minimum" in WellnessLiving. A 16-class membership ($269) and the Elite annual membership ($2,399) exist in WellnessLiving but not on the site. There are three different 5-class offers: $190 on the pricing page, "5 for $99" in the stale New Year promo, and a pop-up on the homepage offering "buy 5, get 5 free for $190". The "3 classes for $39" intro pack is in WellnessLiving and nowhere on the site, which pushes the NEW25 code instead.</p><figure><div class="shot shot--scroll"><img src="img/today-pricing.webp" alt="The current pricing page, full length" loading="lazy"></div><figcaption>The current pricing page, full length (scroll inside the frame).</figcaption></figure></div></div>
+      <div class="finding"><span>8</span><div><b>A "New Year Promo" is still running in November.</b><p>The Events page leads with "5 Classes for $99 (Reg. $190)" and the dead BUY NOW link from finding 01.</p><figure><div class="shot shot--scroll"><img src="img/today-events.webp" alt="The current events page" loading="lazy"></div><figcaption>The current Events page.</figcaption></figure></div></div>
+      <div class="finding"><span>9</span><div><b>Everything that matters happens somewhere else.</b><p>The schedule, every pricing button, the lead form and the reviews are WellnessLiving iframes or redirects. The menu lists Forum, Members, Notifications and My Subscriptions, which are Wix member-area pages, not studio pages, and on a laptop they bury Shop, Studio Rental and Contact under "More".</p></div></div>
+      <div class="finding"><span>10</span><div><b>Three chat apps and a social bar.</b><p>A Chatway bubble sits bottom-right with Wix Chat and Chaty also installed, and a red Facebook / YouTube / TikTok / Instagram bar is pinned to the left edge over the hero photo. On a phone the bar sits on top of the headline.</p></div></div>
+      <div class="finding"><span>11</span><div><b>Every page currently shows a spam review.</b><p>The site-wide footer embeds the live WellnessLiving review feed, sorted newest first. Its fourth entry (May 2026) is mostly about the booking app and ends with a link to an online betting site.</p></div></div>
+      <div class="finding"><span>12</span><div><b>Copy errors a customer will notice.</b><p>"Pilates Abs &amp; Botty", "500+ REVEWS", "FLX Kinesio Tap", "Cryoptherapy Ball", "2x wk o realize", "massage your spinePerfect for", and shop copy that begins "Good morning target massage areas and enhance your stretch don't say." Seven shop images are files named "Screen Shot 2023-03-23" or "-24".</p></div></div>
+      <div class="finding"><span>13</span><div><b>Policies contradict each other.</b><p>Classes may be cancelled with "3 people or less" (footer), "under 5 people" (FAQ) or "less than 3 ppl" (WellnessLiving class descriptions). Reformer classes have "ONLY 10 spots" (FAQ) but 12 in WellnessLiving. The 4- and 8-class memberships are "3 month minimum" on the homepage and "month-to-month" on the pricing page. "Do you have parking?" appears twice in the FAQ.</p></div></div>
+      <div class="finding"><span>14</span><div><b>The sauna copy makes medical claims, and misquotes its source.</b><p>The pricing page says researchers "found proof that saunas can help" with weight loss, high blood pressure, heart failure, dementia and Alzheimer's, type 2 diabetes and arthritis, attributed to Mayo Clinic. Mayo's page says there is "some proof" saunas "may help", doesn't mention weight loss, and says larger studies are needed. That's a liability, not a selling point; this concept describes what the sauna is and leaves the claims out.</p></div></div>
+      <div class="finding"><span>15</span><div><b>The door code is public.</b><p>The studio's entry code appears in the class descriptions on the public WellnessLiving schedule, readable by anyone without signing in. It should live only in confirmation emails, which is where this concept puts it.</p></div></div>
+      <div class="finding"><span>16</span><div><b>Not the website, but worth fixing the same week.</b><p>The Google Business Profile lists the studio as closed on Tuesdays. Six classes run on Tuesdays.</p></div></div>
+    </section>
+
+    <section data-ptab="plan">
+      <h3>How this becomes the real site</h3>
+      <p>Same approach as the Hammer Fitness and Boxing site Jason built in Old Town this fall: a fast static site on the studio's own domain, WellnessLiving kept for payments, memberships and the member app, and a small staff portal for everything that isn't a WellnessLiving transaction.</p>
+      <div class="plan-wk"><span>Week 1</span><div><b>Content lock with Susan</b><p>Confirm every price and term against WellnessLiving, class descriptions, which formats still run, instructor list and photos, front-desk hours, the intro offer. Get Wix and domain access (the domain stays where it is; only the DNS changes).</p></div></div>
+      <div class="plan-wk"><span>Week 2</span><div><b>Build, booking and the staff portal</b><p>Quick sign-ups, requests and messages are saved to the site's own database and shown in the staff portal at /admin, behind a staff login, as on the Hammer site. Each quick sign-up is also pushed into WellnessLiving as a lead profile so nobody retypes it. WellnessLiving's Zapier integration has a Create Lead Profile action for this, and the studio's current site already embeds a WellnessLiving lead form. The WellnessLiving buttons link to the exact store item or to the schedule.</p><p style="margin-top:8px">Taking payment inside this design, with no hand-off, needs the WellnessLiving API. WellnessLiving publishes an SDK, but it issues the credentials for the studio's account itself. Third-party API directories describe an approval step with a questionnaire and an API agreement, so plan it as a second phase and ask the studio's account executive early.</p></div></div>
+      <div class="plan-wk"><span>Week 3</span><div><b>SEO, redirects, launch</b><p>Remove noindex, write titles and descriptions, add LocalBusiness schema, redirect every old Wix URL (<code>/copy-of-pricing</code> → <code>/faq</code> and so on), point the domain at the new host, confirm HTTPS, fix the Google Business Profile hours and link it to the new site. Wix stays live until the new site is confirmed, then the Wix plan is cancelled.</p></div></div>
+      <div class="plan-wk"><span>After</span><div><b>Hand-off</b><p>A one-page guide to editing prices, the schedule and the FAQ, and a monthly check that the intro offer, promo code and prices still match WellnessLiving.</p></div></div>
+      <h3>What Susan provides</h3>
+      <ul>
+        <li>Domain and Wix logins (or add Jason as a collaborator)</li>
+        <li>WellnessLiving: a Zapier connection for new leads, and a question to her account executive about API access for the second phase</li>
+        <li>Staff emails for the portal login, and whether a spot can be held before payment</li>
+        <li>Class descriptions, or a 20-minute conversation to write them from</li>
+        <li>Instructor names as they should appear, and any bios or photos she wants shown</li>
+        <li>Front-desk hours and the current intro offer</li>
+      </ul>
+      <h3>Terms</h3>
+      <p>Jason's offer to the studio goes here: build, launch and hand off the site in exchange for a membership, with the length agreed in the meeting.</p>
+    </section>
+
+    <section data-ptab="questions">
+      <h3>Assumptions in this concept</h3>
+      <p>Things that were decided to make the demo complete. Each one is easy to change.</p>
+      <ul>
+        <li><b>The schedule</b> is the WellnessLiving timetable for the week of November 2–8, 2026, treated as a repeating weekly pattern. Wednesday 7:00 am is shown as Rachel's class; it was marked as a sub that week.</li>
+        <li><b>Spot counts</b> are real for Friday through Sunday (as shown on November 6) and illustrative for Monday through Thursday, which were already past when the schedule was captured.</li>
+        <li><b>Class descriptions</b> are drafts. The current site describes Flow ("traditional Pilates technique"), Power ("athletic resistance Pilates") and Form &amp; Focus ("traditional moves, all levels"), and those are kept close to the original. Reformer Sculpt and Intro have no description anywhere. Intro's is written from the name and from the FAQ's advice to start with Intro, Flow or Form Focus. Sculpt's says only how often it runs and how long it is, and needs a real description from Susan. Power is marked "some experience"; the site doesn't give it a level.</li>
+        <li><b>Barre, mat, yoga and stretch classes</b> are not shown as bookable because none appear on the WellnessLiving schedule. If they run, they go on the schedule and the class guide in an hour.</li>
+        <li><b>Prices</b> follow WellnessLiving where the site and WellnessLiving disagree: 10 classes at $380, the 20-class membership at $289 with a 3-month minimum. The 16-class membership and Elite annual plan are shown because they're in the catalog. Pack expiry and membership minimums follow the WellnessLiving store as checked on November 11, 2026: 5 classes within 3 months, 10 within 90 days, 20 within 180 days, and a 3-month minimum on every membership except Unlimited. The studio's current website says 30 and 45 days for the 5 and 10 packs, so one of the two needs correcting. The "$360 with 2 sauna sessions" version of the 10-pack and the "annual contract" version of the 20-class membership are left out until Susan says which is current.</li>
+        <li><b>The intro offer</b> is "3 classes for $39", from the WellnessLiving catalog's 2026 Intro Pack. NEW25 is kept as a promo code and can be entered on a drop-in booking or a class pack. The homepage pop-up's "buy 5, get 5 free for $190" is not shown because its terms aren't published anywhere. If only one offer should exist, pick one and the rest come out. Whether NEW25 can be used on the intro pack isn't stated anywhere, so the demo doesn't offer a promo field on it.</li>
+        <li><b>Rooms</b> are shown as WellnessLiving lists them: two reformer classes a week run in "Studio 2" even though the site calls Studio 2 the barre and mat room.</li>
+        <li><b>Capacity</b> is 12 per class, per WellnessLiving; the FAQ says 10.</li>
+        <li><b>Minimum class size</b> is stated as "three or fewer may be cancelled", from the footer; the FAQ says under five and WellnessLiving says fewer than three.</li>
+        <li><b>The referral reward</b> is written as "$100 off, applied on their second month"; the FAQ's wording is ambiguous about whose month gets the credit.</li>
+        <li><b>The team</b> lists the eight instructors on this week's schedule. Reviews also mention Peggy and Eila; the homepage says "18 trainers". Add whoever still teaches.</li>
+        <li><b>Hours</b> are derived from the first and last class each day. Front-desk hours aren't published; the Google profile's hours disagree with the schedule (Tuesday "closed").</li>
+        <li><b>Transit</b> says the Clybourn Metra and Armitage Brown Line stops are "walkable", from the map. No walking times are claimed.</li>
+        <li><b>There is no map</b> in this concept, only a Get directions button that opens Google Maps. The real site would embed the map next to the address.</li>
+        <li><b>Photos</b> are the studio's own, taken from the current site and converted to black and white. The real build should use the originals at full size. Photos showing the old Heat signage were left out or cropped.</li>
+        <li><b>The sauna has no photo.</b> The one on the current site looks like a stock image, so the sauna is described in words until there is a real picture of it.</li>
+        <li><b>Sue or Susan.</b> The current site says "Text Sue" and the schedule lists Susan. The concept uses Susan throughout and can switch to whichever she prefers.</li>
+        <li><b>Instructor photos</b> don't exist on the current site, so instructors appear by name only. Headshots would be worth an afternoon.</li>
+        <li><b>Grip socks</b> are mentioned under the shop list but can't be ordered online, because the FAQ says they're sold and never says for how much.</li>
+        <li><b>Per-class figures</b> on the pricing page are simple division (price over classes) and assume every class is used. The Elite annual is divided over 240 classes, twenty a month for twelve months.</li>
+        <li><b>Private training packs</b> (five and ten 30-minute sessions) exist in WellnessLiving without a visible price, so each has an Ask us button that sends a request for the price.</li>
+        <li><b>Quick sign-up holds a spot before payment.</b> The concept assumes the studio will hold a spot for someone who has left a name and email, and take payment at the desk or by a link. If Susan wants payment first, quick sign-up still captures the person and then hands off to WellnessLiving checkout.</li>
+        <li><b>The WellnessLiving buttons are real links.</b> They open the studio's live WellnessLiving schedule and store in a new tab, and anything bought there is real. Most memberships and packs link to their own store page. The intro pack, the 16-class membership, the Elite annual, training and sauna link to the store's front page until their store IDs are confirmed.</li>
+        <li><b>The staff portal is a demo.</b> It keeps its data in the browser it is opened in, so a sign-up made on a phone will not appear on a laptop. It starts with six people tagged Sample, which can be removed. The real portal uses a shared database and a staff login.</li>
+        <li><b>Nothing else here is live.</b> Quick sign-ups, purchases and forms are simulated and never ask for card details. They appear in the staff portal so Susan can see what the front desk would receive.</li>
+      </ul>
+    </section>
+
+    <section data-ptab="inbox">
+      <h3>The staff portal</h3>
+      <p>Everything booked, bought or sent on this site lands in the front desk portal, one row per person, with a status, notes and a next step. On the real site it is at /admin behind a staff login. Here it is one click, from this button or from the Staff link in the footer.</p>
+      <p><a class="jumpto" href="#admin" data-action="pitch-jump">Open the staff portal</a></p>
+      <h3>What you have submitted in this browser</h3>
+      <div id="inbox"></div>
+    </section>
+
+  </div>
+  <div class="pitch__foot">
+    <span>Prepared by Jason Kemp, November 2026</span>
+    <span>Sources: lincolnparkpilates.com, the studio's WellnessLiving account, its Google Business Profile, the home pages of solidcore, JETSET Pilates, SLT, New York Pilates and Heartcore, WellnessLiving's website widgets page and Zapier's WellnessLiving integration page</span>
+  </div>
+</aside>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>

@@ -1,0 +1,6 @@
+node_modules/
+test/out/
+test/flows/
+test/*.json
+test/*.log
+.DS_Store

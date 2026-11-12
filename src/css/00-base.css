@@ -1,0 +1,114 @@
+/* Lincoln Park Pilates concept v2. See DESIGN-NOTES.md for the reasoning. */
+:root {
+  --paper: #ffffff;
+  --wall: #eef0eb;          /* the studio's sage-grey walls, very pale */
+  --wall-2: #dfe3db;
+  --ink: #151617;           /* reformer black */
+  --grey: #5e625f;
+  --line: #d9dcd6;
+  --red: #d4141c;           /* the studio's logo red, deepened for contrast */
+  --red-dark: #a90f16;
+  --ok: #1f6b3b;
+
+  --display: 'Big Shoulders', 'Big Shoulders Display', 'Arial Narrow', 'Helvetica Neue', Arial, sans-serif;
+  --text: 'Hanken Grotesk', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+
+  --max: 1240px;
+  --pad: clamp(20px, 4vw, 48px);
+  --head: 72px;
+  --gap: clamp(64px, 8.5vw, 116px);   /* vertical rhythm between sections */
+  --ease: cubic-bezier(.2, .7, .2, 1);
+}
+@media (max-width: 760px) { :root { --head: 60px; } }
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--text); font-size: 17px; line-height: 1.55; -webkit-font-smoothing: antialiased; }
+body.locked { overflow: hidden; }
+img { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; text-align: inherit; }
+input, select, textarea { font: inherit; color: inherit; }
+p { margin: 0 0 1em; text-wrap: pretty; }
+p:last-child { margin-bottom: 0; }
+h1, h2, h3, h4 { margin: 0; font-family: var(--display); font-weight: 700; line-height: .95; letter-spacing: .005em; text-wrap: balance; }
+[hidden] { display: none !important; }
+:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
+::selection { background: var(--red); color: #fff; }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition-duration: .001s !important; animation: none !important; } }
+
+/* type */
+.h-xl { font-size: clamp(52px, 7.6vw, 116px); line-height: .9; }
+.h-l { font-size: clamp(42px, 5.6vw, 80px); }
+.h-m { font-size: clamp(32px, 3.6vw, 48px); line-height: 1; }
+.h-s { font-size: clamp(24px, 2.2vw, 30px); line-height: 1.05; }
+.lead { font-size: clamp(18px, 1.5vw, 21px); line-height: 1.5; max-width: 34em; }
+.small { font-size: 14.5px; line-height: 1.5; }
+.grey { color: var(--grey); }
+.u { text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 1.5px; }
+.u:hover { color: var(--red); }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* layout */
+.wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--pad); }
+.sec { padding: var(--gap) 0; }
+.sec-wall { background: var(--wall); }
+.sec-ink { background: var(--ink); color: #fff; }
+.sec-head { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px 32px; margin-bottom: clamp(28px, 4vw, 52px); }
+.sec-head p { margin-top: 18px; }
+.cols { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 5vw, 72px); align-items: center; }
+.cols-top { align-items: start; }
+@media (max-width: 860px) { .cols { grid-template-columns: 1fr; } }
+.photo { background: var(--wall-2); overflow: hidden; }
+.photo img { width: 100%; height: 100%; object-fit: cover; }
+.r-43 { aspect-ratio: 4/3; } .r-34 { aspect-ratio: 3/4; } .r-169 { aspect-ratio: 16/9; } .r-32 { aspect-ratio: 3/2; } .r-45 { aspect-ratio: 4/5; }
+
+/* things you press are pills */
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 50px; padding: 0 26px; border-radius: 999px; font-weight: 600; font-size: 16px; line-height: 1; white-space: nowrap; border: 2px solid transparent; transition: background .15s, color .15s, border-color .15s; }
+.btn-red { background: var(--red); color: #fff; }
+.btn-red:hover { background: var(--red-dark); }
+.btn-ink { background: var(--ink); color: #fff; }
+.btn-ink:hover { background: #000; }
+.btn-white { background: #fff; color: var(--ink); }
+.btn-white:hover { background: var(--wall); }
+.btn-line { border-color: currentColor; }
+.btn-line:hover { background: var(--ink); color: #fff; border-color: var(--ink); }
+.btn-s { min-height: 38px; padding: 0 16px; font-size: 14.5px; }
+.btn-wide { width: 100%; }
+.btn[disabled] { opacity: .45; cursor: not-allowed; }
+.btn-row { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; }
+.ic { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; flex: none; }
+.round { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; position: relative; }
+.round:hover { background: rgba(127,127,127,.16); }
+
+/* forms */
+.field { display: grid; gap: 6px; }
+.field > span { font-size: 14px; font-weight: 600; }
+.field input, .field select, .field textarea { width: 100%; min-height: 50px; padding: 12px 14px; border: 1.5px solid #b9beb6; border-radius: 6px; background: #fff; }
+.field textarea { min-height: 110px; resize: vertical; }
+.field input:focus, .field select:focus, .field textarea:focus { outline: 0; border-color: var(--ink); box-shadow: 0 0 0 3px rgba(21,22,23,.12); }
+.field--err input, .field--err select, .field--err textarea { border-color: var(--red); }
+.check.field--err { color: var(--red); }
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.form-grid .span2 { grid-column: 1 / -1; }
+@media (max-width: 560px) { .form-grid { grid-template-columns: 1fr; } }
+.check { display: flex; gap: 10px; align-items: flex-start; font-size: 15px; }
+.check input { margin-top: 4px; width: 18px; height: 18px; accent-color: var(--red); flex: none; }
+.note { font-size: 14px; color: var(--grey); line-height: 1.5; }
+.ok-box { border-left: 4px solid var(--ok); background: #edf5ef; padding: 16px 18px; font-size: 15.5px; }
+
+/* price and rate rows */
+.rows { border-top: 2px solid var(--ink); }
+.rrow { display: grid; grid-template-columns: 1fr auto auto; gap: 8px 24px; align-items: center; padding: 18px 0; border-bottom: 1px solid var(--line); }
+.rrow__name { font-weight: 600; font-size: 18px; }
+.rrow__name small { display: block; font-weight: 400; font-size: 14.5px; color: var(--grey); margin-top: 2px; }
+.rrow__price { font-family: var(--display); font-weight: 700; font-size: 34px; line-height: 1; white-space: nowrap; text-align: right; }
+.rrow__price small { font-family: var(--text); font-weight: 400; font-size: 14px; color: var(--grey); margin-left: 3px; }
+.rrow__per { display: block; font-family: var(--text); font-weight: 400; font-size: 13.5px; color: var(--grey); margin-top: 4px; }
+.rrow--pick .rrow__price { color: var(--red); }
+.tag { display: inline-block; font-size: 12.5px; font-weight: 700; line-height: 1; color: #fff; background: var(--red); padding: 5px 8px; margin-left: 10px; vertical-align: 3px; }
+@media (max-width: 560px) { .rrow { grid-template-columns: 1fr auto; } .rrow .btn { grid-column: 1 / -1; justify-self: start; } }
+
+/* toast */
+.toast { position: fixed; left: 50%; bottom: 88px; transform: translate(-50%, 16px); background: var(--ink); color: #fff; padding: 12px 20px; border-radius: 999px; font-size: 15px; opacity: 0; pointer-events: none; transition: opacity .2s, transform .2s; z-index: 140; max-width: calc(100vw - 32px); text-align: center; }
+.toast.on { opacity: 1; transform: translate(-50%, 0); }

@@ -1,0 +1,62 @@
+/* intro-offer bar: the studio's own, the way SLT and New York Pilates run one */
+.offerbar { background: var(--red); color: #fff; font-size: 15px; text-align: center; padding: 10px var(--pad); line-height: 1.3; }
+.offerbar a { font-weight: 600; text-decoration: underline; text-underline-offset: 3px; margin-left: 6px; white-space: nowrap; }
+
+/* header */
+.head { position: sticky; top: 0; z-index: 80; height: var(--head); background: #fff; color: var(--ink); border-bottom: 1px solid var(--line); transition: background .2s, color .2s, border-color .2s; }
+.head .wrap { height: 100%; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+.logo { font-family: var(--display); font-weight: 800; font-size: 27px; line-height: 1; letter-spacing: .02em; text-transform: uppercase; white-space: nowrap; }
+.logo span { color: var(--red); }
+.nav { display: flex; align-items: center; gap: clamp(14px, 2.2vw, 34px); font-size: 16px; font-weight: 500; }
+.nav a { padding: 8px 0; border-bottom: 2px solid transparent; }
+.nav a:hover, .nav a.on { border-bottom-color: currentColor; }
+.head__right { display: flex; align-items: center; gap: 6px; }
+.head__right .btn { min-height: 44px; margin-left: 6px; }
+.cart-count { position: absolute; top: 2px; right: 0; min-width: 18px; height: 18px; padding: 0 4px; border-radius: 999px; background: var(--red); color: #fff; font-size: 11px; font-weight: 700; line-height: 18px; text-align: center; }
+.menu-btn { display: none; }
+@media (max-width: 1020px) { .nav { display: none; } .menu-btn { display: inline-flex; } }
+@media (max-width: 520px) { .head__right .btn { display: none; } .logo { font-size: 23px; } }
+
+/* over the home hero the header is clear until you scroll */
+body.over .head { background: transparent; color: #fff; border-bottom-color: transparent; }
+body.over .head .logo span { color: #fff; }
+body.over .head .btn-red { background: #fff; color: var(--ink); }
+
+/* full-screen menu */
+.menu { position: fixed; inset: 0; z-index: 120; background: var(--red); color: #fff; display: flex; flex-direction: column; padding: 0 var(--pad) 28px; transform: translateY(-102%); transition: transform .35s var(--ease); overflow: auto; }
+.menu.on { transform: none; }
+.menu__top { height: var(--head); display: flex; align-items: center; justify-content: space-between; flex: none; }
+.menu .logo span { color: #fff; }
+.menu__links { list-style: none; margin: 18px 0 0; padding: 0; }
+.menu__links a { display: block; font-family: var(--display); font-weight: 700; font-size: clamp(40px, 11vw, 64px); line-height: 1.08; }
+.menu__more { list-style: none; margin: 26px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px 24px; font-size: 17px; }
+.menu__more a { text-decoration: underline; text-underline-offset: 4px; }
+.menu__foot { margin-top: auto; padding-top: 28px; font-size: 15px; line-height: 1.5; }
+
+/* footer */
+.foot { background: var(--ink); color: #fff; padding: clamp(56px, 7vw, 96px) 0 36px; }
+.foot__grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 32px clamp(24px, 4vw, 56px); }
+.foot .logo { font-size: 34px; }
+.foot .logo span { color: #fff; }
+.foot h4 { font-family: var(--text); font-size: 15px; font-weight: 600; letter-spacing: 0; line-height: 1.4; margin-bottom: 12px; color: #a9ada8; }
+.foot ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; font-size: 16px; }
+.foot ul a:hover { text-decoration: underline; text-underline-offset: 4px; }
+.foot address { font-style: normal; margin-top: 18px; font-size: 16px; line-height: 1.6; color: #d7dad5; }
+.foot__fine { margin-top: 56px; padding-top: 22px; border-top: 1px solid #3a3d3c; font-size: 13.5px; color: #a9ada8; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px 32px; }
+@media (max-width: 860px) { .foot__grid { grid-template-columns: 1fr 1fr; } .foot__grid > :first-child { grid-column: 1 / -1; } }
+
+/* concept label: a tab on the right edge, always on screen, clear of the page's own controls */
+.concept { position: fixed; right: 0; top: 50%; z-index: 100; transform: translateY(-50%); writing-mode: vertical-rl; display: flex; align-items: center; gap: 10px; background: var(--ink); color: #fff; padding: 14px 7px; font-size: 13px; line-height: 1; border-radius: 8px 0 0 8px; box-shadow: 0 6px 24px rgba(0,0,0,.28); }
+.concept button { background: #fff; color: var(--ink); border-radius: 999px; padding: 12px 6px; font-weight: 700; font-size: 13px; }
+.concept button:hover { background: var(--wall); }
+
+/* phone: book button pinned to the bottom edge */
+.bookbar { display: none; }
+@media (max-width: 760px) {
+  .bookbar { display: flex; gap: 10px; position: fixed; left: 0; right: 0; bottom: 0; z-index: 90; padding: 10px 14px calc(10px + env(safe-area-inset-bottom, 0px)); background: #fff; border-top: 1px solid var(--line); }
+  .bookbar .btn { flex: 1; min-height: 48px; padding: 0 12px; }
+  .concept { writing-mode: horizontal-tb; top: auto; right: 0; left: 0; bottom: calc(69px + env(safe-area-inset-bottom, 0px)); transform: none; justify-content: center; border-radius: 0; padding: 5px 10px; font-size: 12.5px; box-shadow: none; z-index: 89; }
+  .concept button { padding: 4px 10px; font-size: 12.5px; }
+  .toast { bottom: 120px; }
+  .foot { padding-bottom: 140px; }
+}

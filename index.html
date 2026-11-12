@@ -1,0 +1,2314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lincoln Park Pilates website concept</title>
+<meta name="description" content="Reformer Pilates in Lincoln Park, Chicago. 45-minute classes of up to twelve people in a warm room, plus private training, an infrared sauna and event space. 2105 N Southport Ave. New clients: 3 classes for $39.">
+<meta name="theme-color" content="#d4141c">
+<meta name="robots" content="noindex, nofollow">
+<meta property="og:title" content="Lincoln Park Pilates website concept">
+<meta property="og:description" content="A redesign concept for Lincoln Park Pilates by Jason Kemp. Not the studio's live site. Nothing here books or charges.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders:opsz,wght@10..72,500..900&family=Hanken+Grotesk:wght@400..700&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23d4141c'/%3E%3Ctext x='16' y='24' text-anchor='middle' font-family='Arial Narrow,Arial,sans-serif' font-weight='700' font-size='22' fill='%23fff'%3ELP%3C/text%3E%3C/svg%3E">
+<style>
+/* Lincoln Park Pilates concept v2. See DESIGN-NOTES.md for the reasoning. */
+:root {
+  --paper: #ffffff;
+  --wall: #eef0eb;          /* the studio's sage-grey walls, very pale */
+  --wall-2: #dfe3db;
+  --ink: #151617;           /* reformer black */
+  --grey: #5e625f;
+  --line: #d9dcd6;
+  --red: #d4141c;           /* the studio's logo red, deepened for contrast */
+  --red-dark: #a90f16;
+  --ok: #1f6b3b;
+
+  --display: 'Big Shoulders', 'Big Shoulders Display', 'Arial Narrow', 'Helvetica Neue', Arial, sans-serif;
+  --text: 'Hanken Grotesk', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+
+  --max: 1240px;
+  --pad: clamp(20px, 4vw, 48px);
+  --head: 72px;
+  --gap: clamp(64px, 8.5vw, 116px);   /* vertical rhythm between sections */
+  --ease: cubic-bezier(.2, .7, .2, 1);
+}
+@media (max-width: 760px) { :root { --head: 60px; } }
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--text); font-size: 17px; line-height: 1.55; -webkit-font-smoothing: antialiased; }
+body.locked { overflow: hidden; }
+img { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; text-align: inherit; }
+input, select, textarea { font: inherit; color: inherit; }
+p { margin: 0 0 1em; text-wrap: pretty; }
+p:last-child { margin-bottom: 0; }
+h1, h2, h3, h4 { margin: 0; font-family: var(--display); font-weight: 700; line-height: .95; letter-spacing: .005em; text-wrap: balance; }
+[hidden] { display: none !important; }
+:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
+::selection { background: var(--red); color: #fff; }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition-duration: .001s !important; animation: none !important; } }
+
+/* type */
+.h-xl { font-size: clamp(52px, 7.6vw, 116px); line-height: .9; }
+.h-l { font-size: clamp(42px, 5.6vw, 80px); }
+.h-m { font-size: clamp(32px, 3.6vw, 48px); line-height: 1; }
+.h-s { font-size: clamp(24px, 2.2vw, 30px); line-height: 1.05; }
+.lead { font-size: clamp(18px, 1.5vw, 21px); line-height: 1.5; max-width: 34em; }
+.small { font-size: 14.5px; line-height: 1.5; }
+.grey { color: var(--grey); }
+.u { text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 1.5px; }
+.u:hover { color: var(--red); }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* layout */
+.wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--pad); }
+.sec { padding: var(--gap) 0; }
+.sec-wall { background: var(--wall); }
+.sec-ink { background: var(--ink); color: #fff; }
+.sec-head { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px 32px; margin-bottom: clamp(28px, 4vw, 52px); }
+.sec-head p { margin-top: 18px; }
+.cols { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 5vw, 72px); align-items: center; }
+.cols-top { align-items: start; }
+@media (max-width: 860px) { .cols { grid-template-columns: 1fr; } }
+.photo { background: var(--wall-2); overflow: hidden; }
+.photo img { width: 100%; height: 100%; object-fit: cover; }
+.r-43 { aspect-ratio: 4/3; } .r-34 { aspect-ratio: 3/4; } .r-169 { aspect-ratio: 16/9; } .r-32 { aspect-ratio: 3/2; } .r-45 { aspect-ratio: 4/5; }
+
+/* things you press are pills */
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 50px; padding: 0 26px; border-radius: 999px; font-weight: 600; font-size: 16px; line-height: 1; white-space: nowrap; border: 2px solid transparent; transition: background .15s, color .15s, border-color .15s; }
+.btn-red { background: var(--red); color: #fff; }
+.btn-red:hover { background: var(--red-dark); }
+.btn-ink { background: var(--ink); color: #fff; }
+.btn-ink:hover { background: #000; }
+.btn-white { background: #fff; color: var(--ink); }
+.btn-white:hover { background: var(--wall); }
+.btn-line { border-color: currentColor; }
+.btn-line:hover { background: var(--ink); color: #fff; border-color: var(--ink); }
+.btn-s { min-height: 38px; padding: 0 16px; font-size: 14.5px; }
+.btn-wide { width: 100%; }
+.btn[disabled] { opacity: .45; cursor: not-allowed; }
+.btn-row { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; }
+.ic { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; flex: none; }
+.round { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; position: relative; }
+.round:hover { background: rgba(127,127,127,.16); }
+
+/* forms */
+.field { display: grid; gap: 6px; }
+.field > span { font-size: 14px; font-weight: 600; }
+.field input, .field select, .field textarea { width: 100%; min-height: 50px; padding: 12px 14px; border: 1.5px solid #b9beb6; border-radius: 6px; background: #fff; }
+.field textarea { min-height: 110px; resize: vertical; }
+.field input:focus, .field select:focus, .field textarea:focus { outline: 0; border-color: var(--ink); box-shadow: 0 0 0 3px rgba(21,22,23,.12); }
+.field--err input, .field--err select, .field--err textarea { border-color: var(--red); }
+.check.field--err { color: var(--red); }
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.form-grid .span2 { grid-column: 1 / -1; }
+@media (max-width: 560px) { .form-grid { grid-template-columns: 1fr; } }
+.check { display: flex; gap: 10px; align-items: flex-start; font-size: 15px; }
+.check input { margin-top: 4px; width: 18px; height: 18px; accent-color: var(--red); flex: none; }
+.note { font-size: 14px; color: var(--grey); line-height: 1.5; }
+.ok-box { border-left: 4px solid var(--ok); background: #edf5ef; padding: 16px 18px; font-size: 15.5px; }
+
+/* price and rate rows */
+.rows { border-top: 2px solid var(--ink); }
+.rrow { display: grid; grid-template-columns: 1fr auto auto; gap: 8px 24px; align-items: center; padding: 18px 0; border-bottom: 1px solid var(--line); }
+.rrow__name { font-weight: 600; font-size: 18px; }
+.rrow__name small { display: block; font-weight: 400; font-size: 14.5px; color: var(--grey); margin-top: 2px; }
+.rrow__price { font-family: var(--display); font-weight: 700; font-size: 34px; line-height: 1; white-space: nowrap; text-align: right; }
+.rrow__price small { font-family: var(--text); font-weight: 400; font-size: 14px; color: var(--grey); margin-left: 3px; }
+.rrow__per { display: block; font-family: var(--text); font-weight: 400; font-size: 13.5px; color: var(--grey); margin-top: 4px; }
+.rrow--pick .rrow__price { color: var(--red); }
+.tag { display: inline-block; font-size: 12.5px; font-weight: 700; line-height: 1; color: #fff; background: var(--red); padding: 5px 8px; margin-left: 10px; vertical-align: 3px; }
+@media (max-width: 560px) { .rrow { grid-template-columns: 1fr auto; } .rrow .btn { grid-column: 1 / -1; justify-self: start; } }
+
+/* toast */
+.toast { position: fixed; left: 50%; bottom: 88px; transform: translate(-50%, 16px); background: var(--ink); color: #fff; padding: 12px 20px; border-radius: 999px; font-size: 15px; opacity: 0; pointer-events: none; transition: opacity .2s, transform .2s; z-index: 140; max-width: calc(100vw - 32px); text-align: center; }
+.toast.on { opacity: 1; transform: translate(-50%, 0); }
+
+/* intro-offer bar: the studio's own, the way SLT and New York Pilates run one */
+.offerbar { background: var(--red); color: #fff; font-size: 15px; text-align: center; padding: 10px var(--pad); line-height: 1.3; }
+.offerbar a { font-weight: 600; text-decoration: underline; text-underline-offset: 3px; margin-left: 6px; white-space: nowrap; }
+
+/* header */
+.head { position: sticky; top: 0; z-index: 80; height: var(--head); background: #fff; color: var(--ink); border-bottom: 1px solid var(--line); transition: background .2s, color .2s, border-color .2s; }
+.head .wrap { height: 100%; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+.logo { font-family: var(--display); font-weight: 800; font-size: 27px; line-height: 1; letter-spacing: .02em; text-transform: uppercase; white-space: nowrap; }
+.logo span { color: var(--red); }
+.nav { display: flex; align-items: center; gap: clamp(14px, 2.2vw, 34px); font-size: 16px; font-weight: 500; }
+.nav a { padding: 8px 0; border-bottom: 2px solid transparent; }
+.nav a:hover, .nav a.on { border-bottom-color: currentColor; }
+.head__right { display: flex; align-items: center; gap: 6px; }
+.head__right .btn { min-height: 44px; margin-left: 6px; }
+.cart-count { position: absolute; top: 2px; right: 0; min-width: 18px; height: 18px; padding: 0 4px; border-radius: 999px; background: var(--red); color: #fff; font-size: 11px; font-weight: 700; line-height: 18px; text-align: center; }
+.menu-btn { display: none; }
+@media (max-width: 1020px) { .nav { display: none; } .menu-btn { display: inline-flex; } }
+@media (max-width: 520px) { .head__right .btn { display: none; } .logo { font-size: 23px; } }
+
+/* over the home hero the header is clear until you scroll */
+body.over .head { background: transparent; color: #fff; border-bottom-color: transparent; }
+body.over .head .logo span { color: #fff; }
+body.over .head .btn-red { background: #fff; color: var(--ink); }
+
+/* full-screen menu */
+.menu { position: fixed; inset: 0; z-index: 120; background: var(--red); color: #fff; display: flex; flex-direction: column; padding: 0 var(--pad) 28px; transform: translateY(-102%); transition: transform .35s var(--ease); overflow: auto; }
+.menu.on { transform: none; }
+.menu__top { height: var(--head); display: flex; align-items: center; justify-content: space-between; flex: none; }
+.menu .logo span { color: #fff; }
+.menu__links { list-style: none; margin: 18px 0 0; padding: 0; }
+.menu__links a { display: block; font-family: var(--display); font-weight: 700; font-size: clamp(40px, 11vw, 64px); line-height: 1.08; }
+.menu__more { list-style: none; margin: 26px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px 24px; font-size: 17px; }
+.menu__more a { text-decoration: underline; text-underline-offset: 4px; }
+.menu__foot { margin-top: auto; padding-top: 28px; font-size: 15px; line-height: 1.5; }
+
+/* footer */
+.foot { background: var(--ink); color: #fff; padding: clamp(56px, 7vw, 96px) 0 36px; }
+.foot__grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 32px clamp(24px, 4vw, 56px); }
+.foot .logo { font-size: 34px; }
+.foot .logo span { color: #fff; }
+.foot h4 { font-family: var(--text); font-size: 15px; font-weight: 600; letter-spacing: 0; line-height: 1.4; margin-bottom: 12px; color: #a9ada8; }
+.foot ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; font-size: 16px; }
+.foot ul a:hover { text-decoration: underline; text-underline-offset: 4px; }
+.foot address { font-style: normal; margin-top: 18px; font-size: 16px; line-height: 1.6; color: #d7dad5; }
+.foot__fine { margin-top: 56px; padding-top: 22px; border-top: 1px solid #3a3d3c; font-size: 13.5px; color: #a9ada8; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px 32px; }
+@media (max-width: 860px) { .foot__grid { grid-template-columns: 1fr 1fr; } .foot__grid > :first-child { grid-column: 1 / -1; } }
+
+/* concept label: a tab on the right edge, always on screen, clear of the page's own controls */
+.concept { position: fixed; right: 0; top: 50%; z-index: 100; transform: translateY(-50%); writing-mode: vertical-rl; display: flex; align-items: center; gap: 10px; background: var(--ink); color: #fff; padding: 14px 7px; font-size: 13px; line-height: 1; border-radius: 8px 0 0 8px; box-shadow: 0 6px 24px rgba(0,0,0,.28); }
+.concept button { background: #fff; color: var(--ink); border-radius: 999px; padding: 12px 6px; font-weight: 700; font-size: 13px; }
+.concept button:hover { background: var(--wall); }
+
+/* phone: book button pinned to the bottom edge */
+.bookbar { display: none; }
+@media (max-width: 760px) {
+  .bookbar { display: flex; gap: 10px; position: fixed; left: 0; right: 0; bottom: 0; z-index: 90; padding: 10px 14px calc(10px + env(safe-area-inset-bottom, 0px)); background: #fff; border-top: 1px solid var(--line); }
+  .bookbar .btn { flex: 1; min-height: 48px; padding: 0 12px; }
+  .concept { writing-mode: horizontal-tb; top: auto; right: 0; left: 0; bottom: calc(69px + env(safe-area-inset-bottom, 0px)); transform: none; justify-content: center; border-radius: 0; padding: 5px 10px; font-size: 12.5px; box-shadow: none; z-index: 89; }
+  .concept button { padding: 4px 10px; font-size: 12.5px; }
+  .toast { bottom: 120px; }
+  .foot { padding-bottom: 140px; }
+}
+
+.page { display: none; }
+.page.on { display: block; }
+
+/* ---------- home hero: full-bleed photo, a few words, one button ---------- */
+.hero { position: relative; margin-top: calc(var(--head) * -1); min-height: min(86vh, 820px); display: flex; align-items: flex-end; color: #fff; background: #2b2d2c; overflow: hidden; }
+.hero picture, .hero picture img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; }
+.hero::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,11,11,.55) 0%, rgba(10,11,11,0) 20%), linear-gradient(0deg, rgba(10,11,11,.9) 0%, rgba(10,11,11,.72) 30%, rgba(10,11,11,0) 66%); }
+.hero__in { position: relative; z-index: 1; width: 100%; padding-top: calc(var(--head) + 120px); padding-bottom: clamp(44px, 5vw, 64px); }
+.hero h1 { font-size: clamp(50px, 6.6vw, 100px); }
+.hero .lead { margin-top: 16px; max-width: 32em; }
+.hero .btn-row { margin-top: 26px; }
+.hero__proof { margin-top: 22px; font-size: 15px; display: flex; align-items: center; gap: 10px; }
+.stars { letter-spacing: 2px; font-size: 15px; }
+@media (max-width: 760px) {
+  .hero { min-height: 80vh; }
+  .hero picture img { object-position: 30% 0; }
+  .hero::after { background: linear-gradient(180deg, rgba(10,11,11,.5) 0%, rgba(10,11,11,0) 20%, rgba(10,11,11,.1) 38%, rgba(10,11,11,.88) 76%); }
+  .hero__in { padding-bottom: 36px; }
+}
+
+/* class rows: used for today's list on home and for the full schedule */
+.klist { border-top: 2px solid var(--ink); }
+.krow { display: grid; grid-template-columns: 120px minmax(0, 1.5fr) minmax(0, 1fr) 120px 132px; gap: 18px; align-items: center; padding: 16px 0; border-bottom: 1px solid var(--line); }
+.krow__time { font-family: var(--display); font-weight: 700; font-size: 30px; line-height: 1; white-space: nowrap; }
+.krow__name { font-weight: 600; font-size: 18px; line-height: 1.25; }
+.krow__name small { display: block; font-weight: 400; font-size: 14.5px; color: var(--grey); }
+.krow__who { font-size: 16px; }
+.krow__who small { display: block; font-size: 14px; color: var(--grey); }
+.krow__spots { font-size: 14.5px; color: var(--grey); }
+.krow__spots.low { color: var(--red); font-weight: 600; }
+.krow__act { text-align: right; }
+.krow.past { opacity: .4; }
+.krow.past .btn { visibility: hidden; }
+.krow.mine .btn { background: var(--ok); border-color: var(--ok); color: #fff; }
+.kday { margin: 44px 0 14px; }
+.kday:first-child { margin-top: 0; }
+.kday span { font-family: var(--text); font-weight: 400; font-size: 16px; color: var(--grey); margin-left: 12px; }
+.kempty { padding: 44px 0; color: var(--grey); border-bottom: 1px solid var(--line); }
+@media (max-width: 860px) {
+  .krow { grid-template-columns: 92px minmax(0, 1fr) auto; grid-template-areas: 'time name act' 'time who act'; gap: 2px 14px; padding: 14px 0; }
+  .krow__time { grid-area: time; font-size: 24px; align-self: start; padding-top: 2px; }
+  .krow__name { grid-area: name; font-size: 17px; }
+  .krow__name small { display: none; }
+  .krow__who { grid-area: who; font-size: 14.5px; color: var(--grey); }
+  .krow__who small { display: inline; margin-left: 6px; }
+  .krow__spots { display: none; }
+  .krow__act { grid-area: act; }
+  .krow__act .btn { min-height: 40px; padding: 0 14px; }
+}
+
+/* the two-up under the hero: the offer, and the first-timer door */
+.duo { display: grid; grid-template-columns: 1.25fr 1fr; }
+.duo > div { padding: clamp(32px, 5vw, 64px); display: flex; flex-direction: column; align-items: flex-start; justify-content: center; gap: 18px; }
+.duo__offer { background: var(--red); color: #fff; }
+.duo__new { background: var(--wall); }
+.duo__price { font-family: var(--display); font-weight: 800; font-size: clamp(88px, 12vw, 176px); line-height: .86; letter-spacing: -.01em; margin-top: 6px; }
+.duo__price small { font-size: .32em; font-weight: 700; letter-spacing: 0; margin-left: .2em; }
+.duo p { max-width: 30em; }
+.duo .btn { margin-top: 10px; }
+@media (max-width: 860px) { .duo { grid-template-columns: 1fr; } }
+
+/* class tiles */
+.ctiles { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; }
+.ctile { display: flex; flex-direction: column; gap: 6px; }
+.ctile .photo { margin-bottom: 10px; }
+.ctile h3 { font-size: 28px; line-height: 1; }
+.ctile p { font-size: 15.5px; line-height: 1.45; color: var(--grey); margin: 0; }
+.ctile__lvl { font-size: 14px; font-weight: 600; margin-top: 2px; }
+.ctile:hover h3 { color: var(--red); }
+@media (max-width: 1020px) {
+  .ctiles { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; margin: 0 calc(var(--pad) * -1); padding: 0 var(--pad) 12px; scroll-padding-left: var(--pad); scrollbar-width: none; }
+  .ctiles::-webkit-scrollbar { display: none; }
+  .ctile { flex: 0 0 min(64vw, 280px); scroll-snap-align: start; }
+}
+
+/* facts list */
+.facts { margin: 28px 0 0; border-top: 2px solid var(--ink); }
+.facts div { display: grid; grid-template-columns: 150px 1fr; gap: 16px; padding: 13px 0; border-bottom: 1px solid var(--line); font-size: 16px; }
+.facts dt { font-weight: 600; }
+.facts dd { margin: 0; color: var(--grey); }
+@media (max-width: 520px) { .facts div { grid-template-columns: 1fr; gap: 2px; } }
+
+/* reviews */
+.quotes { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(24px, 4vw, 56px); padding-top: 28px; border-top: 2px solid var(--ink); }
+.quote p { font-size: clamp(21px, 2vw, 26px); line-height: 1.3; font-weight: 500; }
+.quote cite { display: block; font-style: normal; font-size: 14.5px; color: var(--grey); margin-top: 12px; }
+@media (max-width: 860px) { .quotes { grid-template-columns: 1fr; } }
+
+/* instructors, by name */
+.names { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(22px, 3vw, 40px) 20px; border-top: 2px solid var(--ink); padding-top: 26px; }
+.names button { text-align: left; font-family: var(--display); font-weight: 700; font-size: clamp(40px, 5.2vw, 76px); line-height: .95; }
+.names button:hover { color: var(--red); }
+.names button small { display: block; font-family: var(--text); font-weight: 400; font-size: 14.5px; line-height: 1.4; color: var(--grey); margin-top: 6px; }
+@media (max-width: 760px) { .names { grid-template-columns: 1fr 1fr; } }
+
+/* a full-width photo between sections */
+.wide { aspect-ratio: 2/1; max-height: 78vh; width: 100%; }
+@media (max-width: 760px) { .wide { aspect-ratio: 4/3; } }
+.sec-tight { padding-top: clamp(36px, 4.5vw, 60px); }
+
+/* three more things, as text */
+.also { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0 clamp(24px, 4vw, 56px); border-top: 2px solid var(--ink); }
+.also a { display: flex; flex-direction: column; align-items: flex-start; gap: 10px; padding: 26px 0 0; }
+.also h3 { font-size: clamp(32px, 3.4vw, 44px); }
+.also p { color: var(--grey); font-size: 16.5px; max-width: 24em; margin: 0; }
+.also a:hover h3 { color: var(--red); }
+@media (max-width: 760px) { .also { grid-template-columns: 1fr; } .also a { padding: 22px 0; border-bottom: 1px solid var(--line); } }
+
+/* visit */
+.hours { margin-top: 16px; border-top: 2px solid var(--ink); }
+.hours div { display: flex; justify-content: space-between; gap: 16px; padding: 10px 0; border-bottom: 1px solid var(--line); font-size: 16px; }
+.hours .now { font-weight: 700; }
+
+/* closing band: flat red, one line, two buttons */
+.band { background: var(--red); color: #fff; padding: clamp(64px, 8vw, 112px) 0; }
+.band .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 24px 40px; }
+.band .btn-line:hover { background: #fff; color: var(--ink); border-color: #fff; }
+
+/* space between the last block of a page and the footer */
+.end { height: clamp(56px, 7vw, 96px); }
+
+/* ---------- inner pages ---------- */
+.phead { padding-top: clamp(48px, 7vw, 96px); padding-bottom: clamp(32px, 4vw, 56px); }
+.phead .lead { margin-top: 20px; }
+
+/* schedule controls */
+.sbar { position: sticky; top: var(--head); z-index: 20; background: #fff; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 24px; padding: 14px 0; margin-bottom: 28px; border-bottom: 1px solid var(--line); }
+.days { display: flex; gap: 6px; overflow-x: auto; scrollbar-width: none; max-width: 100%; }
+.days::-webkit-scrollbar { display: none; }
+.days button { min-height: 44px; padding: 0 16px; border-radius: 999px; border: 1.5px solid var(--line); font-weight: 600; font-size: 15.5px; white-space: nowrap; }
+.days button small { font-weight: 400; color: var(--grey); margin-left: 6px; font-size: 13.5px; }
+.days button:hover { border-color: var(--ink); }
+.days button.on { background: var(--ink); border-color: var(--ink); color: #fff; }
+.days button.on small { color: #c9ccc7; }
+.days button.today:not(.on) { border-color: var(--ink); }
+.filters { display: flex; flex-wrap: wrap; gap: 8px; }
+.sel { position: relative; }
+.sel select { appearance: none; -webkit-appearance: none; min-height: 44px; padding: 0 38px 0 16px; border: 1.5px solid var(--line); border-radius: 999px; background: #fff; font-size: 15.5px; font-weight: 600; cursor: pointer; }
+.sel::after { content: ''; position: absolute; right: 16px; top: 17px; width: 7px; height: 7px; border-right: 2px solid var(--ink); border-bottom: 2px solid var(--ink); transform: rotate(45deg); pointer-events: none; }
+.legend { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px 32px; margin-top: 44px; font-size: 15px; color: var(--grey); }
+.legend b { display: block; color: var(--ink); }
+@media (max-width: 860px) { .legend { grid-template-columns: 1fr 1fr; } .sbar { position: static; } }
+
+/* pricing */
+.jump { display: flex; flex-wrap: wrap; gap: 8px; }
+.jump button { min-height: 44px; padding: 0 18px; border-radius: 999px; border: 1.5px solid var(--line); font-weight: 600; font-size: 15.5px; }
+.jump button:hover { border-color: var(--ink); }
+.pgroup { padding: clamp(44px, 6vw, 80px) 0 0; scroll-margin-top: calc(var(--head) + 12px); display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: 20px clamp(28px, 5vw, 72px); }
+.pgroup__intro p { margin-top: 14px; color: var(--grey); max-width: 26em; }
+@media (max-width: 860px) { .pgroup { grid-template-columns: 1fr; } }
+.calc { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(28px, 5vw, 72px); align-items: start; }
+.calc__n { font-family: var(--display); font-weight: 800; font-size: clamp(120px, 16vw, 220px); line-height: .8; }
+.calc__unit { font-size: 18px; margin-top: 10px; }
+.calc input[type=range] { width: 100%; margin: 26px 0 6px; accent-color: var(--red); height: 28px; }
+.calc__scale { display: flex; justify-content: space-between; font-size: 14px; color: var(--grey); }
+.calc__best { font-size: 18px; margin-bottom: 18px; }
+.calc__best b { font-family: var(--display); font-size: 40px; line-height: 1; display: block; margin-top: 4px; }
+.ctable { width: 100%; border-collapse: collapse; font-size: 16px; }
+.ctable th { text-align: left; font-size: 14px; font-weight: 600; color: var(--grey); padding: 0 0 10px; border-bottom: 2px solid var(--ink); }
+.ctable td { padding: 12px 0; border-bottom: 1px solid var(--line); vertical-align: baseline; }
+.ctable .num { text-align: right; white-space: nowrap; padding-left: 16px; font-variant-numeric: tabular-nums; }
+.ctable small { color: var(--grey); font-size: 13.5px; display: block; }
+.ctable tr.best td { font-weight: 700; color: var(--red); }
+.ctable tr.dim td { color: #9a9e99; }
+.calc__also { margin-top: 16px; font-size: 15px; color: var(--grey); }
+@media (max-width: 860px) { .calc { grid-template-columns: 1fr; } }
+.policies { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px clamp(24px, 4vw, 56px); }
+.policies h3 { font-family: var(--text); font-size: 17px; font-weight: 700; line-height: 1.3; letter-spacing: 0; margin-bottom: 6px; }
+.policies p { font-size: 16px; color: var(--grey); }
+@media (max-width: 860px) { .policies { grid-template-columns: 1fr; } }
+
+/* new here */
+.steps { list-style: none; margin: 0; padding: 0; counter-reset: s; border-top: 2px solid var(--ink); }
+.steps li { counter-increment: s; position: relative; padding: 20px 0 20px 76px; border-bottom: 1px solid var(--line); min-height: 84px; }
+.steps li::before { content: counter(s); position: absolute; left: 0; top: 14px; font-family: var(--display); font-weight: 800; font-size: 56px; line-height: 1; color: var(--red); }
+.steps b { display: block; font-size: 19px; margin-bottom: 2px; }
+.steps span { color: var(--grey); }
+.finder { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: clamp(28px, 5vw, 72px); align-items: start; }
+.finder fieldset { border: 0; margin: 0 0 26px; padding: 0; }
+.finder legend { font-weight: 700; font-size: 18px; margin-bottom: 12px; padding: 0; }
+.opts { display: flex; flex-wrap: wrap; gap: 8px; }
+.opt { position: relative; }
+.opt input { position: absolute; opacity: 0; inset: 0; cursor: pointer; }
+.opt span { display: inline-flex; align-items: center; min-height: 46px; padding: 0 18px; border-radius: 999px; border: 1.5px solid #b9beb6; background: #fff; font-size: 16px; font-weight: 500; }
+.opt input:checked + span { background: var(--ink); border-color: var(--ink); color: #fff; }
+.opt input:focus-visible + span { outline: 3px solid var(--ink); outline-offset: 3px; }
+.finder__out { background: var(--red); color: #fff; padding: clamp(28px, 4vw, 44px); position: sticky; top: calc(var(--head) + 24px); }
+.finder__out h3 { font-size: clamp(40px, 4.6vw, 60px); margin: 8px 0 14px; }
+.finder__out .btn-row { margin-top: 24px; }
+@media (max-width: 860px) { .finder { grid-template-columns: 1fr; } .finder__out { position: static; } }
+
+/* classes page */
+.cl { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(24px, 5vw, 72px); align-items: center; padding: clamp(28px, 4vw, 48px) 0; border-top: 1px solid var(--line); scroll-margin-top: calc(var(--head) + 12px); }
+.cl:first-child { border-top: 0; padding-top: 0; }
+.cl .photo { max-width: 440px; }
+.cl h2 { margin-bottom: 14px; }
+.cl__meta { font-size: 15.5px; font-weight: 600; margin: 16px 0 22px; }
+.cl__meta span { display: inline-block; margin-right: 22px; }
+@media (max-width: 760px) { .cl { grid-template-columns: 1fr; } .cl .photo { max-width: none; aspect-ratio: 4/3; } }
+
+/* studio page */
+.mosaic { display: grid; grid-template-columns: 2fr 1fr; gap: 20px; }
+.mosaic .photo:first-child { grid-row: span 2; }
+@media (max-width: 760px) { .mosaic { grid-template-columns: 1fr 1fr; } .mosaic .photo:first-child { grid-column: 1 / -1; grid-row: auto; aspect-ratio: 3/2; } }
+.panel { background: var(--wall); padding: clamp(24px, 4vw, 44px); }
+
+/* events */
+.elist { border-top: 2px solid var(--ink); margin-top: 28px; }
+.elist div { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 4px 24px; padding: 18px 0; border-bottom: 1px solid var(--line); }
+.elist h3 { font-size: 30px; }
+.elist p { grid-column: 1; color: var(--grey); font-size: 16px; margin: 0; }
+.elist span { grid-row: 1; grid-column: 2; font-size: 14.5px; font-weight: 600; white-space: nowrap; align-self: center; }
+@media (max-width: 520px) { .elist div { grid-template-columns: 1fr; } .elist span { grid-row: auto; grid-column: 1; } }
+
+/* faq */
+.faq { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: clamp(28px, 5vw, 72px); align-items: start; }
+.faq__side { position: sticky; top: calc(var(--head) + 24px); display: grid; gap: 16px; }
+.faq__side input { width: 100%; min-height: 52px; padding: 0 20px; border: 1.5px solid #b9beb6; border-radius: 999px; background: #fff; }
+.faq__side input:focus { outline: 0; border-color: var(--ink); }
+.cats { display: flex; flex-wrap: wrap; gap: 8px; }
+.cats button { min-height: 40px; padding: 0 16px; border-radius: 999px; border: 1.5px solid var(--line); font-size: 15px; font-weight: 600; }
+.cats button.on { background: var(--ink); border-color: var(--ink); color: #fff; }
+.qa { border-top: 2px solid var(--ink); }
+.qa details { border-bottom: 1px solid var(--line); }
+.qa summary { list-style: none; cursor: pointer; padding: 20px 44px 20px 0; position: relative; font-weight: 600; font-size: 19px; line-height: 1.35; }
+.qa summary::-webkit-details-marker { display: none; }
+.qa summary::after { content: '+'; position: absolute; right: 4px; top: 14px; font-size: 28px; font-weight: 400; line-height: 1.2; }
+.qa details[open] summary::after { content: '\2212'; }
+.qa details p { padding: 0 44px 22px 0; color: var(--grey); max-width: 40em; }
+@media (max-width: 860px) { .faq { grid-template-columns: 1fr; } .faq__side { position: static; } }
+
+.klist__more { margin-top: 16px; font-size: 16px; }
+
+.elist button { grid-column: 1 / -1; justify-self: start; margin-top: 8px; font-size: 15px; font-weight: 600; }
+.ctable td button { text-align: left; font: inherit; color: inherit; }
+.calc__also button { font-weight: 600; color: var(--ink); }
+/* text links get a taller tap area on phones without changing the layout */
+@media (max-width: 760px) {
+  a.u, .jumpto, .foot ul a, .menu__more a, .offerbar a, .foot__fine a { padding-top: 9px; padding-bottom: 9px; }
+  button.u { padding-top: 9px; padding-bottom: 9px; margin-top: -9px; margin-bottom: -9px; }
+  .elist button.u { margin-top: -1px; }
+  .foot ul { gap: 12px; }
+  .menu__more { gap: 14px 24px; }
+  .concept button { padding: 8px 12px; }
+}
+
+@media (max-width: 760px) { .menu .logo, .adm__bar .logo, .head .logo { padding: 11px 0; } .concept button { padding: 9px 12px; } .foot__fine a { padding-left: 8px; padding-right: 8px; margin-left: -8px; } }
+
+.tel { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+.tel:hover { color: var(--red); }
+.foot .tel:hover, .menu .tel:hover { color: inherit; opacity: .75; }
+@media (max-width: 760px) { .tel { padding-top: 9px; padding-bottom: 9px; } }
+
+.scrim { position: fixed; inset: 0; background: rgba(10,11,11,.55); z-index: 125; opacity: 0; pointer-events: none; transition: opacity .25s; }
+.scrim.on { opacity: 1; pointer-events: auto; }
+
+/* booking, purchase, inquiry and bag all open in this sheet */
+.sheet { position: fixed; z-index: 130; right: 0; top: 0; bottom: 0; width: min(540px, 100vw); background: #fff; transform: translateX(104%); transition: transform .35s var(--ease); display: flex; flex-direction: column; }
+.sheet.on { transform: none; }
+.sheet__head { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; padding: 24px 28px 18px; border-bottom: 1px solid var(--line); }
+.sheet__head p { margin: 0 0 6px; font-size: 14.5px; font-weight: 600; color: var(--red); }
+.sheet__head h2 { font-size: 40px; }
+.sheet__body { flex: 1; overflow: auto; padding: 22px 28px; }
+.sheet__foot { padding: 14px 28px calc(18px + env(safe-area-inset-bottom, 0px)); border-top: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center; gap: 14px; }
+.sheet__foot .small { color: var(--grey); }
+@media (max-width: 560px) { .sheet__head, .sheet__body, .sheet__foot { padding-left: 18px; padding-right: 18px; } .sheet__head h2 { font-size: 34px; } }
+
+.steps-bar { display: flex; gap: 6px; margin-bottom: 20px; }
+.steps-bar i { flex: 1; height: 4px; background: var(--wall-2); }
+.steps-bar i.on { background: var(--red); }
+.summary { background: var(--wall); padding: 18px 20px; margin-bottom: 22px; display: grid; grid-template-columns: 1fr auto; gap: 4px 16px; font-size: 15px; }
+.summary__name { grid-column: 1 / -1; font-family: var(--display); font-weight: 700; font-size: 30px; line-height: 1; margin-bottom: 4px; }
+.summary b { font-size: 17px; }
+.summary small { color: var(--grey); font-size: 14.5px; }
+.q { font-weight: 700; font-size: 17px; margin: 0 0 10px; }
+.pay { display: grid; gap: 8px; margin: 0 0 22px; }
+.pay label { display: grid; grid-template-columns: auto 1fr auto; gap: 14px; align-items: center; padding: 13px 16px; border: 1.5px solid #b9beb6; border-radius: 6px; cursor: pointer; }
+.pay label:has(input:checked) { border-color: var(--ink); box-shadow: 0 0 0 1.5px var(--ink) inset; }
+.pay input { accent-color: var(--red); width: 18px; height: 18px; }
+.pay b { display: block; font-size: 16.5px; }
+.pay small { color: var(--grey); font-size: 14.5px; }
+.pay .amt { font-family: var(--display); font-weight: 700; font-size: 28px; }
+.conf { display: grid; gap: 20px; }
+.conf__big { font-family: var(--display); font-weight: 700; font-size: 56px; line-height: .95; }
+.conf__list { list-style: none; margin: 0; padding: 0; border-top: 2px solid var(--ink); }
+.conf__list li { display: grid; grid-template-columns: 110px 1fr; gap: 14px; padding: 11px 0; border-bottom: 1px solid var(--line); font-size: 16px; }
+.conf__list li span:first-child { font-weight: 600; }
+.conf__tip { background: var(--wall); padding: 16px 18px; font-size: 15.5px; }
+.cart-line { display: grid; grid-template-columns: 1fr auto auto; gap: 14px; align-items: center; padding: 14px 0; border-bottom: 1px solid var(--line); }
+.cart-line small { color: var(--grey); }
+.qty { display: inline-flex; align-items: center; border: 1.5px solid #b9beb6; border-radius: 999px; }
+.qty button { width: 36px; height: 36px; text-align: center; font-size: 18px; }
+.qty output { min-width: 22px; text-align: center; font-weight: 600; }
+.cart-total { display: flex; justify-content: space-between; padding: 18px 0 0; font-family: var(--display); font-weight: 700; font-size: 34px; }
+
+/* pitch notes: not part of the site, so it looks like a different object */
+.pitch { position: fixed; z-index: 135; right: 0; top: 0; bottom: 0; width: min(780px, 100vw); background: var(--ink); color: #fff; transform: translateX(104%); transition: transform .38s var(--ease); display: flex; flex-direction: column; font-size: 16px; }
+.pitch.on { transform: none; }
+.pitch__head { display: flex; justify-content: space-between; align-items: flex-start; padding: 24px 30px 0; }
+.pitch__head p { margin: 0 0 6px; font-size: 14.5px; color: #a9ada8; }
+.pitch__head h2 { font-size: 44px; }
+.ptabs { display: flex; gap: 4px; padding: 20px 30px 0; border-bottom: 1px solid #3a3d3c; overflow-x: auto; scrollbar-width: none; flex: none; }
+.ptabs::-webkit-scrollbar { display: none; }
+.ptabs button { padding: 10px 12px; font-size: 15px; font-weight: 600; color: #a9ada8; border-bottom: 3px solid transparent; white-space: nowrap; }
+.ptabs button.on { color: #fff; border-bottom-color: var(--red); }
+.ptabs .cnt { display: inline-block; min-width: 20px; padding: 0 6px; margin-left: 6px; border-radius: 999px; background: var(--red); color: #fff; font-size: 12px; line-height: 20px; text-align: center; }
+.pitch__body { flex: 1; overflow: auto; padding: 26px 30px 44px; line-height: 1.55; }
+.pitch__body > section { display: none; }
+.pitch__body > section.on { display: block; }
+.pitch__body h3 { font-size: 34px; margin: 34px 0 12px; }
+.pitch__body h3:first-child { margin-top: 0; }
+.pitch__body p, .pitch__body li { color: #c9ccc7; }
+.pitch__body b { color: #fff; font-weight: 600; }
+.pitch__body ul, .pitch__body ol { margin: 0 0 16px; padding-left: 20px; }
+.pitch__body li { margin-bottom: 8px; }
+.pitch__body a { color: #fff; text-decoration: underline; text-underline-offset: 3px; }
+.pitch__body code { font-size: .92em; background: #2b2e2d; padding: 1px 5px; border-radius: 3px; }
+.pitch__body figure { margin: 0; }
+.shot { border: 1px solid #3a3d3c; overflow: hidden; margin: 12px 0 6px; background: #000; }
+.shot img { width: 100%; }
+.shot--scroll { max-height: 360px; overflow: auto; }
+.pitch__body figcaption { font-size: 13.5px; color: #a9ada8; margin-bottom: 18px; }
+.shots2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; align-items: start; }
+.finding { display: grid; grid-template-columns: 44px 1fr; gap: 12px; padding: 18px 0; border-top: 1px solid #3a3d3c; }
+.finding > span { font-family: var(--display); font-weight: 700; font-size: 30px; line-height: 1; color: var(--red); }
+.finding > div > b { display: block; font-size: 17.5px; margin-bottom: 4px; }
+.finding p { margin: 0 0 8px; }
+.jumpto { display: inline-block; margin-top: 2px; font-size: 14.5px; font-weight: 700; color: #fff; text-decoration: underline; text-underline-offset: 4px; }
+.plan-wk { display: grid; grid-template-columns: 84px 1fr; gap: 14px; padding: 16px 0; border-top: 1px solid #3a3d3c; }
+.plan-wk > span { font-weight: 700; color: var(--red); }
+.plan-wk b { display: block; margin-bottom: 4px; }
+.plan-wk p { margin: 0; }
+.inbox-item { border: 1px solid #3a3d3c; padding: 14px 16px; margin-bottom: 10px; }
+.inbox-item .kind { display: flex; justify-content: space-between; font-size: 13.5px; font-weight: 700; color: #ff6b70; margin-bottom: 4px; }
+.inbox-item .kind span:last-child { color: #a9ada8; font-weight: 400; }
+.inbox-item p { margin: 2px 0 0; font-size: 15px; }
+.inbox-empty { padding: 36px 0; color: #a9ada8; }
+.pitch__foot { padding: 14px 30px 18px; border-top: 1px solid #3a3d3c; font-size: 13px; color: #a9ada8; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 20px; }
+@media (max-width: 560px) { .pitch__head, .ptabs, .pitch__body, .pitch__foot { padding-left: 18px; padding-right: 18px; } .shots2 { grid-template-columns: 1fr; } }
+
+/* ---------- two ways to book, inside the sheet ---------- */
+.paths { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 0 0 22px; }
+.path { text-align: left; padding: 13px 16px; border: 1.5px solid #b9beb6; border-radius: 6px; background: #fff; }
+.path b { display: block; font-size: 16.5px; }
+.path small { display: block; color: var(--grey); font-size: 14px; margin-top: 2px; }
+.path:hover { border-color: var(--ink); }
+.path.on { border-color: var(--ink); box-shadow: 0 0 0 1.5px var(--ink) inset; }
+.wlbox { background: var(--wall); padding: 22px 22px 18px; }
+.wlbox h3 { font-size: 30px; margin-bottom: 10px; }
+.wlbox p { margin: 0 0 12px; }
+.foot-pane { flex: 1; display: flex; justify-content: space-between; align-items: center; gap: 14px; }
+@media (max-width: 560px) { .foot-pane .small { font-size: 13px; } }
+
+/* ---------- front desk portal: a staff tool, so no site header, offer bar or footer ---------- */
+body.admin .offerbar, body.admin .head, body.admin .foot, body.admin .bookbar { display: none; }
+.adm__bar { background: var(--ink); color: #fff; }
+.adm__bar .wrap { height: 64px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.adm__bar .logo { font-size: 23px; }
+.adm__bar .logo span { color: #fff; }
+.adm__right { display: flex; align-items: center; gap: 20px; font-size: 15px; white-space: nowrap; }
+.adm__right .u:hover { color: #fff; opacity: .75; }
+.adm__gate { padding-top: clamp(64px, 10vw, 140px); padding-bottom: 40px; }
+.adm__gate .lead { margin-top: 22px; }
+.adm__in { padding-top: clamp(32px, 4.5vw, 56px); }
+.adm__head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 6px 24px; }
+.adm__head span { color: var(--grey); font-size: 16px; }
+.adm__note { margin-top: 14px; font-size: 14.5px; color: var(--grey); max-width: 62em; }
+.adm__stats { display: grid; grid-template-columns: repeat(4, 1fr); margin-top: 30px; border-top: 2px solid var(--ink); border-bottom: 1px solid var(--line); }
+.adm__stats div { padding: 18px 20px 18px 0; }
+.adm__stats div + div { padding-left: 20px; border-left: 1px solid var(--line); }
+.adm__stats b { display: block; font-family: var(--display); font-weight: 800; font-size: clamp(44px, 5vw, 68px); line-height: .9; }
+.adm__stats div:first-child b { color: var(--red); }
+.adm__stats span { display: block; margin-top: 8px; font-size: 14.5px; color: var(--grey); line-height: 1.35; }
+.adm__tabs { display: flex; gap: 28px; margin-top: 34px; border-bottom: 1px solid var(--line); }
+.adm__tabs button { padding: 0 0 12px; font-family: var(--display); font-weight: 700; font-size: 30px; line-height: 1; color: var(--grey); border-bottom: 3px solid transparent; margin-bottom: -1px; }
+.adm__tabs button.on { color: var(--ink); border-bottom-color: var(--red); }
+.adm__tabs small { font-family: var(--text); font-weight: 500; font-size: 14px; margin-left: 4px; }
+.adm__tools { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 24px; padding: 18px 0; }
+.adm__tools .cats small { font-weight: 400; margin-left: 4px; opacity: .7; }
+.adm__find { display: flex; gap: 8px; align-items: center; flex: 1; justify-content: flex-end; min-width: min(100%, 300px); }
+.adm__find input { flex: 1; max-width: 300px; min-height: 40px; padding: 0 16px; border: 1.5px solid #b9beb6; border-radius: 999px; background: #fff; font-size: 15px; }
+.adm__find input:focus { outline: 0; border-color: var(--ink); }
+.adm__split { display: grid; grid-template-columns: minmax(0, 1fr) 400px; gap: clamp(24px, 3vw, 48px); align-items: start; }
+.ptable { border-top: 2px solid var(--ink); }
+.prow { width: 100%; text-align: left; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr) 136px; grid-template-areas: 'name last status' 'name when status'; gap: 2px 18px; align-items: center; padding: 14px 12px 14px 0; border-bottom: 1px solid var(--line); border-left: 4px solid transparent; padding-left: 12px; }
+.prow:hover { background: var(--wall); }
+.prow.on { border-left-color: var(--red); background: var(--wall); }
+.prow__name { grid-area: name; font-weight: 600; font-size: 17px; display: flex; flex-wrap: wrap; align-items: center; gap: 4px 8px; }
+.prow__last { grid-area: last; font-size: 15px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.prow__last b { font-weight: 600; }
+.prow__when { grid-area: when; font-size: 13.5px; color: var(--grey); }
+.prow__status { grid-area: status; justify-self: end; font-size: 13px; font-weight: 600; line-height: 1; padding: 6px 9px; white-space: nowrap; border: 1.5px solid var(--ink); }
+.st-new { background: var(--red); border-color: var(--red); color: #fff; }
+.st-wl { background: var(--ok); border-color: var(--ok); color: #fff; }
+.st-member { background: var(--ink); color: #fff; }
+.tag2 { display: inline-block; font-size: 12px; font-weight: 600; line-height: 1; padding: 4px 6px; background: var(--wall-2); color: var(--grey); }
+.tag2--red { background: none; color: var(--red); box-shadow: 0 0 0 1.5px var(--red) inset; }
+.adm__detail { position: sticky; top: 20px; border-top: 2px solid var(--ink); padding-top: 20px; }
+.pd__tags { display: flex; gap: 6px; margin: 8px 0 0; min-height: 4px; }
+.pd__info { margin: 14px 0 22px; }
+.pd__info div { display: grid; grid-template-columns: 96px 1fr; gap: 12px; padding: 8px 0; border-bottom: 1px solid var(--line); font-size: 15.5px; }
+.pd__info dt { font-weight: 600; }
+.pd__info dd { margin: 0; overflow-wrap: anywhere; }
+.pd__status { display: flex; flex-wrap: wrap; gap: 6px; }
+.pd__status button { min-height: 38px; padding: 0 14px; border-radius: 999px; border: 1.5px solid #b9beb6; font-size: 14.5px; font-weight: 600; }
+.pd__status button:hover { border-color: var(--ink); }
+.pd__status button.on { background: var(--ink); border-color: var(--ink); color: #fff; }
+.pd__next { margin: 18px 0 20px; padding: 14px 16px; background: var(--wall); font-size: 15.5px; }
+.pd__next b { display: block; font-size: 13.5px; color: var(--red); margin-bottom: 3px; }
+.pd .field textarea { min-height: 84px; font-size: 15.5px; }
+.pd__log { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+.pd__log li { padding: 12px 0; border-bottom: 1px solid var(--line); font-size: 15.5px; }
+.pd__log span { display: block; font-size: 13.5px; color: var(--grey); }
+.pd__log p { margin: 4px 0 0; font-size: 14.5px; color: var(--grey); }
+.alog { border-top: 2px solid var(--ink); margin-top: 18px; }
+.alog__row { display: grid; grid-template-columns: 150px 150px minmax(0, 1fr) auto; gap: 16px; align-items: start; padding: 14px 0; border-bottom: 1px solid var(--line); font-size: 15.5px; }
+.alog__when { color: var(--grey); font-size: 14.5px; }
+.alog__kind { font-weight: 600; }
+.alog__kind.is-wl { color: var(--grey); }
+.alog__what small { display: block; color: var(--grey); font-size: 14.5px; margin-top: 2px; }
+@media (max-width: 1020px) {
+  .adm__split { grid-template-columns: 1fr; }
+  .adm__detail { display: none; }
+  .prow.on { border-left-color: transparent; background: none; }
+}
+@media (max-width: 760px) {
+  .adm__stats { grid-template-columns: 1fr 1fr; }
+  .adm__stats div:nth-child(3) { padding-left: 0; border-left: 0; }
+  .adm__stats div:nth-child(n+3) { border-top: 1px solid var(--line); }
+  .adm__tools .cats { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; margin: 0 calc(var(--pad) * -1); padding: 0 var(--pad); max-width: 100vw; }
+  .adm__tools .cats::-webkit-scrollbar { display: none; }
+  .adm__tools .cats button { white-space: nowrap; flex: none; }
+  .adm__find input { max-width: none; }
+  .prow { grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: 'name status' 'last last' 'when when'; padding-left: 0; border-left: 0; }
+  .alog__row { grid-template-columns: 1fr auto; grid-template-areas: 'kind when' 'what what' 'open open'; gap: 4px 12px; }
+  .alog__when { grid-area: when; } .alog__kind { grid-area: kind; } .alog__what { grid-area: what; }
+  .adm__right { gap: 14px; font-size: 14px; }
+  .adm__bar .logo { font-size: 19px; }
+  body.admin .concept { bottom: 0; padding-bottom: calc(5px + env(safe-area-inset-bottom, 0px)); }
+}
+
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 8h16M4 16h16"/></symbol>
+  <symbol id="i-bag" viewBox="0 0 24 24"><path d="M6 8h12l1 13H5L6 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></symbol>
+  <symbol id="i-cal" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></symbol>
+</svg>
+
+<div class="offerbar">New to the studio? Your first 3 classes are $39. <button type="button" class="u" data-action="buy" data-plan="intro3" style="font-weight:600;margin-left:6px">Get the intro pack</button></div>
+
+<header class="head">
+  <div class="wrap">
+    <a class="logo" href="#home" aria-label="Lincoln Park Pilates, home">Lincoln Park <span>Pilates</span></a>
+    <nav class="nav" aria-label="Main">
+      <a href="#new" data-nav="new">New here</a>
+      <a href="#classes" data-nav="classes">Classes</a>
+      <a href="#schedule" data-nav="schedule">Schedule</a>
+      <a href="#pricing" data-nav="pricing">Pricing</a>
+      <a href="#studio" data-nav="studio">The studio</a>
+      <a href="#events" data-nav="events">Events</a>
+    </nav>
+    <div class="head__right">
+      <button class="round" type="button" data-action="cart-open" aria-label="Your bag" id="bag-btn" hidden><svg class="ic"><use href="#i-bag"/></svg><span class="cart-count"></span></button>
+      <a class="btn btn-red" href="#schedule">Book a class</a>
+      <button class="round menu-btn" type="button" data-action="menu-open" aria-label="Open menu"><svg class="ic"><use href="#i-menu"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<div class="menu" id="menu" aria-hidden="true">
+  <div class="menu__top">
+    <a class="logo" href="#home" data-action="menu-close">Lincoln Park <span>Pilates</span></a>
+    <button class="round" type="button" data-action="menu-close" aria-label="Close menu"><svg class="ic"><use href="#i-x"/></svg></button>
+  </div>
+  <ul class="menu__links">
+    <li><a href="#new" data-action="menu-close">New here</a></li>
+    <li><a href="#classes" data-action="menu-close">Classes</a></li>
+    <li><a href="#schedule" data-action="menu-close">Schedule</a></li>
+    <li><a href="#pricing" data-action="menu-close">Pricing</a></li>
+    <li><a href="#studio" data-action="menu-close">The studio</a></li>
+    <li><a href="#events" data-action="menu-close">Events</a></li>
+  </ul>
+  <ul class="menu__more">
+    <li><a href="#training" data-action="menu-close">Private training</a></li>
+    <li><a href="#sauna" data-action="menu-close">Infrared sauna</a></li>
+    <li><a href="#faq" data-action="menu-close">Questions</a></li>
+    <li><a href="#shop" data-action="menu-close">Shop</a></li>
+  </ul>
+  <p class="menu__foot">2105 N Southport Ave, second floor<br>Text <a class="tel" href="sms:+13122865845">312-286-5845</a></p>
+</div>
+
+<main id="main">
+
+<section class="page" data-page="home">
+
+  <div class="hero">
+    <picture>
+      <source media="(max-width: 760px)" srcset="img/hero-m.webp">
+      <img src="img/hero.webp" alt="Two people in a long plank stretch on the reformers at Lincoln Park Pilates" fetchpriority="high">
+    </picture>
+    <div class="wrap hero__in">
+      <h1 class="h-xl">Reformer Pilates on Southport</h1>
+      <p class="lead">45-minute classes in a warm room, twelve people at a time. Second floor, at Southport and Dickens in Lincoln Park.</p>
+      <div class="btn-row">
+        <a class="btn btn-red" href="#schedule">Book a class</a>
+        <a class="u" href="#new">New here? Plan your first class</a>
+      </div>
+      <p class="hero__proof"><span class="stars" aria-hidden="true">★★★★★</span> 4.9 on Google from 162 reviews</p>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 class="h-l" id="today-title">Today's classes</h2>
+        <a class="u" href="#schedule">See the full week</a>
+      </div>
+      <div class="klist" id="today-list"></div>
+      <p class="klist__more" id="today-more" hidden></p>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="duo">
+      <div class="duo__offer">
+        <h2 class="h-m">New to the studio?</h2>
+        <div class="duo__price">$39<small>for 3 classes</small></div>
+        <p>Your first three classes, any format, any instructor. We suggest Intro to Pilates Reformer on Saturday, then Flow.</p>
+        <button class="btn btn-white" type="button" data-action="buy" data-plan="intro3">Get the intro pack</button>
+      </div>
+      <div class="duo__new">
+        <h2 class="h-m">Never been on a reformer?</h2>
+        <p>You don't need experience. Here is what the machine is, what to wear, how to get into the building, and which class to take first.</p>
+        <a class="btn btn-line" href="#new">Plan your first class</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <h2 class="h-l">Five classes, all on the reformer</h2>
+          <p class="lead grey">Up to twelve people in a room kept at 75 to 85 degrees.</p>
+        </div>
+        <a class="u" href="#classes">Compare the classes</a>
+      </div>
+      <div class="ctiles" id="ctiles"></div>
+    </div>
+  </div>
+
+  <div class="wide photo"><img src="img/room.webp" alt="A full class in standing lunges on the reformers, string lights along the ceiling" loading="lazy"></div>
+  <div class="sec sec-tight">
+    <div class="wrap">
+      <div class="cols cols-top">
+        <h2 class="h-l">5,500 square feet, one flight up</h2>
+        <div>
+          <p class="lead">Two studios, a lounge, locker rooms with showers, and an infrared sauna you can book after class. Towels and toiletries are provided, and street parking on Southport and Dickens is free.</p>
+          <p style="margin-top:22px"><a class="u" href="#studio">See the studio</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec sec-wall">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 class="h-l">4.9 on Google from 162 reviews</h2>
+      </div>
+      <div class="quotes" id="quotes"></div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <h2 class="h-l">Your instructors</h2>
+          <p class="lead grey">Eight people teach here this week, led by owner Susan Dolan. Pick a name to see their classes.</p>
+        </div>
+      </div>
+      <div class="names" id="names"></div>
+    </div>
+  </div>
+
+  <div class="sec sec-wall">
+    <div class="wrap">
+      <div class="sec-head"><h2 class="h-l">Also at the studio</h2></div>
+      <div class="also">
+        <a href="#training">
+          <h3>Private training</h3>
+          <p>One client, one instructor, on the tower reformer. A 30-minute intro session is $45.</p>
+          <span class="u">Rates and how to start</span>
+        </a>
+        <a href="#sauna">
+          <h3>Infrared sauna</h3>
+          <p>Book a session after class or on its own. $45, or ten for $315.</p>
+          <span class="u">Sauna sessions</span>
+        </a>
+        <a href="#events">
+          <h3>Parties and events</h3>
+          <p>Birthdays, showers and team outings, with a class or without one. Up to 35 guests.</p>
+          <span class="u">Ask about a date</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="wrap">
+      <div class="cols cols-top">
+        <div>
+          <h2 class="h-l">2105 N Southport, second floor</h2>
+          <p class="lead" style="margin-top:18px">At Southport and Dickens in Lincoln Park, just off Clybourn.</p>
+          <div class="btn-row" style="margin-top:28px">
+            <a class="btn btn-ink" href="https://www.google.com/maps/search/?api=1&query=Lincoln+Park+Pilates+2105+N+Southport+Ave+Chicago+IL+60614" target="_blank" rel="noopener">Get directions</a>
+            <a class="u" href="#visit">Hours and contact</a>
+          </div>
+        </div>
+        <dl class="facts" style="margin-top:0">
+          <div><dt>Getting in</dt><dd>Entrances on Southport and on Clybourn. Your booking email has the door code</dd></div>
+          <div><dt>Parking</dt><dd>Free street parking on Southport and on Dickens</dd></div>
+          <div><dt>Transit</dt><dd>Clybourn Metra and the Armitage Brown Line stop are both walkable</dd></div>
+          <div><dt>Questions</dt><dd>Text <a class="tel" href="sms:+13122865845">312-286-5845</a></dd></div>
+        </dl>
+      </div>
+    </div>
+  </div>
+
+  <div class="band">
+    <div class="wrap">
+      <h2 class="h-xl">Book your first class</h2>
+      <div class="btn-row">
+        <a class="btn btn-white" href="#schedule">See the schedule</a>
+        <a class="btn btn-line" href="#new">Plan your first class</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEW HERE -->
+<section class="page" data-page="new">
+  <div class="wrap phead">
+    <h1 class="h-xl">Your first class</h1>
+    <p class="lead">You don't need to be flexible, strong or experienced. Bring water, wear something you can move in, and get here ten minutes early.</p>
+  </div>
+
+  <div class="wrap">
+    <div class="duo">
+      <div class="duo__offer">
+        <h2 class="h-m">The intro pack</h2>
+        <div class="duo__price">$39<small>for 3 classes</small></div>
+        <p>For new clients. Use the three classes on any format with any instructor.</p>
+        <button class="btn btn-white" type="button" data-action="buy" data-plan="intro3">Get the intro pack</button>
+      </div>
+      <div class="duo__new">
+        <h2 class="h-m">Just want one class?</h2>
+        <p>A single drop-in is $40. Code NEW25 takes $25 off your first class or package at checkout.</p>
+        <a class="btn btn-line" href="#schedule">Pick a class</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="wrap">
+      <div class="cols cols-top">
+        <div>
+          <h2 class="h-l">What happens</h2>
+          <ol class="steps" style="margin-top:32px">
+            <li><b>Book, then check your email.</b><span>Your confirmation has the door code. Entrances are on Southport and on Clybourn, and the studio is on the second floor.</span></li>
+            <li><b>Arrive ten minutes early.</b><span>Check in at the desk and put your things in a locker. Go barefoot or wear grip socks, which the desk sells. No shoes in the studio.</span></li>
+            <li><b>Your instructor sets up your reformer.</b><span>Tell them it's your first time. They'll show you the springs, straps and footbar before class starts.</span></li>
+            <li><b>Class is 45 minutes.</b><span>The room is kept at 75 to 85 degrees. That is warm enough to sweat and well short of hot yoga.</span></li>
+            <li><b>Shower here if you like.</b><span>Towels, shampoo and conditioner are provided. You can also <a class="u" href="#sauna">book the infrared sauna</a> for afterwards.</span></li>
+          </ol>
+        </div>
+        <div class="photo r-45" style="position:sticky;top:calc(var(--head) + 24px)"><img src="img/golden.webp" alt="A late-afternoon class on the reformers" loading="lazy" style="object-position:78% 50%"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec sec-wall">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <h2 class="h-l">Which class first?</h2>
+          <p class="lead grey">Answer three questions and we'll point you to one.</p>
+        </div>
+      </div>
+      <div class="finder">
+        <form id="finder">
+          <fieldset>
+            <legend>Have you been on a reformer before?</legend>
+            <div class="opts">
+              <label class="opt"><input type="radio" name="exp" value="never" checked><span>Never</span></label>
+              <label class="opt"><input type="radio" name="exp" value="few"><span>A few times</span></label>
+              <label class="opt"><input type="radio" name="exp" value="regular"><span>Regularly</span></label>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend>What do you want out of it?</legend>
+            <div class="opts">
+              <label class="opt"><input type="radio" name="goal" value="learn" checked><span>Learn the technique</span></label>
+              <label class="opt"><input type="radio" name="goal" value="strong"><span>Get stronger</span></label>
+              <label class="opt"><input type="radio" name="goal" value="tone"><span>Sculpt and tone</span></label>
+              <label class="opt"><input type="radio" name="goal" value="move"><span>Move better</span></label>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend>How hard should it be?</legend>
+            <div class="opts">
+              <label class="opt"><input type="radio" name="hard" value="easy" checked><span>Ease me in</span></label>
+              <label class="opt"><input type="radio" name="hard" value="mid"><span>Moderate</span></label>
+              <label class="opt"><input type="radio" name="hard" value="hard"><span>As hard as it gets</span></label>
+            </div>
+          </fieldset>
+        </form>
+        <div class="finder__out" id="finder-out" aria-live="polite"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="wrap">
+      <div class="sec-head"><h2 class="h-l">First-timer questions</h2><a class="u" href="#faq">All questions</a></div>
+      <div class="qa" id="new-faq"></div>
+    </div>
+  </div>
+</section>
+
+<!-- CLASSES -->
+<section class="page" data-page="classes">
+  <div class="wrap phead">
+    <h1 class="h-xl">Classes</h1>
+    <p class="lead">Five formats, all on the reformer, with up to twelve people in the room. New to the machine? Start with Intro, Form Focus or Flow.</p>
+  </div>
+  <div class="wrap"><div id="cl-list"></div></div>
+
+  <div class="sec" id="sec-private" style="scroll-margin-top:var(--head)">
+    <div class="wrap">
+      <div class="cols cols-top">
+        <div class="photo r-43"><img src="img/private.webp" alt="An instructor adjusting a client's position on the tower reformer" loading="lazy"></div>
+        <div>
+          <h2 class="h-l" style="margin-top:-.12em">Private training</h2>
+          <p class="lead" style="margin-top:18px">One client and one instructor on the tower reformer. Your first session covers a movement assessment, your health history and your goals. Your trainer builds the sessions from there.</p>
+          <div class="rows" id="training-rates" style="margin-top:28px"></div>
+          <p class="note" style="margin-top:14px">Sessions changed or cancelled with less than 24 hours' notice are forfeited.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SCHEDULE -->
+<section class="page" data-page="schedule">
+  <div class="wrap phead">
+    <h1 class="h-xl">Schedule</h1>
+    <p class="lead">Pick a class and book it here with a quick sign-up. New clients can use the $39 intro pack. Members can book with their WellnessLiving account.</p>
+  </div>
+  <div class="wrap">
+    <div class="sbar">
+      <div class="days" id="days"></div>
+      <div class="filters">
+        <div class="sel"><select id="f-class" aria-label="Filter by class"><option value="">All classes</option></select></div>
+        <div class="sel"><select id="f-inst" aria-label="Filter by instructor"><option value="">All instructors</option></select></div>
+        <div class="sel"><select id="f-time" aria-label="Filter by time of day"><option value="">Any time</option><option value="am">Morning</option><option value="mid">Midday</option><option value="pm">Afternoon and evening</option></select></div>
+      </div>
+    </div>
+    <div id="sched"></div>
+    <div class="legend">
+      <div><b>Twelve spots a class</b>Weekend mornings fill first.</div>
+      <div><b>Full class?</b>Join the waitlist. You get an email as soon as you're in.</div>
+      <div><b>Cancelling</b>Free up to 12 hours before. After that it's a $25 fee.</div>
+      <div><b>The room</b>Kept at 75 to 85 degrees. Bring water.</div>
+    </div>
+  </div>
+  <div class="end"></div>
+</section>
+
+<!-- PRICING -->
+<section class="page" data-page="pricing">
+  <div class="wrap phead">
+    <h1 class="h-xl">Pricing</h1>
+    <p class="lead">The same prices you'd pay at the front desk. If you're new, start with the intro pack.</p>
+    <div class="jump" id="jump" style="margin-top:28px">
+      <button type="button" data-jump="pg-new">New here</button>
+      <button type="button" data-jump="pg-member">Memberships</button>
+      <button type="button" data-jump="pg-pack">Class packs</button>
+      <button type="button" data-jump="pg-training">Private training</button>
+      <button type="button" data-jump="pg-sauna">Sauna</button>
+      <button type="button" data-jump="pg-calc">Which is cheapest for me?</button>
+    </div>
+  </div>
+  <div class="wrap" id="price-body"></div>
+
+  <div class="sec" id="pg-calc" style="scroll-margin-top:var(--head)">
+    <div class="wrap">
+      <div class="panel">
+        <div class="sec-head">
+          <div>
+            <h2 class="h-l">Which is cheapest for me?</h2>
+            <p class="lead grey">Set how many classes a week you'd really take. The list sorts by what each class ends up costing you.</p>
+          </div>
+        </div>
+        <div class="calc">
+          <div>
+            <div class="calc__n" id="calc-n">2</div>
+            <div class="calc__unit"><b>classes a week</b>, <span id="calc-month">about 9 a month</span></div>
+            <input type="range" id="calc-range" min="1" max="6" value="2" step="1" aria-label="Classes per week">
+            <div class="calc__scale"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6+</span></div>
+            <p class="note" style="margin-top:18px">Memberships assume you use every class in the month. The intro pack is left out because you can only buy it once.</p>
+          </div>
+          <div>
+            <p class="calc__best">Cheapest without paying for a year up front <b id="calc-best"></b><span class="grey" id="calc-best-note"></span></p>
+            <div class="btn-row" id="calc-go" style="margin:0 0 22px"></div>
+            <table class="ctable" id="calc-table"><thead><tr><th>Plan</th><th class="num">Price</th><th class="num">Per class</th></tr></thead><tbody></tbody></table>
+            <p class="calc__also" id="calc-also"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="sec-head"><h2 class="h-l">Policies</h2></div>
+    <div class="policies">
+      <div><h3>Cancelling a class</h3><p>Free up to 12 hours before class. After that, or if you don't show, it's a $25 fee. If we change the instructor within 12 hours, text us and we'll cancel it at no charge.</p></div>
+      <div><h3>Cancelling a membership</h3><p>Email <a class="tel" href="mailto:info@lincolnparkpilates.com">info@lincolnparkpilates.com</a> with 30 days' notice. Plans with a 3-month minimum can be cancelled with 30 days' notice once the three months are up.</p></div>
+      <div><h3>Unused classes</h3><p>Membership classes are for the month they come in and don't roll over. If you miss one, you can swap it for a sauna session, once.</p></div>
+      <div><h3>Bringing a friend</h3><p>Members can bring a first-time Chicago friend for $15 and any other guest for $25.</p></div>
+      <div><h3>Referrals</h3><p>Refer a friend who becomes a member and get $100 off, applied in their second month.</p></div>
+      <div><h3>Small classes</h3><p>A class with three or fewer people booked may be cancelled before it starts. We'll email or text you.</p></div>
+    </div>
+  </div>
+  <div class="end"></div>
+</section>
+
+<!-- THE STUDIO -->
+<section class="page" data-page="studio">
+  <div class="wrap phead">
+    <h1 class="h-xl">The studio</h1>
+    <p class="lead">5,500 square feet on the second floor at Southport and Dickens, with two studios, a lounge, locker rooms and an infrared sauna.</p>
+  </div>
+  <div class="wrap">
+    <div class="mosaic">
+      <div class="photo"><img src="img/room.webp" alt="A full class on the reformers under string lights" loading="lazy"></div>
+      <div class="photo r-43"><img src="img/studio.webp" alt="The reformer studio seen from the back of the room" loading="lazy"></div>
+      <div class="photo r-43"><img src="img/barre.webp" alt="A barre class in the second studio" loading="lazy"></div>
+    </div>
+    <dl class="facts" style="margin-top:44px">
+      <div><dt>Reformer studio</dt><dd>Twelve reformers, with mirrors and windows</dd></div>
+      <div><dt>Second studio</dt><dd>An open floor with a barre, used for mat work and for events of up to 35 people</dd></div>
+      <div><dt>Locker rooms</dt><dd>Four showers in the women's, two in the men's. Towels, shampoo and conditioner provided. Lockers have locks</dd></div>
+      <div><dt>Temperature</dt><dd>Studios are kept at 75 to 85 degrees</dd></div>
+      <div><dt>Front desk</dt><dd>Grip socks and stretch and recovery props for sale. <a class="u" href="#shop">See the shop</a></dd></div>
+    </dl>
+  </div>
+
+  <div class="sec" id="sec-sauna" style="scroll-margin-top:var(--head)">
+    <div class="wrap">
+      <div class="cols cols-top">
+        <div>
+          <h2 class="h-l">Infrared sauna</h2>
+          <p class="lead" style="margin-top:18px">Infrared heat warms you directly instead of heating the air, so the cabin stays comfortable while you sweat. Book a session after class or on its own.</p>
+          <div class="btn-row" style="margin-top:24px"><button class="btn btn-red" type="button" data-action="inq-sauna">Book a sauna session</button></div>
+        </div>
+        <div>
+          <div class="rows" id="sauna-rates"></div>
+          <p class="note" style="margin-top:14px">Members who miss a membership class can swap it for one sauna session, once.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec sec-wall">
+    <div class="wrap">
+      <div class="sec-head"><div><h2 class="h-l">Who teaches here</h2><p class="lead grey">Pick a name to see their classes this week.</p></div></div>
+      <div class="names" id="names-2"></div>
+    </div>
+  </div>
+
+  <div class="sec" id="sec-visit" style="scroll-margin-top:var(--head)">
+    <div class="wrap">
+      <div class="cols cols-top">
+        <div>
+          <h2 class="h-l">Getting here</h2>
+          <p class="lead" style="margin-top:18px">2105 N Southport Ave, Suite 200<br>Chicago, IL 60614</p>
+          <dl class="facts">
+            <div><dt>Getting in</dt><dd>Entrances on Southport and on Clybourn. Take the stairs to the second floor. Your booking email has the door code</dd></div>
+            <div><dt>Parking</dt><dd>Free street parking on Southport and on Dickens</dd></div>
+            <div><dt>Transit</dt><dd>Clybourn Metra and the Armitage Brown Line stop are both walkable</dd></div>
+            <div><dt>Text</dt><dd><a class="tel" href="sms:+13122865845">312-286-5845</a></dd></div>
+            <div><dt>Email</dt><dd><a class="tel" href="mailto:info@lincolnparkpilates.com">info@lincolnparkpilates.com</a></dd></div>
+            <div><dt>Instagram</dt><dd><a class="u" href="https://www.instagram.com/lincolnparkpilates" target="_blank" rel="noopener">@lincolnparkpilates</a></dd></div>
+          </dl>
+          <div class="btn-row" style="margin-top:28px"><a class="btn btn-ink" href="https://www.google.com/maps/search/?api=1&query=Lincoln+Park+Pilates+2105+N+Southport+Ave+Chicago+IL+60614" target="_blank" rel="noopener">Get directions</a></div>
+        </div>
+        <div>
+          <h3 class="h-m">Class hours this week</h3>
+          <div class="hours" id="hours"></div>
+          <p class="note" style="margin-top:12px">The front desk is staffed around classes. Outside those hours, text us.</p>
+          <form class="panel" id="contact-form" style="margin-top:36px">
+            <h3 class="h-m" style="margin-bottom:18px">Send us a message</h3>
+            <div class="form-grid">
+              <label class="field"><span>Name</span><input name="name" required autocomplete="name"></label>
+              <label class="field"><span>Email or phone</span><input name="contact" required></label>
+              <label class="field span2"><span>Message</span><textarea name="msg" required></textarea></label>
+            </div>
+            <button class="btn btn-ink" type="submit" style="margin-top:16px">Send message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EVENTS -->
+<section class="page" data-page="events">
+  <div class="wrap phead">
+    <h1 class="h-xl">Parties and events</h1>
+    <p class="lead">Rent one studio or the whole floor. We host birthdays, showers, team outings and shoots, with a class or without one.</p>
+  </div>
+  <div class="wrap">
+    <div class="cols cols-top">
+      <div>
+        <div class="photo r-43"><img src="img/party.webp" alt="A shower hosted in the studio lounge" loading="lazy"></div>
+        <div class="elist">
+          <div><h3>Private Pilates party</h3><span>Up to 12 on reformers</span><p>A reformer class for your group with one of our instructors, then the lounge is yours. Popular for birthdays and bachelorettes.</p><button class="u" type="button" data-action="ev-pick" data-type="Private Pilates party">Ask about a date</button></div>
+          <div><h3>Showers and birthdays</h3><span>Up to 35 guests</span><p>The second studio and lounge, set up how you want them. Add a mat class if you like.</p><button class="u" type="button" data-action="ev-pick" data-type="Birthday or shower">Ask about a date</button></div>
+          <div><h3>Company events</h3><span>Either studio</span><p>A team class or a networking evening.</p><button class="u" type="button" data-action="ev-pick" data-type="Company event">Ask about a date</button></div>
+          <div><h3>Filming</h3><span>Half or full day</span><p>We host commercial shoots. Tell us the crew size and what you need in frame.</p><button class="u" type="button" data-action="ev-pick" data-type="Filming">Ask about a date</button></div>
+        </div>
+      </div>
+      <form class="panel" id="ev-form" style="position:sticky;top:calc(var(--head) + 24px)">
+        <h2 class="h-m" style="margin-bottom:6px">Ask about a date</h2>
+        <p class="grey" style="margin-bottom:20px">Susan replies with availability and a quote.</p>
+        <div class="form-grid">
+          <label class="field"><span>Your name</span><input name="name" required autocomplete="name"></label>
+          <label class="field"><span>Email</span><input name="email" type="email" required autocomplete="email"></label>
+          <label class="field"><span>Type of event</span><select name="type"><option>Private Pilates party</option><option>Birthday or shower</option><option>Company event</option><option>Filming</option><option>Something else</option></select></label>
+          <label class="field"><span>Guests</span><input name="guests" type="number" min="1" max="60" inputmode="numeric"></label>
+          <label class="field span2"><span>Date you have in mind</span><input name="date" type="date"></label>
+          <label class="field span2"><span>Anything we should know</span><textarea name="notes"></textarea></label>
+        </div>
+        <button class="btn btn-red btn-wide" type="submit" style="margin-top:18px">Send inquiry</button>
+        <p class="note" style="margin-top:12px;text-align:center">Or text Susan at <a class="tel" href="sms:+13122865845">312-286-5845</a></p>
+      </form>
+    </div>
+  </div>
+  <div class="end"></div>
+</section>
+
+<!-- FAQ -->
+<section class="page" data-page="faq">
+  <div class="wrap phead"><h1 class="h-xl">Questions</h1></div>
+  <div class="wrap">
+    <div class="faq">
+      <div class="faq__side">
+        <input type="search" id="faq-q" placeholder="Search questions" aria-label="Search questions">
+        <div class="cats" id="faq-cats"></div>
+        <p class="note">Still stuck? Text <a class="tel" href="sms:+13122865845">312-286-5845</a> or email <a class="tel" href="mailto:info@lincolnparkpilates.com">info@lincolnparkpilates.com</a>.</p>
+      </div>
+      <div class="qa" id="faq-list"></div>
+    </div>
+  </div>
+  <div class="end"></div>
+</section>
+
+<!-- SHOP -->
+<section class="page" data-page="shop">
+  <div class="wrap phead">
+    <h1 class="h-xl">Shop</h1>
+    <p class="lead">Stretch and recovery props, sold at the front desk. Order here and pick up before or after class.</p>
+  </div>
+  <div class="wrap"><div class="rows" id="shop"></div><p class="note" style="margin-top:16px">Grip socks are sold at the front desk too.</p></div>
+  <div class="end"></div>
+</section>
+
+
+<!-- FRONT DESK: the staff side. Not in the menu. On the real site it sits at /admin behind a login. -->
+<section class="page adm" data-page="admin">
+  <div class="adm__bar">
+    <div class="wrap">
+      <a class="logo" href="#home">Lincoln Park <span>Pilates</span></a>
+      <div class="adm__right"><a class="u" href="#home">Back to site</a><button class="u" type="button" id="adm-out" data-action="adm" data-do="out" hidden>Sign out</button></div>
+    </div>
+  </div>
+  <div id="adm-root"></div>
+  <div class="end"></div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot__grid">
+      <div>
+        <a class="logo" href="#home">Lincoln Park <span>Pilates</span></a>
+        <address>2105 N Southport Ave, Suite 200<br>Chicago, IL 60614<br>Text <a class="tel" href="sms:+13122865845">312-286-5845</a><br><a class="tel" href="mailto:info@lincolnparkpilates.com">info@lincolnparkpilates.com</a></address>
+      </div>
+      <div>
+        <h4>Classes</h4>
+        <ul><li><a href="#new">New here</a></li><li><a href="#classes">Classes</a></li><li><a href="#schedule">Schedule</a></li><li><a href="#pricing">Pricing</a></li><li><a href="#training">Private training</a></li></ul>
+      </div>
+      <div>
+        <h4>Studio</h4>
+        <ul><li><a href="#studio">The studio</a></li><li><a href="#sauna">Infrared sauna</a></li><li><a href="#events">Parties and events</a></li><li><a href="#visit">Hours and directions</a></li><li><a href="#shop">Shop</a></li></ul>
+      </div>
+      <div>
+        <h4>Help</h4>
+        <ul><li><a href="#faq">Questions</a></li><li><a href="https://www.wellnessliving.com/login/lincolnparkpilates" target="_blank" rel="noopener">Member log in</a></li><li><a href="https://www.instagram.com/lincolnparkpilates" target="_blank" rel="noopener">Instagram</a></li><li><a href="https://www.facebook.com/lincolnparkpilates" target="_blank" rel="noopener">Facebook</a></li></ul>
+      </div>
+    </div>
+    <div class="foot__fine">
+      <span>© 2026 Lincoln Park Pilates LLC</span>
+      <span><a href="#admin" style="text-decoration:underline;text-underline-offset:3px">Staff</a> &nbsp; Concept by Jason Kemp</span>
+    </div>
+  </div>
+</footer>
+
+<div class="bookbar">
+  <a class="btn btn-red" href="#schedule">Book a class</a>
+  <a class="btn btn-line" href="#new">New here?</a>
+</div>
+
+<div class="concept" role="region" aria-label="Concept notice">
+  <span>Concept site, not live</span>
+  <button type="button" data-action="pitch-open">Pitch notes</button>
+</div>
+
+<div class="scrim" id="scrim" data-action="overlay-close"></div>
+
+<!-- booking / inquiry / cart sheet -->
+<aside class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheet-title" aria-hidden="true">
+  <div class="sheet__head">
+    <div><p id="sheet-label">Book a class</p><h2 id="sheet-title"></h2></div>
+    <button class="round" type="button" data-action="overlay-close" aria-label="Close"><svg class="ic"><use href="#i-x"/></svg></button>
+  </div>
+  <div class="sheet__body" id="sheet-body"></div>
+  <div class="sheet__foot" id="sheet-foot"></div>
+</aside>
+
+<!-- pitch notes -->
+<aside class="pitch" id="pitch" role="dialog" aria-modal="true" aria-labelledby="pitch-title" aria-hidden="true">
+  <div class="pitch__head">
+    <div><p>For Susan Dolan, Lincoln Park Pilates</p><h2 id="pitch-title">Pitch notes</h2></div>
+    <button class="round" type="button" data-action="overlay-close" aria-label="Close pitch notes"><svg class="ic"><use href="#i-x"/></svg></button>
+  </div>
+  <div class="ptabs" role="tablist">
+    <button class="on" data-ptab="changed">What changed</button>
+    <button data-ptab="model">Modeled on</button>
+    <button data-ptab="today">Today's site</button>
+    <button data-ptab="plan">The plan</button>
+    <button data-ptab="questions">Questions for Susan</button>
+    <button data-ptab="inbox">Staff portal <span class="cnt" id="inbox-cnt" hidden>0</span></button>
+  </div>
+  <div class="pitch__body">
+
+    <section class="on" data-ptab="changed">
+      <h3>The short version</h3>
+      <p>Lincoln Park Pilates has a 4.9 on Google, a full weekend schedule and reviews that name the instructors. The website is the one part of the business that undersells all of that. It still carries the Heat 3.0 name, breaks on a phone, hides its schedule and shop from Google, has a dead link behind its main button, and sends every visitor to WellnessLiving the moment they try to book or buy.</p>
+      <p>This concept keeps WellnessLiving for payments and memberships and puts a front door on it that works the way the biggest reformer studios' sites do. The <button class="jumpto" type="button" data-ptab-go="model">Modeled on</button> tab shows which ideas came from where.</p>
+
+      <div class="finding"><span>1</span><div><b>Booking starts on the site, two ways.</b><p>The real weekly timetable, with filters for class, instructor and time of day, spots left, and a waitlist. Every Book and Buy button opens the same panel with a choice. <b>Quick sign-up</b> asks for a name, email and mobile, with no account or password, and holds the spot. <b>WellnessLiving</b> sends members, and anyone who wants to pay by card, straight to the right page of the studio's WellnessLiving schedule or store. It is the pattern Jason built for Hammer Fitness and Boxing in Old Town, where the platform is Mindbody.</p><a class="jumpto" href="#schedule" data-action="pitch-jump">Show me</a></div></div>
+      <div class="finding"><span>2</span><div><b>The home page answers three questions in one screen.</b><p>What this is, where it is, and how to start: "Reformer Pilates on Southport", a Book button and the Google rating, with today's classes directly underneath, each with a Book button of its own.</p><a class="jumpto" href="#home" data-action="pitch-jump">Show me</a></div></div>
+      <div class="finding"><span>3</span><div><b>The intro offer leads.</b><p>WellnessLiving already sells a "3 classes for $39" intro pack. The current site never mentions it. Here it's in a bar across the top of every page, in a red block on the home page and the first-timer page, and as the first row on the pricing page.</p></div></div>
+      <div class="finding"><span>4</span><div><b>First-timers get their own page.</b><p>What happens at a first class, which class to take first, and the questions new people ask, in the first slot of the menu.</p><a class="jumpto" href="#new" data-action="pitch-jump">Show me</a></div></div>
+      <div class="finding"><span>5</span><div><b>It's built for a phone.</b><p>Most people find the studio from Google Maps or Instagram on their phone. Every page here is laid out for that width first, with Book pinned to the bottom of the screen. The current site's headline and menu run off the edge.</p></div></div>
+      <div class="finding"><span>6</span><div><b>Every price on one page, matched to WellnessLiving.</b><p>Memberships, class packs, training and sauna, plus a slider that works out which plan is cheapest for how often someone will come.</p><a class="jumpto" href="#pricing" data-action="pitch-jump">Show me</a></div></div>
+      <div class="finding"><span>7</span><div><b>The rebrand is finished.</b><p>No "Formerly Heat 3.0", no Heat 3.0 page titles, no links to the old Heat social accounts. One name everywhere, including the booking links.</p></div></div>
+      <div class="finding"><span>8</span><div><b>Google can find all of it.</b><p>Every page indexable (today the schedule and shop pages carry a noindex tag), real titles and descriptions, LocalBusiness data with the address, hours and rating, and clean addresses instead of /copy-of-pricing.</p></div></div>
+      <div class="finding"><span>9</span><div><b>Reviews are chosen, not piped in.</b><p>The current site embeds the raw WellnessLiving review feed on every page, which today includes a spam post linking to a betting site. This shows the Google rating and three real quotes.</p></div></div>
+      <div class="finding"><span>10</span><div><b>The front desk gets a CRM.</b><p>Quick sign-ups, bookings, pack and membership sign-ups, training and sauna requests, event inquiries, messages and shop orders land in one staff portal. Each person is one row with a status, notes, a next step and their history, and the portal counts how many visitors clicked through to WellnessLiving. It sits at /admin behind a staff login, as on the Hammer site.</p><a class="jumpto" href="#admin" data-action="pitch-jump">Open the staff portal</a></div></div>
+    </section>
+
+    <section data-ptab="model">
+      <h3>What the biggest reformer studios do</h3>
+      <p>This design started with the home pages of five studios that are plainly doing something right: <b>solidcore</b> (about 130 studios), <b>JETSET Pilates</b> (more than 400 franchise territories sold), <b>SLT</b> (21 studios), <b>New York Pilates</b> (nine studios, 1,000+ five-star Google reviews) and <b>Heartcore</b> (eight studios in London). They look different from each other, but they all make the same handful of decisions. This concept makes the same ones.</p>
+
+      <div class="finding"><span>1</span><div><b>A full-width photo, a few words, one button.</b><p>solidcore opens with "Stronger for it." and Book now. New York Pilates opens with "Feel Yourself" and Book class. Nobody opens with a paragraph.</p><p><b>Here:</b> "Reformer Pilates on Southport" and Book a class, over the studio's own photo of two people mid-plank on the reformers.</p></div></div>
+      <div class="finding"><span>2</span><div><b>First-timers get the first slot in the menu.</b><p>solidcore and JETSET call it "New clients", SLT "First timers", Heartcore "Get started". All five keep the menu to about five items and pin a Book button at the right.</p><p><b>Here:</b> "New here" comes first, the menu has six items, and Book a class never leaves the screen.</p></div></div>
+      <div class="finding"><span>3</span><div><b>The intro offer sits above everything.</b><p>SLT runs "Special intro offer: get 3 classes for $60" in a bar above its menu. New York Pilates scrolls "Your intro offer is here" across the top and makes intro pricing the second thing on the page.</p><p><b>Here:</b> the red bar on every page and the red $39 block on the home page. It appears twice on the home page, not five times.</p></div></div>
+      <div class="finding"><span>4</span><div><b>Proof in one line.</b><p>New York Pilates puts five stars and "1,000+ verified 5-star Google reviews" directly under its headline.</p><p><b>Here:</b> "4.9 on Google from 162 reviews" in the same spot, and again as the heading over three quotes.</p></div></div>
+      <div class="finding"><span>5</span><div><b>Short sections that each do one job.</b><p>solidcore's and JETSET's home pages are about four screens long on a laptop. Each section has one idea and one button.</p><p><b>Here:</b> every home page section has a single heading and a single next step.</p></div></div>
+      <div class="finding"><span>6</span><div><b>One brand colour, used for buttons and one big block.</b><p>solidcore's blue, SLT's turquoise. The photographs supply everything else.</p><p><b>Here:</b> the red from the studio's logo, with white, black and one pale grey. The photographs are black and white, so red is the only colour on the page.</p></div></div>
+      <div class="finding"><span>7</span><div><b>Where a one-studio site can beat the chains.</b><p>The chains have to send you to a studio picker before they can show a schedule. Lincoln Park Pilates has one address, so the home page shows today's classes straight under the photo, each with its own Book button.</p></div></div>
+
+      <h3>Why it looks like this</h3>
+      <ul>
+        <li><b>Headlines</b> are set in Big Shoulders, the typeface made for the City of Chicago's own design system. It's free, it's tall and condensed like the lettering on a lot of Chicago signage, and it suits a studio named after a Chicago neighbourhood.</li>
+        <li><b>Photos</b> are the studio's own, from the current site, converted to black and white. That makes the phone shots and the professional shots read as one set, and it matches the black and red of the logo. A half-day shoot would lift the whole site.</li>
+        <li><b>Shape:</b> anything you can press is rounded and everything else is square.</li>
+        <li><b>Lists, not cards.</b> Classes, prices and facts are set as plain rows with a rule between them, the way a timetable is, so the page reads as a schedule you can act on.</li>
+      </ul>
+    </section>
+
+    <section data-ptab="today">
+      <h3>What the current site does today</h3>
+      <p>Checked on November 5–6, 2026, on lincolnparkpilates.com and the studio's WellnessLiving account. Screenshots are from the same days.</p>
+      <div class="shots2">
+        <figure><div class="shot"><img src="img/today-home.webp" alt="The current homepage on a laptop" loading="lazy"></div><figcaption>Homepage on a laptop: overlapping header text at top right, a floating social bar, two chat widgets.</figcaption></figure>
+        <figure><div class="shot" style="max-width:260px"><img src="img/today-mobile.webp" alt="The current homepage on a phone, with the headline cut off at the right edge" loading="lazy"></div><figcaption>The same page at phone width: the headline and the navigation run off the screen.</figcaption></figure>
+      </div>
+
+      <div class="finding"><span>1</span><div><b>The homepage's main button is broken.</b><p>"CLASS SCHEDULE", the only call to action in the hero, opens a WellnessLiving page that says "Promotion does not exist." The Events page's "BUY NOW" button for the New Year promo goes to the same dead link.</p><figure><div class="shot"><img src="img/today-error.webp" alt="WellnessLiving error page: Promotion does not exist" loading="lazy"></div><figcaption>Where the hero button lands.</figcaption></figure></div></div>
+      <div class="finding"><span>2</span><div><b>So are most of the other buy buttons.</b><p>On the pricing page, the Membership, Packages and Training buttons and the Events page's "Join Now" open the WellnessLiving catalog at its old Heat address and get "Business does not exist." The "$360 / 10 classes + 2 sauna sessions" and "Unlimited sauna $199/mo" links return "Promotion does not exist." All eleven price links on the Shop page return "Product does not exist." On the homepage, the "10 CLASSES" label and the "$45 private training intro" both link to the 5-class package, and the $40 drop-in link is missing the studio's ID. Roughly one in two purchase links on the site works.</p></div></div>
+      <div class="finding"><span>3</span><div><b>It doesn't fit a phone.</b><p>At 390px wide the hero headline, the menu and the pinned social bar overlap and spill past the right edge (screenshot above). Worth confirming on your own phone before the meeting.</p></div></div>
+      <div class="finding"><span>4</span><div><b>Two pages tell Google not to list them.</b><p>The Schedule and Shop pages carry a <code>noindex</code> tag, so the page people most need to find, the schedule, is hidden from search. The Shop page also borrows its search title and description from the Schedule page ("Book a Class | Pilates Reformer Community").</p></div></div>
+      <div class="finding"><span>5</span><div><b>The Heat 3.0 rebrand is half done.</b><p>The logo says "Formerly Heat 3.0". The FAQ page's browser title is "FAQ'S | Heat 3.0 Pilates Barre Yoga Stretch"; the pricing, FAQ and events pages all share the title "Pricing | Heat 3.0 Pilates" when shared or searched, and the homepage's search description still says Heat 3.0. The pinned social bar's Facebook, Instagram, TikTok and YouTube icons go to the Heat 3.0 accounts while the footer links to the Lincoln Park Pilates ones. The review links go to ClassPass and Yelp pages for "Heat 3.0" and to a Google search for "heat 3.0".</p></div></div>
+      <div class="finding"><span>6</span><div><b>It advertises classes that aren't on the schedule.</b><p>The homepage promises "heated and non-heated classes", a Studio 2 of "Barre * Mat Pilates" with Barre Sweat Burn, Mat Pilates and "Pilates Abs &amp; Botty", and the FAQ lists Barre, Heated Yoga, Mat Pilates, FLX Stretch and Meditation. The WellnessLiving schedule for November 2–8 has 39 classes under five names, every one a reformer class, taught by eight instructors. The homepage says "50+ weekly workouts" and "18 trainers". If the other formats still run, nowhere on the site lets anyone book them.</p></div></div>
+      <div class="finding"><span>7</span><div><b>Prices disagree with each other.</b><p>The 10-class package is $380 on the homepage and in WellnessLiving, but "$360 with 2 free sauna sessions" on the pricing page. The 20-class membership is "annual contract" on the homepage, "month-to-month" on the pricing page and "3-month minimum" in WellnessLiving. A 16-class membership ($269) and the Elite annual membership ($2,399) exist in WellnessLiving but not on the site. There are three different 5-class offers: $190 on the pricing page, "5 for $99" in the stale New Year promo, and a pop-up on the homepage offering "buy 5, get 5 free for $190". The "3 classes for $39" intro pack is in WellnessLiving and nowhere on the site, which pushes the NEW25 code instead.</p><figure><div class="shot shot--scroll"><img src="img/today-pricing.webp" alt="The current pricing page, full length" loading="lazy"></div><figcaption>The current pricing page, full length (scroll inside the frame).</figcaption></figure></div></div>
+      <div class="finding"><span>8</span><div><b>A "New Year Promo" is still running in November.</b><p>The Events page leads with "5 Classes for $99 (Reg. $190)" and the dead BUY NOW link from finding 01.</p><figure><div class="shot shot--scroll"><img src="img/today-events.webp" alt="The current events page" loading="lazy"></div><figcaption>The current Events page.</figcaption></figure></div></div>
+      <div class="finding"><span>9</span><div><b>Everything that matters happens somewhere else.</b><p>The schedule, every pricing button, the lead form and the reviews are WellnessLiving iframes or redirects. The menu lists Forum, Members, Notifications and My Subscriptions, which are Wix member-area pages, not studio pages, and on a laptop they bury Shop, Studio Rental and Contact under "More".</p></div></div>
+      <div class="finding"><span>10</span><div><b>Three chat apps and a social bar.</b><p>A Chatway bubble sits bottom-right with Wix Chat and Chaty also installed, and a red Facebook / YouTube / TikTok / Instagram bar is pinned to the left edge over the hero photo. On a phone the bar sits on top of the headline.</p></div></div>
+      <div class="finding"><span>11</span><div><b>Every page currently shows a spam review.</b><p>The site-wide footer embeds the live WellnessLiving review feed, sorted newest first. Its fourth entry (May 2026) is mostly about the booking app and ends with a link to an online betting site.</p></div></div>
+      <div class="finding"><span>12</span><div><b>Copy errors a customer will notice.</b><p>"Pilates Abs &amp; Botty", "500+ REVEWS", "FLX Kinesio Tap", "Cryoptherapy Ball", "2x wk o realize", "massage your spinePerfect for", and shop copy that begins "Good morning target massage areas and enhance your stretch don't say." Seven shop images are files named "Screen Shot 2023-03-23" or "-24".</p></div></div>
+      <div class="finding"><span>13</span><div><b>Policies contradict each other.</b><p>Classes may be cancelled with "3 people or less" (footer), "under 5 people" (FAQ) or "less than 3 ppl" (WellnessLiving class descriptions). Reformer classes have "ONLY 10 spots" (FAQ) but 12 in WellnessLiving. The 4- and 8-class memberships are "3 month minimum" on the homepage and "month-to-month" on the pricing page. "Do you have parking?" appears twice in the FAQ.</p></div></div>
+      <div class="finding"><span>14</span><div><b>The sauna copy makes medical claims, and misquotes its source.</b><p>The pricing page says researchers "found proof that saunas can help" with weight loss, high blood pressure, heart failure, dementia and Alzheimer's, type 2 diabetes and arthritis, attributed to Mayo Clinic. Mayo's page says there is "some proof" saunas "may help", doesn't mention weight loss, and says larger studies are needed. That's a liability, not a selling point; this concept describes what the sauna is and leaves the claims out.</p></div></div>
+      <div class="finding"><span>15</span><div><b>The door code is public.</b><p>The studio's entry code appears in the class descriptions on the public WellnessLiving schedule, readable by anyone without signing in. It should live only in confirmation emails, which is where this concept puts it.</p></div></div>
+      <div class="finding"><span>16</span><div><b>Not the website, but worth fixing the same week.</b><p>The Google Business Profile lists the studio as closed on Tuesdays. Six classes run on Tuesdays.</p></div></div>
+    </section>
+
+    <section data-ptab="plan">
+      <h3>How this becomes the real site</h3>
+      <p>Same approach as the Hammer Fitness and Boxing site Jason built in Old Town this fall: a fast static site on the studio's own domain, WellnessLiving kept for payments, memberships and the member app, and a small staff portal for everything that isn't a WellnessLiving transaction.</p>
+      <div class="plan-wk"><span>Week 1</span><div><b>Content lock with Susan</b><p>Confirm every price and term against WellnessLiving, class descriptions, which formats still run, instructor list and photos, front-desk hours, the intro offer. Get Wix and domain access (the domain stays where it is; only the DNS changes).</p></div></div>
+      <div class="plan-wk"><span>Week 2</span><div><b>Build, booking and the staff portal</b><p>Quick sign-ups, requests and messages are saved to the site's own database and shown in the staff portal at /admin, behind a staff login, as on the Hammer site. Each quick sign-up is also pushed into WellnessLiving as a lead profile so nobody retypes it. WellnessLiving's Zapier integration has a Create Lead Profile action for this, and the studio's current site already embeds a WellnessLiving lead form. The WellnessLiving buttons link to the exact store item or to the schedule.</p><p style="margin-top:8px">Taking payment inside this design, with no hand-off, needs the WellnessLiving API. WellnessLiving publishes an SDK, but it issues the credentials for the studio's account itself. Third-party API directories describe an approval step with a questionnaire and an API agreement, so plan it as a second phase and ask the studio's account executive early.</p></div></div>
+      <div class="plan-wk"><span>Week 3</span><div><b>SEO, redirects, launch</b><p>Remove noindex, write titles and descriptions, add LocalBusiness schema, redirect every old Wix URL (<code>/copy-of-pricing</code> → <code>/faq</code> and so on), point the domain at the new host, confirm HTTPS, fix the Google Business Profile hours and link it to the new site. Wix stays live until the new site is confirmed, then the Wix plan is cancelled.</p></div></div>
+      <div class="plan-wk"><span>After</span><div><b>Hand-off</b><p>A one-page guide to editing prices, the schedule and the FAQ, and a monthly check that the intro offer, promo code and prices still match WellnessLiving.</p></div></div>
+      <h3>What Susan provides</h3>
+      <ul>
+        <li>Domain and Wix logins (or add Jason as a collaborator)</li>
+        <li>WellnessLiving: a Zapier connection for new leads, and a question to her account executive about API access for the second phase</li>
+        <li>Staff emails for the portal login, and whether a spot can be held before payment</li>
+        <li>Class descriptions, or a 20-minute conversation to write them from</li>
+        <li>Instructor names as they should appear, and any bios or photos she wants shown</li>
+        <li>Front-desk hours and the current intro offer</li>
+      </ul>
+      <h3>Terms</h3>
+      <p>Jason's offer to the studio goes here: build, launch and hand off the site in exchange for a membership, with the length agreed in the meeting.</p>
+    </section>
+
+    <section data-ptab="questions">
+      <h3>Assumptions in this concept</h3>
+      <p>Things that were decided to make the demo complete. Each one is easy to change.</p>
+      <ul>
+        <li><b>The schedule</b> is the WellnessLiving timetable for the week of November 2–8, 2026, treated as a repeating weekly pattern. Wednesday 7:00 am is shown as Rachel's class; it was marked as a sub that week.</li>
+        <li><b>Spot counts</b> are real for Friday through Sunday (as shown on November 6) and illustrative for Monday through Thursday, which were already past when the schedule was captured.</li>
+        <li><b>Class descriptions</b> are drafts. The current site describes Flow ("traditional Pilates technique"), Power ("athletic resistance Pilates") and Form &amp; Focus ("traditional moves, all levels"), and those are kept close to the original. Reformer Sculpt and Intro have no description anywhere. Intro's is written from the name and from the FAQ's advice to start with Intro, Flow or Form Focus. Sculpt's says only how often it runs and how long it is, and needs a real description from Susan. Power is marked "some experience"; the site doesn't give it a level.</li>
+        <li><b>Barre, mat, yoga and stretch classes</b> are not shown as bookable because none appear on the WellnessLiving schedule. If they run, they go on the schedule and the class guide in an hour.</li>
+        <li><b>Prices</b> follow WellnessLiving where the site and WellnessLiving disagree: 10 classes at $380, the 20-class membership at $289 with a 3-month minimum. The 16-class membership and Elite annual plan are shown because they're in the catalog. Pack expiry and membership minimums follow the WellnessLiving store as checked on November 11, 2026: 5 classes within 3 months, 10 within 90 days, 20 within 180 days, and a 3-month minimum on every membership except Unlimited. The studio's current website says 30 and 45 days for the 5 and 10 packs, so one of the two needs correcting. The "$360 with 2 sauna sessions" version of the 10-pack and the "annual contract" version of the 20-class membership are left out until Susan says which is current.</li>
+        <li><b>The intro offer</b> is "3 classes for $39", from the WellnessLiving catalog's 2026 Intro Pack. NEW25 is kept as a promo code and can be entered on a drop-in booking or a class pack. The homepage pop-up's "buy 5, get 5 free for $190" is not shown because its terms aren't published anywhere. If only one offer should exist, pick one and the rest come out. Whether NEW25 can be used on the intro pack isn't stated anywhere, so the demo doesn't offer a promo field on it.</li>
+        <li><b>Rooms</b> are shown as WellnessLiving lists them: two reformer classes a week run in "Studio 2" even though the site calls Studio 2 the barre and mat room.</li>
+        <li><b>Capacity</b> is 12 per class, per WellnessLiving; the FAQ says 10.</li>
+        <li><b>Minimum class size</b> is stated as "three or fewer may be cancelled", from the footer; the FAQ says under five and WellnessLiving says fewer than three.</li>
+        <li><b>The referral reward</b> is written as "$100 off, applied on their second month"; the FAQ's wording is ambiguous about whose month gets the credit.</li>
+        <li><b>The team</b> lists the eight instructors on this week's schedule. Reviews also mention Peggy and Eila; the homepage says "18 trainers". Add whoever still teaches.</li>
+        <li><b>Hours</b> are derived from the first and last class each day. Front-desk hours aren't published; the Google profile's hours disagree with the schedule (Tuesday "closed").</li>
+        <li><b>Transit</b> says the Clybourn Metra and Armitage Brown Line stops are "walkable", from the map. No walking times are claimed.</li>
+        <li><b>There is no map</b> in this concept, only a Get directions button that opens Google Maps. The real site would embed the map next to the address.</li>
+        <li><b>Photos</b> are the studio's own, taken from the current site and converted to black and white. The real build should use the originals at full size. Photos showing the old Heat signage were left out or cropped.</li>
+        <li><b>The sauna has no photo.</b> The one on the current site looks like a stock image, so the sauna is described in words until there is a real picture of it.</li>
+        <li><b>Sue or Susan.</b> The current site says "Text Sue" and the schedule lists Susan. The concept uses Susan throughout and can switch to whichever she prefers.</li>
+        <li><b>Instructor photos</b> don't exist on the current site, so instructors appear by name only. Headshots would be worth an afternoon.</li>
+        <li><b>Grip socks</b> are mentioned under the shop list but can't be ordered online, because the FAQ says they're sold and never says for how much.</li>
+        <li><b>Per-class figures</b> on the pricing page are simple division (price over classes) and assume every class is used. The Elite annual is divided over 240 classes, twenty a month for twelve months.</li>
+        <li><b>Private training packs</b> (five and ten 30-minute sessions) exist in WellnessLiving without a visible price, so each has an Ask us button that sends a request for the price.</li>
+        <li><b>Quick sign-up holds a spot before payment.</b> The concept assumes the studio will hold a spot for someone who has left a name and email, and take payment at the desk or by a link. If Susan wants payment first, quick sign-up still captures the person and then hands off to WellnessLiving checkout.</li>
+        <li><b>The WellnessLiving buttons are real links.</b> They open the studio's live WellnessLiving schedule and store in a new tab, and anything bought there is real. Most memberships and packs link to their own store page. The intro pack, the 16-class membership, the Elite annual, training and sauna link to the store's front page until their store IDs are confirmed.</li>
+        <li><b>The staff portal is a demo.</b> It keeps its data in the browser it is opened in, so a sign-up made on a phone will not appear on a laptop. It starts with six people tagged Sample, which can be removed. The real portal uses a shared database and a staff login.</li>
+        <li><b>Nothing else here is live.</b> Quick sign-ups, purchases and forms are simulated and never ask for card details. They appear in the staff portal so Susan can see what the front desk would receive.</li>
+      </ul>
+    </section>
+
+    <section data-ptab="inbox">
+      <h3>The staff portal</h3>
+      <p>Everything booked, bought or sent on this site lands in the front desk portal, one row per person, with a status, notes and a next step. On the real site it is at /admin behind a staff login. Here it is one click, from this button or from the Staff link in the footer.</p>
+      <p><a class="jumpto" href="#admin" data-action="pitch-jump">Open the staff portal</a></p>
+      <h3>What you have submitted in this browser</h3>
+      <div id="inbox"></div>
+    </section>
+
+  </div>
+  <div class="pitch__foot">
+    <span>Prepared by Jason Kemp, November 2026</span>
+    <span>Sources: lincolnparkpilates.com, the studio's WellnessLiving account, its Google Business Profile, the home pages of solidcore, JETSET Pilates, SLT, New York Pilates and Heartcore, WellnessLiving's website widgets page and Zapier's WellnessLiving integration page</span>
+  </div>
+</aside>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function(){
+/* ---------- Lincoln Park Pilates: content pulled from lincolnparkpilates.com and the studio's WellnessLiving account (Nov 2026) ---------- */
+const LPP = {
+  name: 'Lincoln Park Pilates',
+  addr1: '2105 N Southport Ave, Suite 200',
+  addr2: 'Chicago, IL 60614',
+  phone: '312-286-5845',
+  email: 'info@lincolnparkpilates.com',
+  ig: 'https://www.instagram.com/lincolnparkpilates',
+  fb: 'https://www.facebook.com/lincolnparkpilates',
+  wlSchedule: 'https://www.wellnessliving.com/schedule/lincolnparkpilates',
+  wlStore: 'https://www.wellnessliving.com/catalog/lincolnparkpilates',
+  liveSite: 'https://www.lincolnparkpilates.com/',
+  maps: 'https://www.google.com/maps/search/?api=1&query=Lincoln+Park+Pilates+2105+N+Southport+Ave+Chicago+IL+60614',
+  wlBusiness: 321493,
+  capacity: 12,
+  temp: '75–85°F',
+};
+
+/* A plan's own page in the studio's WellnessLiving store. Plans whose catalog ID wasn't captured go to the store's front page. */
+const wlItem = p => p && p.wl ? 'https://www.wellnessliving.com/rs/catalog-view.html?k_business=' + LPP.wlBusiness + '&id_sale=1&k_id=' + p.wl : LPP.wlStore;
+
+/* class formats: the five that actually run on the WellnessLiving schedule, plus private training */
+const CLASSES = {
+  intro:  { id: 'intro',  name: 'Intro to Pilates Reformer',   short: 'Intro',      level: 'First-timers',    min: 45, photo: 'c-intro',
+            line: 'Learn how the machine works before anything else.',
+            desc: 'For people who have never been on a reformer. You learn how the carriage, springs and straps work and how to set the machine up, then try the basic movements. Saturdays at 11:30.' },
+  form:   { id: 'form',   name: 'Form Focus Pilates Reformer', short: 'Form Focus', level: 'All levels',      min: 45, photo: 'c-form',
+            line: 'Traditional exercises at a slower pace.',
+            desc: 'Traditional Pilates exercises taken slowly, with more time spent on how each one should feel. A good first or second class, and a useful reset if you have been coming for years.' },
+  flow:   { id: 'flow',   name: 'Pilates Reformer Flow',       short: 'Flow',       level: 'All levels',      min: 45, photo: 'c-flow',
+            line: 'Traditional reformer Pilates, start to finish.',
+            desc: 'Traditional Pilates technique, with each exercise leading into the next. Flow runs six days a week and is the class we suggest after Intro.' },
+  power:  { id: 'power',  name: 'Pilates Power Reformer',      short: 'Power',      level: 'Some experience', min: 45, photo: 'c-power',
+            line: 'Athletic resistance Pilates, for once you know the machine.',
+            desc: 'Athletic, resistance-based Pilates. Expect to work harder than in Flow. Take it once you know your way around the reformer.' },
+  sculpt: { id: 'sculpt', name: 'Reformer Sculpt',             short: 'Sculpt',     level: 'All levels',      min: 45, photo: 'c-sculpt',
+            line: 'Six classes a week, including a 30-minute one on Fridays.',
+            desc: 'Sculpt work on the reformer, open to all levels. Most classes run 45 minutes. Friday at 4:30 is a 30-minute version.' },
+};
+const CLASS_ORDER = ['intro', 'form', 'flow', 'power', 'sculpt'];
+
+/* weekly timetable, taken from the WellnessLiving "All Classes" schedule for the week of Nov 2–8, 2026 (Central Time). d: 0=Sun … 6=Sat, t: minutes after midnight */
+const T = (h, m) => h * 60 + m;
+const SCHEDULE = [
+  // Monday
+  { d: 1, t: T(6, 0),  min: 45, c: 'power',  i: 'Miranda', s: 'Studio 1' },
+  { d: 1, t: T(7, 0),  min: 45, c: 'sculpt', i: 'Miranda', s: 'Studio 1' },
+  { d: 1, t: T(9, 0),  min: 45, c: 'form',   i: 'Lea',     s: 'Studio 1' },
+  { d: 1, t: T(16, 30), min: 45, c: 'power', i: 'Rachel',  s: 'Studio 2' },
+  { d: 1, t: T(17, 30), min: 45, c: 'flow',  i: 'Rachel',  s: 'Studio 1' },
+  { d: 1, t: T(18, 30), min: 45, c: 'power', i: 'Griffin', s: 'Studio 1' },
+  // Tuesday
+  { d: 2, t: T(6, 0),  min: 45, c: 'power',  i: 'Grace',   s: 'Studio 1' },
+  { d: 2, t: T(7, 0),  min: 45, c: 'power',  i: 'Grace',   s: 'Studio 1' },
+  { d: 2, t: T(9, 0),  min: 45, c: 'flow',   i: 'Grace',   s: 'Studio 1' },
+  { d: 2, t: T(16, 30), min: 45, c: 'power', i: 'Susan',   s: 'Studio 1' },
+  { d: 2, t: T(17, 30), min: 45, c: 'flow',  i: 'Griffin', s: 'Studio 1' },
+  { d: 2, t: T(18, 30), min: 45, c: 'power', i: 'Griffin', s: 'Studio 1' },
+  // Wednesday
+  { d: 3, t: T(7, 0),  min: 45, c: 'power',  i: 'Rachel',  s: 'Studio 1' },
+  { d: 3, t: T(8, 0),  min: 45, c: 'flow',   i: 'Susan',   s: 'Studio 1' },
+  { d: 3, t: T(9, 0),  min: 45, c: 'flow',   i: 'Lea',     s: 'Studio 1' },
+  { d: 3, t: T(16, 30), min: 45, c: 'flow',  i: 'Grace',   s: 'Studio 1' },
+  { d: 3, t: T(17, 30), min: 45, c: 'flow',  i: 'Grace',   s: 'Studio 1' },
+  { d: 3, t: T(18, 30), min: 45, c: 'power', i: 'Grace',   s: 'Studio 1' },
+  // Thursday
+  { d: 4, t: T(6, 0),  min: 45, c: 'power',  i: 'Grace',   s: 'Studio 1' },
+  { d: 4, t: T(7, 0),  min: 45, c: 'power',  i: 'Grace',   s: 'Studio 1' },
+  { d: 4, t: T(9, 0),  min: 45, c: 'sculpt', i: 'Grace',   s: 'Studio 1' },
+  { d: 4, t: T(17, 30), min: 45, c: 'sculpt', i: 'Emily',  s: 'Studio 2' },
+  { d: 4, t: T(18, 30), min: 45, c: 'power', i: 'Emily',   s: 'Studio 1' },
+  // Friday (spot counts as shown on WellnessLiving on Nov 6, 2026)
+  { d: 5, t: T(6, 0),  min: 45, c: 'flow',   i: 'Rachel',  s: 'Studio 1', left: 9 },
+  { d: 5, t: T(7, 0),  min: 45, c: 'flow',   i: 'Rachel',  s: 'Studio 1', left: 7 },
+  { d: 5, t: T(8, 0),  min: 45, c: 'sculpt', i: 'Susan',   s: 'Studio 1', left: 8 },
+  { d: 5, t: T(9, 0),  min: 45, c: 'flow',   i: 'Susan',   s: 'Studio 1', left: 8 },
+  { d: 5, t: T(12, 0), min: 45, c: 'power',  i: 'Susan',   s: 'Studio 1', left: 9 },
+  { d: 5, t: T(16, 30), min: 30, c: 'sculpt', i: 'Taylor', s: 'Studio 1', left: 11 },
+  { d: 5, t: T(17, 30), min: 45, c: 'flow',  i: 'Taylor',  s: 'Studio 1', left: 9 },
+  // Saturday
+  { d: 6, t: T(8, 30),  min: 45, c: 'power', i: 'Rachel',  s: 'Studio 1', left: 10 },
+  { d: 6, t: T(9, 30),  min: 45, c: 'flow',  i: 'Rachel',  s: 'Studio 1', left: 2 },
+  { d: 6, t: T(10, 30), min: 45, c: 'power', i: 'Rachel',  s: 'Studio 1', left: 2 },
+  { d: 6, t: T(11, 30), min: 45, c: 'intro', i: 'Susan',   s: 'Studio 1', left: 9 },
+  // Sunday
+  { d: 0, t: T(8, 30),  min: 45, c: 'flow',  i: 'Rachel',  s: 'Studio 1', left: 9 },
+  { d: 0, t: T(9, 30),  min: 45, c: 'power', i: 'Rachel',  s: 'Studio 1', left: 11 },
+  { d: 0, t: T(10, 30), min: 45, c: 'flow',  i: 'Rachel',  s: 'Studio 1', left: 6 },
+  { d: 0, t: T(11, 30), min: 45, c: 'flow',  i: 'Susan',   s: 'Studio 1', left: 12 },
+  { d: 0, t: T(17, 0),  min: 45, c: 'sculpt', i: 'Miranda', s: 'Studio 1', left: 11 },
+].map((x, n) => ({ ...x, id: 'k' + n, left: x.left == null ? 12 - ((n * 7) % 9) : x.left }));
+
+const DAYS = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+const DAYS_S = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+
+/* the team: names as they appear on the schedule. No bios exist on the current site, so none are invented here. */
+const TEAM = [
+  { n: 'Susan',   role: 'Owner & instructor', note: 'Opened the studio and teaches across the week, including Saturday\u2019s Intro.' },
+  { n: 'Rachel',  role: 'Instructor', note: 'Anchors the weekend mornings, plus Monday evenings and Friday at dawn.' },
+  { n: 'Grace',   role: 'Instructor', note: 'The early block Tuesday through Thursday, and Wednesday evenings.' },
+  { n: 'Lea',     role: 'Instructor', note: 'Monday and Wednesday at nine.' },
+  { n: 'Miranda', role: 'Instructor', note: 'Monday at six and seven, Sunday at five.' },
+  { n: 'Griffin', role: 'Instructor', note: 'Monday and Tuesday evenings.' },
+  { n: 'Emily',   role: 'Instructor', note: 'Thursday evenings.' },
+  { n: 'Taylor',  role: 'Instructor', note: 'Friday afternoons.' },
+];
+
+/* pricing, from the WellnessLiving catalog (the system of record) with the website's descriptions where they agree */
+const MEMBERSHIPS = [
+  { id: 'm4',  name: '4 classes a month',  price: 129, per: 'mo', classes: 4,  terms: '3-month minimum, then month to month', wl: 3057633 },
+  { id: 'm8',  name: '8 classes a month',  price: 199, per: 'mo', classes: 8,  terms: '3-month minimum, then month to month', wl: 3057635, hi: true },
+  { id: 'm12', name: '12 classes a month', price: 249, per: 'mo', classes: 12, terms: '3-month minimum, then month to month', wl: 3258041 },
+  { id: 'm16', name: '16 classes a month', price: 269, per: 'mo', classes: 16, terms: '3-month minimum, then month to month', wl: 0 },
+  { id: 'm20', name: '20 classes a month', price: 289, per: 'mo', classes: 20, terms: '3-month minimum, then month to month', wl: 3057641 },
+  { id: 'mu',  name: 'Unlimited',          price: 349, per: 'mo', classes: 30, terms: 'No contract. 30-day notice to cancel', wl: 2429108, red: true },
+];
+const ANNUAL = { id: 'elite', name: 'Elite annual, 20 classes a month', price: 2399, per: 'yr', classes: 20, terms: 'Prepaid for 12 months. Regularly $3,108', wl: 0 };
+const PACKAGES = [
+  { id: 'intro3', name: '3 classes for $39', price: 39, classes: 3, terms: 'New clients only. 2026 intro pack', flag: 'New here?', wl: 0 },
+  { id: 'drop',   name: 'Drop-in class',     price: 40, classes: 1, terms: 'One class, any format', wl: 2080978 },
+  { id: 'p5',     name: '5 classes',         price: 190, classes: 5, terms: 'Use within 3 months', wl: 2343310 },
+  { id: 'p10',    name: '10 classes',        price: 380, classes: 10, terms: 'Use within 90 days', wl: 2099735 },
+  { id: 'p20',    name: '20 classes',        price: 620, classes: 20, terms: 'Use within 180 days', wl: 2387826 },
+];
+const TRAINING = [
+  { name: 'Intro session', len: '30 min', price: 45, note: 'First-timers. Assessment, measurements and goals', wl: 2625686 },
+  { name: 'Single session', len: '30 min', price: 75, wl: 2618109 },
+  { name: 'Single session', len: '60 min', price: 120, wl: 2343643 },
+  { name: 'Five sessions', len: '30 min each', price: null, note: 'Pack price on request', wl: 2618139 },
+  { name: 'Ten sessions', len: '30 min each', price: null, note: 'Pack price on request', wl: 2618105 },
+];
+const SAUNA = [
+  { name: 'Single session', price: 45, per: '', wl: 2099878 },
+  { name: '10 sessions', price: 315, per: '', note: '$31.50 a session', wl: 2576510 },
+  { name: 'Unlimited', price: 199, per: 'mo', wl: 2218309 },
+];
+const PROMO = { code: 'NEW25', text: '$25 off your first class or package' };
+
+const PRODUCTS = [
+  { id: 'flexi', name: 'Flexistretcher', price: 59, desc: 'Elastic stretch strap.', art: 'strap' },
+  { id: 'ball',  name: 'FLX Pilates ball', price: 59, desc: '9-inch inflatable ball.', art: 'ball' },
+  { id: 'wheelL', name: 'Large yoga wheel', price: 36, desc: 'For stretching along the spine.', art: 'wheel' },
+  { id: 'wheelS', name: 'Small yoga wheel', price: 26, desc: '5-inch wheel for rolling the spine.', art: 'wheel' },
+  { id: 'block', name: 'FLX yoga block', price: 14, desc: 'High-density EVA foam.', art: 'block' },
+  { id: 'inf',   name: 'FLX Infinity ball', price: 22, desc: 'Contoured trigger-point ball.', art: 'ball' },
+  { id: 'deep',  name: 'Deep-tissue massage ball', price: 22, desc: 'High-density ball for large muscle groups.', art: 'ball' },
+  { id: 'cryo',  name: 'Cryotherapy ball', price: 30, desc: 'Massage and ice therapy in one.', art: 'ball' },
+  { id: 'stick', name: 'FLX massage stick', price: 26, desc: 'Handheld roller.', art: 'stick' },
+  { id: 'band',  name: 'FLX resistance band', price: 12, desc: 'Medium resistance.', art: 'band' },
+  { id: 'tape',  name: 'FLX kinesio tape', price: 12, desc: 'Support tape for muscles and joints.', art: 'tape' },
+  { id: 'socks', name: 'Grip socks', price: null, desc: 'Non-slip socks. Ask at the desk for the price.', art: 'socks' },
+];
+
+const FAQ = [
+  { c: 'First visit', q: 'I’ve never done reformer Pilates. Where do I start?', a: 'Take Intro to Pilates Reformer (Saturdays at 11:30), Pilates Reformer Flow or Form Focus first. All three are built for people new to the machine.' },
+  { c: 'First visit', q: 'What do I wear and bring?', a: 'Workout clothes you can move in. No shoes in the studios: go barefoot or wear non-slip grip socks (sold at the desk). You don’t need to bring a mat.' },
+  { c: 'First visit', q: 'How do I get in?', a: 'Entrances on Southport and on Clybourn. The studio is on the second floor, and your reservation email includes the door code.' },
+  { c: 'First visit', q: 'Are the classes heated?', a: 'Studios are kept at 75 to 85 degrees. That is warm enough to work up a sweat and well short of hot yoga.' },
+  { c: 'First visit', q: 'How often should I come?', a: 'Twice a week is where most people start to see and feel the difference.' },
+  { c: 'Booking', q: 'What if a class is full?', a: 'Join the waitlist. Spots open up often, especially on weekends. You’ll get an email the moment you’re in, so keep an eye on your inbox.' },
+  { c: 'Booking', q: 'What is the cancellation policy for classes?', a: 'Cancel at least 12 hours before class. Late cancels and no-shows are a $25 fee, because a reformer spot someone else could have taken has gone unused.' },
+  { c: 'Booking', q: 'The instructor changed. Can I cancel without the fee?', a: 'Yes. If the instructor is switched within 12 hours of class, text 312-286-5845 and we’ll cancel it for you, no fee.' },
+  { c: 'Booking', q: 'Do you ever cancel classes?', a: 'Rarely. A class with three or fewer people booked may be cancelled before it starts. You’d be told by email or text.' },
+  { c: 'Memberships', q: 'Do unused membership classes roll over?', a: 'No, classes are for the billing month they come in. If you forget one, you can redeem a complimentary infrared sauna session once, as a first-time courtesy.' },
+  { c: 'Memberships', q: 'How do I cancel a membership?', a: 'Email info@lincolnparkpilates.com with 30 days’ notice. Memberships with a minimum term can be cancelled with 30 days’ notice once the term is up.' },
+  { c: 'Memberships', q: 'Can I bring a friend?', a: 'Members can bring a first-time Chicago friend for $15 and any other guest for $25.' },
+  { c: 'Memberships', q: 'Is there a referral reward?', a: 'Yes. Refer a friend who becomes a member and you get $100 off, applied on their second month.' },
+  { c: 'Studio', q: 'Is there parking?', a: 'Free street parking on Southport and on Dickens. The Clybourn Metra stop and the Armitage Brown Line stop are both walkable.' },
+  { c: 'Studio', q: 'Do you have showers and lockers?', a: 'Four showers in the women’s locker room, two in the men’s, with towels, shampoo and conditioner provided. Lockers with locks are available.' },
+  { c: 'Studio', q: 'What is a reformer, exactly?', a: 'A sliding carriage on a frame, attached by springs that set the resistance. Invented by Joseph Pilates. The springs make the work easier on joints than free weights, and the straps and bar let you train the whole body on one machine.' },
+  { c: 'Studio', q: 'Will Pilates help me lose weight?', a: 'Indirectly: it builds muscle tone, flexibility and overall fitness. On its own it is not a weight-loss program, so pair it with cardio and a balanced diet.' },
+  { c: 'Training', q: 'What happens in a first private session?', a: 'A total-body movement assessment, measurements, health history and goal setting. Your trainer then builds a program around what you want to achieve.' },
+  { c: 'Training', q: 'What is the cancellation policy for training?', a: 'Changes or cancellations less than 24 hours before a training session forfeit the session.' },
+  { c: 'Events', q: 'Can I rent the studio?', a: 'Yes. Birthdays, showers, company events, bachelorettes, filming and private Pilates parties. The reformer studio holds 12 and the mat studio holds 35. Text Susan at 312-286-5845 or use the form on the Events page.' },
+  { c: 'Sauna', q: 'How does the infrared sauna work?', a: 'Infrared heat warms your body directly rather than the air around you, so the room stays comfortable while you sweat. Sessions are booked like an appointment. You can buy a single session, a 10-pack or an unlimited monthly plan.' },
+];
+
+/* three short excerpts, each from a different Google review of the studio, word for word */
+const REVIEWS = [
+  { q: 'There\u2019s zero intimidation factor here, which is honestly rare.', who: '', src: 'Google review' },
+  { q: 'She is creative and challenges us just enough in each class.', who: '', src: 'Google review, about Lea\u2019s classes' },
+  { q: 'Sue is a phenomenal instructor!', who: '', src: 'Google review, about the owner' },
+];
+
+/* ---------- core: helpers, clock, state, router, overlays ---------- */
+const $ = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
+const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+const money = n => n == null ? '' : (Number.isInteger(n) ? '$' + n.toLocaleString('en-US') : '$' + n.toFixed(2));
+const fmtT = m => { const h = Math.floor(m / 60), mm = m % 60, ap = h >= 12 ? 'pm' : 'am', hh = ((h + 11) % 12) + 1; return hh + ':' + String(mm).padStart(2, '0') + ' ' + ap; };
+const fmtEnd = (m, len) => fmtT(m + len);
+
+/* The site runs on the studio's clock (Chicago), wherever the visitor is. */
+const WD = { Sun: 0, Mon: 1, Tue: 2, Wed: 3, Thu: 4, Fri: 5, Sat: 6 };
+function chicagoNow() {
+  const parts = new Intl.DateTimeFormat('en-US', { timeZone: 'America/Chicago', weekday: 'short', hour: 'numeric', minute: 'numeric', hour12: false }).formatToParts(new Date());
+  const g = t => (parts.find(p => p.type === t) || {}).value;
+  let h = parseInt(g('hour'), 10); if (h === 24) h = 0;
+  return { d: WD[g('weekday')], mins: h * 60 + parseInt(g('minute'), 10) };
+}
+
+/* demo state, kept in memory and mirrored to localStorage as a convenience */
+const STATE = { booked: {}, cart: {}, spots: {}, people: [], events: [], staff: false, seeded: false };
+try { const s = JSON.parse(localStorage.getItem('lpp-concept-3') || 'null'); if (s && Array.isArray(s.events) && Array.isArray(s.people)) Object.assign(STATE, s); } catch (e) {}
+function save() { try { localStorage.setItem('lpp-concept-3', JSON.stringify(STATE)); } catch (e) {} }
+function spotsLeft(k) { return STATE.spots[k.id] != null ? STATE.spots[k.id] : k.left; }
+
+/* front desk records: one row per person, one event per thing they did. Every form on the site writes here. */
+const STATUSES = ['New', 'Contacted', 'In WellnessLiving', 'Member'];
+const uid = p => p + Date.now().toString(36) + Math.random().toString(36).slice(2, 6);
+function personFor(p) {
+  if (!p) return null;
+  const name = String(p.name || [p.first, p.last].filter(Boolean).join(' ')).trim();
+  let email = String(p.email || '').trim(), phone = String(p.phone || '').trim();
+  if (p.contact) { const c = String(p.contact).trim(); if (c.includes('@')) email = email || c; else phone = phone || c; }
+  const key = (email || phone || name).toLowerCase(); if (!key) return null;
+  let rec = STATE.people.find(x => x.key === key);
+  if (!rec) { rec = { id: uid('p'), key, name, email, phone, status: 'New', notes: '', first: Date.now(), last: Date.now(), newbie: false }; STATE.people.push(rec); }
+  else { if (name) rec.name = name; if (email) rec.email = email; if (phone) rec.phone = phone; }
+  if (p.newbie) rec.newbie = true;
+  return rec;
+}
+function inboxAdd(kind, title, body, person) {
+  const rec = personFor(person), ts = Date.now();
+  STATE.events.unshift({ id: uid('e'), pid: rec ? rec.id : null, kind, title, body, ts });
+  if (rec) rec.last = ts;
+  save(); renderInbox(); if (currentPage === 'admin') renderAdmin();
+  return rec;
+}
+const dayKey = ts => new Date(ts).toLocaleDateString('en-CA', { timeZone: 'America/Chicago' });
+function fmtWhen(ts) {
+  const t = new Date(ts).toLocaleTimeString('en-US', { timeZone: 'America/Chicago', hour: 'numeric', minute: '2-digit' }).toLowerCase();
+  const d = dayKey(ts);
+  if (d === dayKey(Date.now())) return 'Today ' + t;
+  if (d === dayKey(Date.now() - 864e5)) return 'Yesterday ' + t;
+  return new Date(ts).toLocaleDateString('en-US', { timeZone: 'America/Chicago', month: 'short', day: 'numeric' }) + ', ' + t;
+}
+
+let toastT;
+function toast(msg) { const t = $('#toast'); t.textContent = msg; t.classList.add('on'); clearTimeout(toastT); toastT = setTimeout(() => t.classList.remove('on'), 2600); }
+
+/* overlays */
+const OV = { open: null };
+function openOverlay(id) {
+  closeOverlay();
+  const el = $('#' + id); el.classList.add('on'); el.setAttribute('aria-hidden', 'false');
+  $('#scrim').classList.add('on'); document.body.classList.add('locked'); OV.open = id;
+}
+function closeOverlay() {
+  if (!OV.open) return;
+  const el = $('#' + OV.open); el.classList.remove('on'); el.setAttribute('aria-hidden', 'true');
+  $('#scrim').classList.remove('on'); document.body.classList.remove('locked'); OV.open = null;
+}
+function openMenu() { $('#menu').classList.add('on'); $('#menu').setAttribute('aria-hidden', 'false'); document.body.classList.add('locked'); }
+function closeMenu() { $('#menu').classList.remove('on'); $('#menu').setAttribute('aria-hidden', 'true'); if (!OV.open) document.body.classList.remove('locked'); }
+
+/* router: plain #names only. A few names are sections inside a page. */
+const PAGES = ['home', 'new', 'classes', 'schedule', 'pricing', 'studio', 'events', 'faq', 'shop', 'admin'];
+const INSIDE = { training: ['classes', 'sec-private'], sauna: ['studio', 'sec-sauna'], visit: ['studio', 'sec-visit'] };
+const TITLES = { home: 'Lincoln Park Pilates website concept', new: 'Your first class | Lincoln Park Pilates concept', classes: 'Classes | Lincoln Park Pilates concept', schedule: 'Schedule | Lincoln Park Pilates concept', pricing: 'Pricing | Lincoln Park Pilates concept', studio: 'The studio | Lincoln Park Pilates concept', events: 'Parties and events | Lincoln Park Pilates concept', faq: 'Questions | Lincoln Park Pilates concept', shop: 'Shop | Lincoln Park Pilates concept', admin: 'Front desk | Lincoln Park Pilates concept' };
+let currentPage = null;
+function route() {
+  let h = (location.hash || '#home').slice(1), target = null;
+  if (INSIDE[h]) { target = INSIDE[h][1]; h = INSIDE[h][0]; }
+  if (!PAGES.includes(h)) h = 'home';
+  if (h !== currentPage) {
+    $$('.page').forEach(p => p.classList.toggle('on', p.dataset.page === h));
+    $$('.nav a').forEach(a => a.classList.toggle('on', a.dataset.nav === h));
+    document.title = TITLES[h];
+    currentPage = h;
+    if (h === 'schedule') renderSchedule();
+    if (h === 'home') renderToday();
+    document.body.classList.toggle('admin', h === 'admin');
+    if (h === 'admin') renderAdmin();
+  }
+  if (target) { const el = document.getElementById(target); if (el) el.scrollIntoView(); } else window.scrollTo(0, 0);
+  setOver();
+}
+window.addEventListener('hashchange', route);
+
+/* the header is clear while it sits on the home hero */
+function setOver() {
+  const hero = $('.hero');
+  const over = currentPage === 'home' && hero && window.scrollY < hero.offsetHeight - 80 - (hero.offsetTop || 0);
+  document.body.classList.toggle('over', !!over);
+}
+window.addEventListener('scroll', setOver, { passive: true });
+window.addEventListener('resize', setOver);
+
+/* one listener for every data-action */
+document.addEventListener('click', e => {
+  const t = e.target.closest('[data-action], [data-ptab-go], [data-jump]');
+  if (!t) return;
+  if (t.dataset.ptabGo) { pitchTab(t.dataset.ptabGo); return; }
+  if (t.dataset.jump) { const el = document.getElementById(t.dataset.jump); if (el) el.scrollIntoView({ behavior: 'smooth' }); return; }
+  const a = t.dataset.action;
+  if (a === 'menu-open') openMenu();
+  else if (a === 'menu-close') closeMenu();
+  else if (a === 'overlay-close') closeOverlay();
+  else if (a === 'pitch-open') openOverlay('pitch');
+  else if (a === 'pitch-jump') closeOverlay();
+  else if (a === 'cart-open') openCart();
+  else if (a === 'inq-training') openInquiry('training', t.dataset.opt);
+  else if (a === 'inq-sauna') openInquiry('sauna', t.dataset.opt);
+  else if (a === 'sched-filter') { SF.c = t.dataset.c || ''; SF.i = t.dataset.i || ''; SF.time = ''; SF.all = true; if (currentPage === 'schedule') { renderSchedule(); window.scrollTo(0, 0); } else location.hash = '#schedule'; }
+  else if (a === 'goto-class') { location.hash = '#classes'; const id = t.dataset.c; setTimeout(() => { const el = document.getElementById('cl-' + id); if (el) el.scrollIntoView(); }, 30); }
+  else if (a === 'book') openBooking(t.dataset.k);
+  else if (a === 'buy') openPurchase(t.dataset.plan);
+  else if (a === 'add') addToCart(t.dataset.p);
+  else if (a === 'qty') changeQty(t.dataset.p, +t.dataset.n);
+  else if (a === 'checkout') openCheckout();
+  else if (a === 'adm') adminAction(t);
+  else if (a === 'ev-pick') pickEvent(t.dataset.type);
+});
+document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeOverlay(); closeMenu(); } });
+
+/* pitch notes */
+function pitchTab(name) {
+  $$('.ptabs button').forEach(b => b.classList.toggle('on', b.dataset.ptab === name));
+  $$('.pitch__body > section').forEach(s => s.classList.toggle('on', s.dataset.ptab === name));
+  $('.pitch__body').scrollTop = 0;
+  if (!$('#pitch').classList.contains('on')) openOverlay('pitch');
+}
+$$('.ptabs button').forEach(b => b.addEventListener('click', () => pitchTab(b.dataset.ptab)));
+function renderInbox() {
+  const box = $('#inbox'), cnt = $('#inbox-cnt'), mine = STATE.events.filter(e => !e.sample);
+  if (!mine.length) { box.innerHTML = '<p class="inbox-empty">Nothing yet. Book a class, get the intro pack or send a form, and it shows up here and in the portal.</p>'; cnt.hidden = true; return; }
+  cnt.hidden = false; cnt.textContent = mine.length;
+  box.innerHTML = mine.map(e => { const p = STATE.people.find(x => x.id === e.pid); return `<div class="inbox-item"><div class="kind"><span>${esc(e.kind)}</span><span>${esc(fmtWhen(e.ts))}</span></div><b>${p ? esc(p.name) + ': ' : ''}${esc(e.title)}</b><p>${esc(e.body)}</p></div>`; }).join('');
+}
+
+/* ---------- renderers ---------- */
+const byDay = d => SCHEDULE.filter(k => k.d === d).sort((a, b) => a.t - b.t);
+const dayWord = (off, d) => off === 0 ? 'Today' : off === 1 ? 'Tomorrow' : DAYS[d];
+
+function nextClass(now, filter) {
+  for (let off = 0; off < 8; off++) {
+    const d = (now.d + off) % 7;
+    const list = byDay(d).filter(k => (!filter || filter(k)) && (off > 0 || k.t > now.mins));
+    if (list.length) return { k: list[0], off };
+  }
+  return null;
+}
+
+/* one class row, shared by the home page and the schedule */
+function rowHTML(k, past, withId) {
+  const c = CLASSES[k.c], left = spotsLeft(k), mine = STATE.booked[k.id];
+  const spots = past ? 'Finished' : left > 3 ? left + ' spots left' : left > 0 ? left + (left === 1 ? ' spot left' : ' spots left') : 'Full';
+  const label = mine ? 'Booked' : left > 0 ? 'Book' : 'Join waitlist';
+  return `<div class="krow${past ? ' past' : ''}${mine ? ' mine' : ''}" ${withId ? ` id="row-${k.id}"` : ''} data-row="${k.id}">
+    <div class="krow__time">${fmtT(k.t)}</div>
+    <div class="krow__name">${esc(c.name)}<small>${k.min} minutes, ${esc(c.level.toLowerCase())}</small></div>
+    <div class="krow__who">${esc(k.i)}${k.s !== 'Studio 1' ? `<small>${esc(k.s)}</small>` : ''}</div>
+    <div class="krow__spots${!past && left <= 3 && left > 0 ? ' low' : ''}">${spots}</div>
+    <div class="krow__act"><button class="btn btn-s ${mine ? 'btn-ink' : left > 0 ? 'btn-red' : 'btn-line'}" type="button" data-action="book" data-k="${k.id}">${label}</button></div>
+  </div>`;
+}
+
+/* home: today's list, five rows at most */
+function renderToday() {
+  const now = chicagoNow();
+  let d = now.d, off = 0, list = byDay(d).filter(k => k.t + k.min > now.mins);
+  if (!list.length) { off = 1; d = (now.d + 1) % 7; list = byDay(d); }
+  $('#today-title').textContent = off === 0 ? 'Today’s classes' : 'Tomorrow’s classes';
+  $('#today-list').innerHTML = list.slice(0, 5).map(k => rowHTML(k, false)).join('');
+  const more = list.length - 5, m = $('#today-more');
+  m.hidden = more <= 0;
+  if (more > 0) m.innerHTML = `<a class="u" href="#schedule">${more} more ${more === 1 ? 'class' : 'classes'} ${off === 0 ? 'today' : 'tomorrow'}</a>`;
+}
+
+/* class tiles and the class list */
+function renderTiles() {
+  $('#ctiles').innerHTML = CLASS_ORDER.map(id => { const c = CLASSES[id]; return `<a class="ctile" href="#classes" data-action="goto-class" data-c="${id}">
+    <div class="photo r-34"><img src="img/${c.photo}.webp" alt="" loading="lazy"></div>
+    <h3>${esc(c.short)}</h3><p>${esc(c.line)}</p><span class="ctile__lvl">${esc(c.level)}</span></a>`; }).join('');
+}
+function renderClassList() {
+  const now = chicagoNow();
+  $('#cl-list').innerHTML = CLASS_ORDER.map(id => {
+    const c = CLASSES[id], n = nextClass(now, k => k.c === id), per = SCHEDULE.filter(k => k.c === id).length;
+    return `<article class="cl" id="cl-${id}">
+      <div class="photo r-34"><img src="img/${c.photo}.webp" alt="${esc(c.name)}" loading="lazy"></div>
+      <div>
+        <h2 class="h-l">${esc(c.name)}</h2>
+        <p class="lead">${esc(c.desc)}</p>
+        <p class="cl__meta"><span>${esc(c.level)}</span><span>${c.min} minutes</span><span>${per} ${per === 1 ? 'class' : 'classes'} a week</span></p>
+        <div class="btn-row">${n ? `<button class="btn btn-red" type="button" data-action="book" data-k="${n.k.id}">Book ${n.off < 2 ? dayWord(n.off, n.k.d).toLowerCase() : dayWord(n.off, n.k.d)} at ${fmtT(n.k.t)}</button>` : ''}<button class="u" type="button" data-action="sched-filter" data-c="${id}">All ${esc(c.short)} times</button></div>
+      </div>
+    </article>`; }).join('');
+}
+
+/* instructors by name */
+function renderNames() {
+  const html = TEAM.map(p => { const n = SCHEDULE.filter(k => k.i === p.n).length; return `<button type="button" data-action="sched-filter" data-i="${esc(p.n)}" aria-label="${esc(p.n)}, ${n} ${n === 1 ? 'class' : 'classes'} this week">${esc(p.n)}<small>${n} ${n === 1 ? 'class' : 'classes'} this week</small></button>`; }).join('');
+  $('#names').innerHTML = html; $('#names-2').innerHTML = html;
+}
+function renderQuotes() {
+  $('#quotes').innerHTML = REVIEWS.map(r => `<figure class="quote" style="margin:0"><p>“${esc(r.q)}”</p><cite>${r.who ? esc(r.who) + ', ' : ''}${esc(r.src)}</cite></figure>`).join('');
+}
+
+/* schedule page */
+const SF = { day: null, c: '', i: '', time: '', all: false };
+function renderSchedule() {
+  const now = chicagoNow();
+  if (SF.day == null) SF.day = now.d;
+  const order = [1, 2, 3, 4, 5, 6, 0];
+  $('#days').innerHTML = order.map(d => `<button type="button" class="${!SF.all && SF.day === d ? 'on' : ''}${now.d === d ? ' today' : ''}" data-day="${d}">${now.d === d ? 'Today' : DAYS_S[d]}<small>${byDay(d).length}</small></button>`).join('') + `<button type="button" class="${SF.all ? 'on' : ''}" data-day="all">All week<small>${SCHEDULE.length}</small></button>`;
+  $$('#days button').forEach(b => b.onclick = () => { if (b.dataset.day === 'all') SF.all = true; else { SF.all = false; SF.day = +b.dataset.day; } renderSchedule(); });
+  const fc = $('#f-class'); if (fc.options.length === 1) CLASS_ORDER.forEach(id => fc.add(new Option(CLASSES[id].name, id)));
+  const fi = $('#f-inst'); if (fi.options.length === 1) TEAM.forEach(p => fi.add(new Option(p.n, p.n)));
+  fc.value = SF.c; fi.value = SF.i; $('#f-time').value = SF.time;
+  fc.onchange = () => { SF.c = fc.value; renderSchedule(); };
+  fi.onchange = () => { SF.i = fi.value; renderSchedule(); };
+  $('#f-time').onchange = e => { SF.time = e.target.value; renderSchedule(); };
+
+  const days = SF.all ? order : [SF.day];
+  const html = days.map(d => {
+    let list = byDay(d);
+    if (SF.c) list = list.filter(k => k.c === SF.c);
+    if (SF.i) list = list.filter(k => k.i === SF.i);
+    if (SF.time) list = list.filter(k => SF.time === 'am' ? k.t < 660 : SF.time === 'mid' ? (k.t >= 660 && k.t < 900) : k.t >= 900);
+    if (!list.length) return days.length > 1 ? '' : `<div class="klist"><p class="kempty">Nothing on ${DAYS[d]} matches those filters. Try another day, or choose All week.</p></div>`;
+    return `<h2 class="h-m kday">${DAYS[d]}${d === now.d ? '<span>today</span>' : ''}</h2><div class="klist">${list.map(k => rowHTML(k, d === now.d && k.t + k.min < now.mins, true)).join('')}</div>`;
+  }).join('');
+  $('#sched').innerHTML = html || '<div class="klist"><p class="kempty">Nothing matches those filters. Clear one and try again.</p></div>';
+}
+
+/* pricing */
+function priceRow(p, kind) {
+  const n = p.per === 'yr' ? p.classes * 12 : p.classes;
+  const per = p.classes && p.id !== 'mu' ? money(Math.round(p.price / n * 100) / 100).replace(/\.00$/, '') + ' a class' : p.id === 'mu' ? 'as many classes as you like' : '';
+  const price = money(p.price) + (p.per ? `<small>/ ${p.per === 'mo' ? 'month' : 'year'}</small>` : '');
+  return `<div class="rrow${p.pick ? ' rrow--pick' : ''}">
+    <div class="rrow__name">${esc(p.name)}${p.flag ? `<span class="tag">${esc(p.flag)}</span>` : ''}<small>${esc(p.terms)}</small></div>
+    <div class="rrow__price">${price}<span class="rrow__per">${per}</span></div>
+    <button class="btn btn-s ${p.pick ? 'btn-red' : 'btn-line'}" type="button" data-action="buy" data-plan="${p.id}">${kind === 'member' ? 'Join' : 'Buy'}</button>
+  </div>`;
+}
+/* training and sauna rows: every row has its own button, so each option can be requested */
+function rateRows(list, kind) {
+  return list.map((r, n) => `<div class="rrow">
+    <div class="rrow__name">${esc(r.name)}${r.len ? ', ' + esc(r.len) : ''}${r.note ? `<small>${esc(r.note)}</small>` : ''}</div>
+    <div class="rrow__price">${r.price != null ? money(r.price) + (r.per ? '<small>/ month</small>' : '') : ''}</div>
+    <button class="btn btn-s ${kind === 'training' && n === 0 ? 'btn-red' : 'btn-line'}" type="button" data-action="inq-${kind}" data-opt="${n}">${r.price == null ? 'Ask us' : kind === 'sauna' ? 'Book' : 'Request'}</button>
+  </div>`).join('');
+}
+function group(id, title, blurb, rows, extra = '') {
+  return `<section class="pgroup" id="${id}"><div class="pgroup__intro"><h2 class="h-l">${title}</h2><p>${blurb}</p></div><div><div class="rows">${rows}</div>${extra}</div></section>`;
+}
+function renderPricing() {
+  const intro = { ...PACKAGES[0], name: 'Intro pack, 3 classes', terms: 'New clients only. Any class, any instructor', pick: true, flag: 'Start here' };
+  const drop = PACKAGES[1];
+  $('#price-body').innerHTML =
+    group('pg-new', 'New here', 'Start with the intro pack. It costs less than a single drop-in.', priceRow(intro, 'pack') + priceRow(drop, 'pack'), `<p class="note" style="margin-top:14px">Code ${PROMO.code} takes $25 off your first class or package.</p>`) +
+    group('pg-member', 'Memberships', 'A set number of classes each month, billed monthly. Every plan except Unlimited has a 3-month minimum. Classes don’t roll over. Cancel with 30 days’ notice.', MEMBERSHIPS.map(p => priceRow(p, 'member')).join('') + priceRow(ANNUAL, 'member')) +
+    group('pg-pack', 'Class packs', 'Buy classes up front and use them on any format. The clock starts when you buy.', PACKAGES.slice(2).map(p => priceRow(p, 'pack')).join('')) +
+    group('pg-training', 'Private training', 'One client, one instructor, on the tower reformer. Start with the intro session, or request any option and we’ll text you to set it up.', rateRows(TRAINING, 'training')) +
+    group('pg-sauna', 'Infrared sauna', 'Booked by the session, after class or on its own.', rateRows(SAUNA, 'sauna'));
+}
+function renderCalc() {
+  const n = +$('#calc-range').value, monthly = Math.round(n * 52 / 12);
+  $('#calc-n').textContent = n === 6 ? '6+' : n; $('#calc-month').textContent = 'about ' + monthly + ' a month';
+  const rows = [];
+  MEMBERSHIPS.forEach(m => {
+    const allot = m.id === 'mu' ? Infinity : m.classes, covers = allot >= monthly;
+    rows.push({ id: m.id, join: true, name: m.id === 'mu' ? 'Unlimited membership' : m.classes + '-class membership', price: money(m.price) + ' a month', per: m.price / Math.min(allot, monthly), covers, note: covers ? (allot !== Infinity && allot > monthly ? (allot - monthly) + ' classes left over' : '') : 'covers ' + allot + ' of your ' + monthly });
+  });
+  PACKAGES.slice(1).forEach(p => rows.push({ id: p.id, name: p.classes > 1 ? p.classes + '-class pack' : 'Drop-in', price: money(p.price), per: p.price / p.classes, covers: true, note: p.classes > 1 ? p.terms.toLowerCase() : '' }));
+  rows.sort((a, b) => (a.covers === b.covers ? a.per - b.per : a.covers ? -1 : 1));
+  const best = rows.find(r => r.covers);
+  const m2 = v => money(Math.round(v * 100) / 100);
+  $('#calc-best').textContent = best.name;
+  $('#calc-best-note').textContent = m2(best.per) + ' a class at ' + monthly + ' classes a month';
+  $('#calc-go').innerHTML = `<button class="btn btn-red" type="button" data-action="buy" data-plan="${best.id}">${best.join ? 'Join on this plan' : 'Buy this'}</button>`;
+  const yr = ANNUAL.price / 12 / Math.min(20, monthly);
+  $('#calc-also').innerHTML = (monthly > 20
+    ? 'The Elite annual (' + money(ANNUAL.price) + ' a year) covers 20 classes a month, fewer than you would take.'
+    : 'The Elite annual is ' + money(ANNUAL.price) + ' paid up front for 20 classes a month. At ' + monthly + ' a month that is ' + m2(yr) + ' a class, ' + (yr < best.per ? 'less' : 'more') + ' than the ' + esc(best.name.toLowerCase()) + '.')
+    + ' <button class="u" type="button" data-action="buy" data-plan="elite">Join the Elite annual</button>';
+  $('#calc-table tbody').innerHTML = rows.map(r => `<tr class="${r === best ? 'best' : r.covers ? '' : 'dim'}"><td><button class="u" type="button" data-action="buy" data-plan="${r.id}">${esc(r.name)}</button>${r.note ? `<small>${esc(r.note)}</small>` : ''}</td><td class="num">${r.price}</td><td class="num">${m2(r.per)}</td></tr>`).join('');
+}
+function renderRates() { $('#training-rates').innerHTML = rateRows(TRAINING, 'training'); $('#sauna-rates').innerHTML = rateRows(SAUNA, 'sauna'); }
+
+/* shop */
+function renderShop() {
+  $('#shop').innerHTML = PRODUCTS.filter(p => p.price != null).map(p => `<div class="rrow"><div class="rrow__name">${esc(p.name)}<small>${esc(p.desc)}</small></div><div class="rrow__price">${money(p.price)}</div><button class="btn btn-s btn-line" type="button" data-action="add" data-p="${p.id}">Add to bag</button></div>`).join('');
+}
+function cartCount() { return Object.values(STATE.cart).reduce((a, b) => a + b, 0); }
+function renderCartBadge() { const n = cartCount(); $('#bag-btn').hidden = !n; $('.cart-count').textContent = n; }
+function addToCart(id) { STATE.cart[id] = (STATE.cart[id] || 0) + 1; save(); renderCartBadge(); toast(PRODUCTS.find(p => p.id === id).name + ' added to your bag'); }
+function changeQty(id, n) { STATE.cart[id] = Math.max(0, (STATE.cart[id] || 0) + n); if (!STATE.cart[id]) delete STATE.cart[id]; save(); renderCartBadge(); openCart(); }
+
+/* questions */
+const FQ = { cat: '', q: '' };
+const qaHTML = (f, open) => `<details${open ? ' open' : ''}><summary>${esc(f.q)}</summary><p>${esc(f.a)}</p></details>`;
+function renderFaq() {
+  const cats = [...new Set(FAQ.map(f => f.c))];
+  $('#faq-cats').innerHTML = `<button type="button" class="${FQ.cat ? '' : 'on'}" data-cat="">All</button>` + cats.map(c => `<button type="button" class="${FQ.cat === c ? 'on' : ''}" data-cat="${esc(c)}">${esc(c)}</button>`).join('');
+  $$('#faq-cats button').forEach(b => b.onclick = () => { FQ.cat = b.dataset.cat; renderFaq(); });
+  const q = FQ.q.toLowerCase();
+  const list = FAQ.filter(f => (!FQ.cat || f.c === FQ.cat) && (!q || (f.q + ' ' + f.a).toLowerCase().includes(q)));
+  $('#faq-list').innerHTML = list.length ? list.map(f => qaHTML(f, !!q)).join('') : '<p class="kempty">No question matches that. Text 312-286-5845 and we’ll answer it.</p>';
+}
+$('#faq-q').addEventListener('input', e => { FQ.q = e.target.value.trim(); renderFaq(); });
+function renderNewFaq() { $('#new-faq').innerHTML = FAQ.filter(f => f.c === 'First visit').map(f => qaHTML(f, false)).join(''); }
+
+/* class hours */
+function renderHours() {
+  const now = chicagoNow();
+  $('#hours').innerHTML = [1, 2, 3, 4, 5, 6, 0].map(d => { const l = byDay(d), f = l[0], e = l[l.length - 1]; return `<div class="${d === now.d ? 'now' : ''}"><span>${DAYS[d]}</span><span>${f ? fmtT(f.t) + ' to ' + fmtEnd(e.t, e.min) : 'No classes'}</span></div>`; }).join('');
+}
+
+/* which class first */
+function renderFinder() {
+  const f = new FormData($('#finder')), exp = f.get('exp'), goal = f.get('goal'), hard = f.get('hard');
+  let id, why;
+  if (exp === 'never') { id = 'intro'; why = 'Start here. You’ll learn the carriage, springs and straps before anyone asks you to keep up. Form Focus and Flow are good second and third classes.'; }
+  else if (goal === 'learn') { id = 'form'; why = 'It’s the slowest class, with the most time spent on how each exercise should feel.'; }
+  else if (goal === 'tone') { id = 'sculpt'; why = 'The sculpt class on the schedule. It’s open to all levels.'; }
+  else if (goal === 'strong' && (hard === 'hard' || exp === 'regular')) { id = 'power'; why = 'The most athletic class on the schedule. Take it once the reformer feels familiar.'; }
+  else if (goal === 'strong') { id = 'flow'; why = 'Take Flow for a few weeks first, then move up to Power.'; }
+  else { id = 'flow'; why = 'Traditional reformer Pilates at a steady pace. It runs six days a week, so it’s easy to fit in.'; }
+  const c = CLASSES[id], n = nextClass(chicagoNow(), k => k.c === id);
+  $('#finder-out').innerHTML = `<p style="margin:0;font-weight:600">We’d start you with</p><h3>${esc(c.name)}</h3><p>${esc(why)}</p>${n ? `<p style="margin-top:14px">Next one: ${dayWord(n.off, n.k.d)} at ${fmtT(n.k.t)} with ${esc(n.k.i)}.</p>` : ''}<div class="btn-row">${n ? `<button class="btn btn-white" type="button" data-action="book" data-k="${n.k.id}">Book it</button>` : ''}<button class="u" type="button" data-action="sched-filter" data-c="${id}">All ${esc(c.short)} times</button></div>`;
+}
+$('#finder').addEventListener('change', renderFinder);
+
+/* ---------- front desk portal (#admin). On the real site this sits behind a staff login. ---------- */
+const ADM = { tab: 'people', filter: '', q: '', sel: null };
+const REQ_KINDS = ['Training request', 'Sauna request', 'Event inquiry', 'Message'];
+const ST_CLASS = { 'New': 'st-new', 'Contacted': 'st-contacted', 'In WellnessLiving': 'st-wl', 'Member': 'st-member' };
+
+/* Sample people, so the portal has something in it the first time it is opened. They are tagged and can be removed. */
+function seedSamples() {
+  if (STATE.seeded) return; STATE.seeded = true;
+  const H = 36e5, now = Date.now();
+  const rows = [
+    { h: 2,  p: { name: 'Maya R.', email: 'maya.r@example.com', phone: '312-555-0142', newbie: true }, status: 'New', kind: 'Booking', title: 'Intro to Pilates Reformer, Saturday 11:30 am', body: 'Quick sign-up. Intro pack, 3 classes for $39. To pay at the desk. First visit: send the door code and what to bring.' },
+    { h: 5,  p: { name: 'Dan K.', email: 'dan.k@example.com', phone: '312-555-0117' }, status: 'Contacted', notes: 'Texted him the WellnessLiving payment link.', kind: 'Intro pack', title: '3 classes for $39', body: 'Quick sign-up. $39, to pay at the first visit. Set it up in WellnessLiving.' },
+    { h: 7,  kind: 'WellnessLiving', title: 'Pilates Power Reformer, Thursday 6:00 am', body: 'Left the site to book this class on WellnessLiving.' },
+    { h: 26, p: { name: 'Priya S.', email: 'priya.s@example.com', phone: '312-555-0188' }, status: 'In WellnessLiving', notes: 'Account created. First payment taken at the desk.', kind: 'New member', title: '8 classes a month', body: 'Quick sign-up. $199 a month, to pay at the first visit. Set it up in WellnessLiving.' },
+    { h: 29, p: { name: 'Chris L.', email: 'chris.l@example.com', phone: '312-555-0125' }, status: 'New', kind: 'Training request', title: 'Intro session, $45', body: 'Any day, early morning. Wants to work on: getting stronger for running. Text them to confirm a time.' },
+    { h: 31, kind: 'WellnessLiving', title: '20 classes a month, $289 a month', body: 'Left the site to buy this on WellnessLiving.' },
+    { h: 50, p: { name: 'Ana M.', email: 'ana.m@example.com' }, status: 'Contacted', notes: 'Sent two Saturday afternoons. Waiting to hear back.', kind: 'Event inquiry', title: 'Birthday or shower, 14 guests', body: 'No date given. Reply with availability and a quote.' },
+    { h: 74, p: { name: 'Tom B.', phone: '312-555-0163' }, status: 'New', kind: 'Message', title: 'Do you have a student rate?', body: 'Reply to them.' },
+  ];
+  rows.forEach((r, n) => {
+    const ts = now - r.h * H; let pid = null;
+    if (r.p) { pid = 'ps' + n; STATE.people.push({ id: pid, key: 'sample-' + n, name: r.p.name, email: r.p.email || '', phone: r.p.phone || '', status: r.status, notes: r.notes || '', first: ts, last: ts, newbie: !!r.p.newbie, sample: true }); }
+    STATE.events.push({ id: 'es' + n, pid, kind: r.kind, title: r.title, body: r.body, ts, sample: true });
+  });
+  STATE.events.sort((a, b) => b.ts - a.ts);
+  save();
+}
+
+const eventsOf = p => STATE.events.filter(e => e.pid === p.id);
+function nextStep(p) {
+  const e = eventsOf(p)[0], k = e ? e.kind : '';
+  if (p.status === 'Contacted') return 'Waiting on them. Follow up if you haven’t heard back.';
+  if (p.status === 'In WellnessLiving') return 'Nothing to do. Their account and booking are in WellnessLiving.';
+  if (p.status === 'Member') return 'Nothing to do.';
+  if (k === 'Booking') return 'Add them to the class in WellnessLiving. Take payment at the desk, or text them the payment link.';
+  if (k === 'Waitlist') return 'Add them to the WellnessLiving waitlist for this class.';
+  if (k === 'Intro pack' || k === 'Class pack' || k === 'New member') return 'Create their WellnessLiving account and send the payment link, or take payment at their first visit.';
+  if (k === 'Training request' || k === 'Sauna request') return 'Text them to confirm a time.';
+  if (k === 'Event inquiry') return 'Reply with availability and a quote.';
+  if (k === 'Pickup order') return 'Set the items aside at the desk.';
+  if (k === 'Cancellation') return 'Remove them from the class in WellnessLiving.';
+  return 'Reply to them.';
+}
+const tags = p => (p.sample ? '<span class="tag2">Sample</span>' : '') + (p.newbie ? '<span class="tag2 tag2--red">First visit</span>' : '');
+
+function detailHTML(p, withName) {
+  const ev = eventsOf(p);
+  return `<div class="pd">
+    ${withName ? `<h2 class="h-m">${esc(p.name || 'No name given')}</h2>` : ''}
+    <div class="pd__tags">${tags(p)}</div>
+    <dl class="pd__info">
+      <div><dt>Email</dt><dd>${p.email ? `<a class="u" href="mailto:${esc(p.email)}">${esc(p.email)}</a>` : 'Not given'}</dd></div>
+      <div><dt>Mobile</dt><dd>${p.phone ? `<a class="u" href="sms:${esc(p.phone.replace(/[^0-9+]/g, ''))}">${esc(p.phone)}</a>` : 'Not given'}</dd></div>
+      <div><dt>First seen</dt><dd>${esc(fmtWhen(p.first))}</dd></div>
+    </dl>
+    <p class="q">Status</p>
+    <div class="pd__status">${STATUSES.map(s => `<button type="button" class="${p.status === s ? 'on' : ''}" data-action="adm" data-do="status" data-id="${p.id}" data-s="${s}" aria-pressed="${p.status === s}">${s}</button>`).join('')}</div>
+    <div class="pd__next"><b>Next step</b>${esc(nextStep(p))}</div>
+    <label class="field"><span>Notes</span><textarea data-adm-notes="${p.id}" placeholder="Anything the next person at the desk should know">${esc(p.notes)}</textarea></label>
+    <p class="q" style="margin-top:22px">History</p>
+    <ol class="pd__log">${ev.map(e => `<li><span>${esc(fmtWhen(e.ts))}</span><b>${esc(e.kind)}</b> ${esc(e.title)}<p>${esc(e.body)}</p></li>`).join('')}</ol>
+  </div>`;
+}
+
+function peopleList() {
+  const q = ADM.q.toLowerCase();
+  return STATE.people.filter(p => (!ADM.filter || p.status === ADM.filter) && (!q || (p.name + ' ' + p.email + ' ' + p.phone).toLowerCase().includes(q))).sort((a, b) => b.last - a.last);
+}
+const wide = () => window.matchMedia('(min-width: 1021px)').matches;
+function renderPeople() {
+  const list = peopleList(), box = $('#adm-list'); if (!box) return;
+  if (wide() && (!ADM.sel || !list.some(p => p.id === ADM.sel))) ADM.sel = list[0] ? list[0].id : null;
+  box.innerHTML = list.length ? list.map(p => { const e = eventsOf(p)[0]; return `<button type="button" class="prow${ADM.sel === p.id ? ' on' : ''}" data-action="adm" data-do="open" data-id="${p.id}">
+      <span class="prow__name">${esc(p.name || 'No name given')}${tags(p)}</span>
+      <span class="prow__last">${e ? `<b>${esc(e.kind)}</b> ${esc(e.title)}` : ''}</span>
+      <span class="prow__status ${ST_CLASS[p.status]}">${esc(p.status)}</span>
+      <span class="prow__when">${esc(fmtWhen(p.last))}</span>
+    </button>`; }).join('') : `<p class="kempty">${STATE.people.length ? 'Nobody matches that. Clear the search or pick another status.' : 'Nobody yet. Sign-ups, bookings and messages from the site appear here.'}</p>`;
+  const d = $('#adm-detail'), p = STATE.people.find(x => x.id === ADM.sel);
+  if (d) d.innerHTML = p ? detailHTML(p, true) : '<p class="kempty" style="border:0">Pick a person to see their details.</p>';
+  if (p && !wide() && OV.open === 'sheet' && $('#sheet').dataset.person === p.id) personSheet(p);
+}
+function personSheet(p) {
+  sheetSet('Front desk', p.name || 'No name given', detailHTML(p, false), `<span></span><button class="btn btn-red" type="button" data-action="overlay-close">Done</button>`);
+  $('#sheet').dataset.person = p.id;
+  if (OV.open !== 'sheet') openOverlay('sheet');
+}
+
+function renderAdmin() {
+  const root = $('#adm-root');
+  $('#adm-out').hidden = !STATE.staff;
+  if (!STATE.staff) {
+    root.innerHTML = `<div class="wrap adm__gate">
+      <h1 class="h-xl">Front desk</h1>
+      <p class="lead">The staff side of the site. Every booking, sign-up, request and message lands here, one row per person, so nothing has to be copied out of an inbox.</p>
+      <div class="btn-row" style="margin-top:28px"><button class="btn btn-red" type="button" data-action="adm" data-do="in">Open the portal</button></div>
+      <p class="note" style="margin-top:18px;max-width:34em">On the live site this page is at /admin behind a staff login. This concept has no password.</p>
+    </div>`;
+    return;
+  }
+  const ev = STATE.events, ppl = STATE.people, cnt = s => ppl.filter(p => p.status === s).length;
+  const samples = ppl.filter(p => p.sample).length;
+  const stats = [
+    [cnt('New'), 'people to follow up'],
+    [ev.filter(e => e.kind === 'Booking' || e.kind === 'Waitlist').length, 'class bookings by quick sign-up'],
+    [ev.filter(e => REQ_KINDS.includes(e.kind)).length, 'requests and messages'],
+    [ev.filter(e => e.kind === 'WellnessLiving').length, 'click-throughs to WellnessLiving'],
+  ];
+  const today = new Date().toLocaleDateString('en-US', { timeZone: 'America/Chicago', weekday: 'long', month: 'long', day: 'numeric' });
+  root.innerHTML = `<div class="wrap adm__in">
+    <div class="adm__head"><h1 class="h-l">Front desk</h1><span>${esc(today)}</span></div>
+    <p class="adm__note">Concept portal. It shows what was submitted in this browser${samples ? ', plus ' + samples + ' sample people so it isn’t empty' : ''}. The live portal reads from the site’s database, so every screen at the desk sees the same list.${samples ? ' <button class="u" type="button" data-action="adm" data-do="clear">Remove the samples</button>' : ''}</p>
+    <div class="adm__stats">${stats.map(s => `<div><b>${s[0]}</b><span>${s[1]}</span></div>`).join('')}</div>
+    <div class="adm__tabs" role="tablist">
+      <button type="button" role="tab" class="${ADM.tab === 'people' ? 'on' : ''}" data-action="adm" data-do="tab" data-v="people">People <small>${ppl.length}</small></button>
+      <button type="button" role="tab" class="${ADM.tab === 'activity' ? 'on' : ''}" data-action="adm" data-do="tab" data-v="activity">Activity <small>${ev.length}</small></button>
+    </div>
+    ${ADM.tab === 'people' ? `<div class="adm__tools">
+        <div class="cats">${['', ...STATUSES].map(s => `<button type="button" class="${ADM.filter === s ? 'on' : ''}" data-action="adm" data-do="filter" data-s="${s}">${s || 'Everyone'} <small>${s ? cnt(s) : ppl.length}</small></button>`).join('')}</div>
+        <div class="adm__find"><input type="search" id="adm-q" placeholder="Search name, email or mobile" aria-label="Search people" value="${esc(ADM.q)}"><button class="btn btn-s btn-line" type="button" data-action="adm" data-do="csv">Copy as CSV</button></div>
+      </div>
+      <div class="adm__split"><div class="ptable" id="adm-list"></div><aside class="adm__detail" id="adm-detail" aria-live="polite"></aside></div>`
+    : `<div class="alog">${ev.length ? ev.map(e => { const p = ppl.find(x => x.id === e.pid); return `<div class="alog__row">
+          <span class="alog__when">${esc(fmtWhen(e.ts))}</span>
+          <span class="alog__kind${e.kind === 'WellnessLiving' ? ' is-wl' : ''}">${esc(e.kind)}</span>
+          <span class="alog__what"><b>${p ? esc(p.name) : 'No details left'}</b> ${esc(e.title)}<small>${esc(e.body)}</small></span>
+          ${p ? `<button class="u" type="button" data-action="adm" data-do="open" data-id="${p.id}">Open</button>` : '<span></span>'}
+        </div>`; }).join('') : '<p class="kempty">Nothing yet.</p>'}</div>`}
+  </div>`;
+  if (ADM.tab === 'people') { renderPeople(); $('#adm-q').addEventListener('input', e => { ADM.q = e.target.value.trim(); renderPeople(); }); }
+}
+
+function csvText() {
+  const q = v => '"' + String(v == null ? '' : v).replace(/"/g, '""') + '"';
+  const rows = [['Name', 'Email', 'Mobile', 'Status', 'First visit', 'Latest', 'When', 'Notes']];
+  peopleList().forEach(p => { const e = eventsOf(p)[0]; rows.push([p.name, p.email, p.phone, p.status, p.newbie ? 'Yes' : '', e ? e.kind + ': ' + e.title : '', fmtWhen(p.last), p.notes]); });
+  return rows.map(r => r.map(q).join(',')).join('\n');
+}
+function adminAction(t) {
+  const d = t.dataset.do, p = STATE.people.find(x => x.id === t.dataset.id);
+  if (d === 'in') { STATE.staff = true; save(); renderAdmin(); window.scrollTo(0, 0); }
+  else if (d === 'out') { STATE.staff = false; save(); renderAdmin(); }
+  else if (d === 'clear') { STATE.people = STATE.people.filter(x => !x.sample); STATE.events = STATE.events.filter(x => !x.sample); ADM.sel = null; save(); renderAdmin(); renderInbox(); toast('Samples removed'); }
+  else if (d === 'tab') { ADM.tab = t.dataset.v; renderAdmin(); }
+  else if (d === 'filter') { ADM.filter = t.dataset.s; renderAdmin(); }
+  else if (d === 'open' && p) {
+    ADM.sel = p.id;
+    if (ADM.tab !== 'people') { ADM.tab = 'people'; ADM.filter = ''; ADM.q = ''; renderAdmin(); } else renderPeople();
+    if (!wide()) personSheet(p);
+  }
+  else if (d === 'status' && p) { p.status = t.dataset.s; save(); renderAdmin(); if (!wide() && OV.open === 'sheet') personSheet(p); toast(p.name + ' marked ' + p.status); }
+  else if (d === 'csv') {
+    const text = csvText(), n = peopleList().length;
+    const fallback = () => { sheetSet('Front desk', 'People as CSV', `<p style="margin-bottom:14px">Select all of this and copy it into a spreadsheet.</p><label class="field"><span class="sr">CSV</span><textarea readonly style="min-height:320px;font-size:13.5px;white-space:pre">${esc(text)}</textarea></label>`, `<span></span><button class="btn btn-red" type="button" data-action="overlay-close">Done</button>`); delete $('#sheet').dataset.person; openOverlay('sheet'); };
+    try { navigator.clipboard.writeText(text).then(() => toast('Copied ' + n + ' ' + (n === 1 ? 'person' : 'people') + ' as CSV'), fallback); } catch (e) { fallback(); }
+  }
+}
+document.addEventListener('input', e => {
+  const t = e.target.closest('[data-adm-notes]'); if (!t) return;
+  const p = STATE.people.find(x => x.id === t.dataset.admNotes); if (p) { p.notes = t.value; save(); }
+});
+
+/* ---------- booking, purchases, requests, bag. All simulated: nothing is charged or sent. ---------- */
+function sheetSet(label, title, body, foot) {
+  $('#sheet-label').textContent = label; $('#sheet-title').textContent = title;
+  $('#sheet-body').innerHTML = body; $('#sheet-foot').innerHTML = foot || '';
+  $('#sheet-body').scrollTop = 0;
+  delete $('#sheet').dataset.person;
+}
+const stepsBar = (n, total) => `<div class="steps-bar" aria-hidden="true">${Array.from({ length: total }, (_, i) => `<i class="${i < n ? 'on' : ''}"></i>`).join('')}</div>`;
+const DEMO = 'This is a concept, so nothing is sent or charged and no card is asked for. On the real site this goes to the front desk and into WellnessLiving as a new lead.';
+const WL_REAL = 'This opens the studio’s real WellnessLiving page in a new tab. Unlike the rest of this concept, anything you book or buy there is real.';
+function detailsFields(extra = '') {
+  return `<div class="form-grid">
+    <label class="field"><span>First name</span><input name="first" required autocomplete="given-name"></label>
+    <label class="field"><span>Last name</span><input name="last" required autocomplete="family-name"></label>
+    <label class="field span2"><span>Email</span><input name="email" type="email" required autocomplete="email"></label>
+    <label class="field span2"><span>Mobile, for class reminders (optional)</span><input name="phone" type="tel" autocomplete="tel"></label>
+    ${extra}
+  </div>`;
+}
+const personOf = f => ({ first: f.get('first'), last: f.get('last'), email: f.get('email'), phone: f.get('phone'), newbie: !!f.get('newbie') });
+function validate(form) {
+  let ok = true;
+  $$('[required]', form).forEach(i => {
+    const bad = i.type === 'checkbox' ? !i.checked : (!i.value.trim() || (i.type === 'email' && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(i.value)));
+    const f = i.closest('.field, .check'); if (f) f.classList.toggle('field--err', bad); if (bad) ok = false;
+  });
+  if (!ok) toast('Fill in the fields marked in red');
+  return ok;
+}
+function gcalLink(title, k, details) {
+  const now = chicagoNow(); let off = (k.d - now.d + 7) % 7; if (off === 0 && k.t <= now.mins) off = 7;
+  const d = new Date(); d.setDate(d.getDate() + off);
+  const ymd = d.toLocaleDateString('en-CA', { timeZone: 'America/Chicago' }).replace(/-/g, '');
+  const hm = m => String(Math.floor(m / 60)).padStart(2, '0') + String(m % 60).padStart(2, '0') + '00';
+  return 'https://calendar.google.com/calendar/render?action=TEMPLATE&text=' + encodeURIComponent(title) + '&dates=' + ymd + 'T' + hm(k.t) + '/' + ymd + 'T' + hm(k.t + k.min) + '&ctz=America/Chicago&location=' + encodeURIComponent('Lincoln Park Pilates, 2105 N Southport Ave Suite 200, Chicago, IL 60614') + '&details=' + encodeURIComponent(details);
+}
+
+/* Two ways through every booking and purchase: a quick sign-up on this site, or the studio's own WellnessLiving page.
+   Returns the sheet body and footer. bindPaths() wires the switch and records a click-through for the front desk. */
+function twoPaths(o) {
+  const body = `<p class="q">${esc(o.ask)}</p>
+    <div class="paths" role="tablist">
+      <button type="button" class="path on" role="tab" aria-selected="true" data-path="quick"><b>Quick sign-up</b><small>No account or password</small></button>
+      <button type="button" class="path" role="tab" aria-selected="false" data-path="wl"><b>WellnessLiving</b><small>${esc(o.wlSub)}</small></button>
+    </div>
+    <div data-pane="quick">${o.quick}<p class="note" style="margin-top:16px">${DEMO}</p></div>
+    <div data-pane="wl" hidden><div class="wlbox"><h3>${esc(o.wlTitle)}</h3><p>${esc(o.wlText)}</p><p class="note">${WL_REAL}</p></div></div>`;
+  const foot = `<div class="foot-pane" data-pane="quick">${o.quickFoot}</div>
+    <div class="foot-pane" data-pane="wl" hidden><span class="small">Opens in a new tab</span><a class="btn btn-red" id="wl-go" href="${esc(o.wlHref)}" target="_blank" rel="noopener">${esc(o.wlLabel)}</a></div>`;
+  return { body, foot };
+}
+function bindPaths(onWl) {
+  $$('#sheet .path').forEach(b => b.onclick = () => {
+    $$('#sheet .path').forEach(x => { const on = x === b; x.classList.toggle('on', on); x.setAttribute('aria-selected', on); });
+    $$('#sheet [data-pane]').forEach(p => { p.hidden = p.dataset.pane !== b.dataset.path; });
+  });
+  const go = $('#wl-go'); if (go) go.onclick = () => { onWl(); };
+}
+
+/* ---- book a class ---- */
+function openBooking(id) {
+  const k = SCHEDULE.find(x => x.id === id); if (!k) return;
+  const c = CLASSES[k.c], left = spotsLeft(k), wait = left <= 0, mine = STATE.booked[id];
+  const what = `${c.name}, ${DAYS[k.d]} ${fmtT(k.t)}`;
+  const summary = `<div class="summary"><div class="summary__name">${esc(c.name)}</div><div><b>${DAYS[k.d]} at ${fmtT(k.t)}</b><br><small>${k.min} minutes with ${esc(k.i)}, ${esc(k.s)}</small></div><div style="text-align:right"><small>${wait ? 'Full' : left + ' of 12 spots left'}</small></div></div>`;
+  if (mine) {
+    sheetSet('Your booking', c.name, summary + `<div class="ok-box">You're booked. The door code is in your confirmation email.</div><p class="note" style="margin-top:16px">You can cancel free up to 12 hours before class.</p>`,
+      `<button class="btn btn-line" type="button" id="cancel-booking">Cancel booking</button><button class="btn btn-red" type="button" data-action="overlay-close">Done</button>`);
+    openOverlay('sheet');
+    $('#cancel-booking').onclick = () => {
+      const who = STATE.people.find(p => p.id === mine);
+      delete STATE.booked[id]; STATE.spots[id] = spotsLeft(k) + 1; save();
+      inboxAdd('Cancellation', what, 'Cancelled online by the client.', who ? { name: who.name, email: who.email, phone: who.phone } : null);
+      closeOverlay(); refreshAll(); toast('Booking cancelled');
+    };
+    return;
+  }
+  const quick = `<form id="book-form" novalidate>${detailsFields(`<label class="check span2"><input type="checkbox" name="newbie"> This is my first time at the studio</label>`)}</form>
+  <p class="q" style="margin-top:24px">How will you pay?</p><div class="pay" style="margin-bottom:16px">
+    <label><input type="radio" name="pay" value="intro" checked><span><b>Intro pack, 3 classes</b><small>New clients only</small></span><span class="amt">$39</span></label>
+    <label><input type="radio" name="pay" value="drop"><span><b>Drop-in</b><small>This class only</small></span><span class="amt">$40</span></label>
+    <label><input type="radio" name="pay" value="member"><span><b>My membership or class pack</b><small>We'll find you by email and use a class you already have</small></span><span class="amt"></span></label>
+  </div>
+  <label class="field"><span>Promo code for a drop-in (optional)</span><input name="promo" id="book-promo" autocapitalize="characters" placeholder="NEW25 takes $25 off your first class"></label>`;
+  const p = twoPaths({
+    ask: wait ? 'How do you want to join the waitlist?' : 'How do you want to book?', quick,
+    quickFoot: `<span class="small">Pay at the desk. Free to cancel up to 12 hours before</span><button class="btn btn-red" type="button" id="book-go">${wait ? 'Join waitlist' : 'Book my spot'}</button>`,
+    wlSub: 'Use your account or pay now', wlTitle: 'Book with your WellnessLiving account',
+    wlText: 'If you have a membership or a class pack, book there and the class comes off your account. You can also pay by card there.',
+    wlHref: LPP.wlSchedule, wlLabel: 'Continue on WellnessLiving',
+  });
+  sheetSet(wait ? 'Join the waitlist' : 'Book a class', c.name, stepsBar(1, 2) + summary + p.body, p.foot);
+  openOverlay('sheet');
+  bindPaths(() => inboxAdd('WellnessLiving', what, 'Left the site to book this class on WellnessLiving.'));
+  $('#book-go').onclick = () => {
+    const form = $('#book-form'); if (!validate(form)) return;
+    const f = new FormData(form), pay = $('input[name=pay]:checked').value;
+    const promo = ($('#book-promo').value || '').trim().toUpperCase(), off = promo === PROMO.code && pay === 'drop';
+    const payTxt = { intro: 'Intro pack, 3 classes for $39', drop: off ? 'Drop-in, $15 after ' + PROMO.code : 'Drop-in, $40', member: 'Existing membership or class pack' }[pay] + (promo && !off ? ' (code ' + promo + ' not applied)' : '');
+    const due = pay === 'member' ? 'Nothing to pay. Match them to their WellnessLiving account.' : 'To pay at the desk.';
+    const rec = inboxAdd(wait ? 'Waitlist' : 'Booking', what, `Quick sign-up. ${payTxt}. ${due}${f.get('newbie') ? ' First visit: send the door code and what to bring.' : ''}`, personOf(f));
+    STATE.booked[id] = rec ? rec.id : true; if (!wait) STATE.spots[id] = left - 1; save();
+    const cal = gcalLink(c.name + ' at Lincoln Park Pilates', k, 'With ' + k.i + ', ' + k.s + '. The door code is in your confirmation email. Cancel at least 12 hours before to avoid the $25 fee.');
+    sheetSet(wait ? 'Waitlist' : 'Booked', c.name, stepsBar(2, 2) + `<div class="conf">
+      <div class="conf__big">${wait ? 'You’re on the waitlist' : 'You’re booked for ' + DAYS[k.d]}</div>
+      <ul class="conf__list"><li><span>Class</span><span>${esc(c.name)}</span></li><li><span>When</span><span>${DAYS[k.d]}, ${fmtT(k.t)} to ${fmtEnd(k.t, k.min)}</span></li><li><span>Instructor</span><span>${esc(k.i)}, ${esc(k.s)}</span></li><li><span>Paying with</span><span>${esc(payTxt)}${pay === 'member' ? '' : ', at the front desk when you arrive'}</span></li><li><span>Where</span><span>2105 N Southport Ave, second floor. Entrances on Southport and on Clybourn.</span></li></ul>
+      ${wait ? '<div class="conf__tip">If a spot opens, you’ll get an email saying you’re in.</div>' : '<div class="conf__tip"><b>Before you come:</b> the door code is in your confirmation email. Wear something you can move in, go barefoot or bring grip socks, and bring water.</div>'}
+      <div class="btn-row"><a class="btn btn-line" href="${cal}" target="_blank" rel="noopener"><svg class="ic"><use href="#i-cal"/></svg>Add to Google Calendar</a></div>
+      </div>`,
+      `<a class="u small" href="#schedule" data-action="overlay-close">Book another class</a><button class="btn btn-red" type="button" data-action="overlay-close">Done</button>`);
+    refreshAll();
+  };
+}
+
+/* ---- buy a membership or pack ---- */
+function openPurchase(id) {
+  const p = [...MEMBERSHIPS, ANNUAL, ...PACKAGES].find(x => x.id === id); if (!p) return;
+  const isMember = MEMBERSHIPS.includes(p) || p === ANNUAL, isIntro = p.id === 'intro3';
+  const title = isIntro ? 'Intro pack' : p.name.charAt(0).toUpperCase() + p.name.slice(1);
+  const priceTxt = money(p.price) + (p.per ? ' a ' + (p.per === 'mo' ? 'month' : 'year') : '');
+  const extra = (isIntro ? '' : `<label class="field span2"><span>Promo code (optional)</span><input name="promo" autocapitalize="characters"></label>`) + (isMember ? '<label class="check span2"><input type="checkbox" name="agree" required> I understand that classes don’t roll over and that cancelling takes 30 days’ notice by email.</label>' : '');
+  const summary = `<div class="summary"><div class="summary__name">${isIntro ? '3 classes for $39' : esc(title)}</div><div><b>${priceTxt}</b><br><small>${esc(p.terms)}</small></div></div>`;
+  const two = twoPaths({
+    ask: isMember ? 'How do you want to join?' : 'How do you want to buy it?', quick: `<form id="buy-form" novalidate>${detailsFields(extra)}</form>`,
+    quickFoot: `<span class="small">Pay at your first visit</span><button class="btn btn-red" type="button" id="buy-go">${isMember ? 'Sign me up' : isIntro ? 'Get the intro pack' : 'Reserve this pack'}</button>`,
+    wlSub: 'Pay by card now', wlTitle: isMember ? 'Join on WellnessLiving' : 'Buy on WellnessLiving',
+    wlText: `Pay by card and the ${isMember ? 'membership is' : 'classes are'} on your account straight away. You'll sign in or create a WellnessLiving account there.`,
+    wlHref: wlItem(p), wlLabel: isMember ? 'Join on WellnessLiving' : 'Buy on WellnessLiving',
+  });
+  sheetSet(isMember ? 'Join' : 'Buy', title, stepsBar(1, 2) + summary + two.body, two.foot);
+  openOverlay('sheet');
+  bindPaths(() => inboxAdd('WellnessLiving', title + ', ' + priceTxt, 'Left the site to buy this on WellnessLiving.'));
+  $('#buy-go').onclick = () => {
+    const form = $('#buy-form'); if (!validate(form)) return;
+    const f = new FormData(form), promo = (f.get('promo') || '').trim().toUpperCase(), disc = promo === 'NEW25' && !isMember && !isIntro ? Math.min(25, p.price) : 0;
+    inboxAdd(isMember ? 'New member' : isIntro ? 'Intro pack' : 'Class pack', isIntro ? '3 classes for $39' : title, `Quick sign-up. ${money(p.price - disc)}${p.per ? ' a ' + (p.per === 'mo' ? 'month' : 'year') : ''}${disc ? ' after NEW25' : ''}${promo && !disc ? ' (code ' + promo + ' not applied)' : ''}, to pay at the first visit. Set it up in WellnessLiving.`, personOf(f));
+    sheetSet('Done', title, stepsBar(2, 2) + `<div class="conf"><div class="conf__big">${isMember ? 'Welcome to the studio' : 'You’re signed up'}</div><ul class="conf__list"><li><span>Signed up for</span><span>${isIntro ? '3 classes for $39' : esc(title)}</span></li><li><span>Total</span><span>${money(p.price - disc)}${p.per ? ' a ' + (p.per === 'mo' ? 'month' : 'year') : ''}${disc ? ' with NEW25' : ''}</span></li><li><span>Paying</span><span>At the front desk on your first visit, or with the link we text you</span></li><li><span>Next</span><span>Pick a class. Your ${isMember ? 'membership' : 'classes'} will be applied when you book.</span></li></ul><div class="btn-row"><a class="btn btn-red" href="#schedule" data-action="overlay-close">Book a class</a></div></div>`, `<span></span><button class="btn btn-line" type="button" data-action="overlay-close">Close</button>`);
+  };
+}
+
+/* ---- request private training or a sauna session. opt is the row the visitor pressed. ---- */
+function openInquiry(kind, opt) {
+  const isT = kind === 'training', n = Math.max(0, parseInt(opt, 10) || 0);
+  const slots = ['Early morning', 'Midday', 'Afternoon', 'Evening'];
+  const opts = isT ? TRAINING.map(r => r.name + ', ' + r.len + (r.price != null ? ', ' + money(r.price) : ', price on request'))
+    : ['Single session, $45', '10 sessions, $315', 'Unlimited, $199 a month', 'Swap for a missed membership class'];
+  const pick = Math.min(n, opts.length - 1), pack = isT && TRAINING[pick].price == null;
+  const extra = `<label class="field span2"><span>Which option</span><select name="opt">${opts.map((o, i) => `<option${i === pick ? ' selected' : ''}>${esc(o)}</option>`).join('')}</select></label>
+    <label class="field"><span>Preferred day</span><input name="date" type="date"></label><label class="field"><span>Time of day</span><select name="slot">${slots.map(s => `<option>${s}</option>`).join('')}</select></label>` +
+    (isT ? `<label class="field span2"><span>What would you like to work on? (optional)</span><textarea name="goal"></textarea></label>` : '');
+  const title = !isT ? 'Book a sauna session' : pack ? 'Ask about a training pack' : pick === 0 ? 'Request an intro session' : 'Request a private session';
+  const lead = !isT ? 'Sessions are booked around the class schedule. We’ll text you to confirm a time.'
+    : pack ? 'Packs of five and ten sessions are priced individually. Send this and we’ll text you the price and some times.'
+    : pick === 0 ? 'The intro session is 30 minutes and costs $45. It covers a movement assessment, your health history and your goals. We’ll text you to confirm a time.'
+    : 'Tell us when suits you and we’ll text you to confirm a time with an instructor.';
+  sheetSet(isT ? 'Private training' : 'Infrared sauna', title, `<p style="margin-bottom:20px">${lead}</p><form id="inq-form" novalidate>${detailsFields(extra)}</form>
+    <p class="note" style="margin-top:16px">Have a WellnessLiving account? You can also <a class="u" id="wl-go" href="${esc(LPP.wlStore)}" target="_blank" rel="noopener">buy sessions on WellnessLiving</a>. ${WL_REAL}</p>`,
+    `<span class="small">Nothing is charged until we confirm</span><button class="btn btn-red" type="button" id="inq-go">Send request</button>`);
+  openOverlay('sheet');
+  $('#wl-go').onclick = () => { inboxAdd('WellnessLiving', isT ? 'Private training' : 'Infrared sauna', 'Left the site to buy sessions on WellnessLiving.'); };
+  $('#inq-go').onclick = () => {
+    const form = $('#inq-form'); if (!validate(form)) return;
+    const f = new FormData(form), chosen = String(f.get('opt')), ask = chosen.includes('price on request');
+    inboxAdd(isT ? 'Training request' : 'Sauna request', chosen.replace(', price on request', ''), `${f.get('date') || 'Any day'}, ${String(f.get('slot')).toLowerCase()}.${f.get('goal') ? ' Wants to work on: ' + String(f.get('goal')).trim().replace(/\.+$/, '') + '.' : ''} ${ask ? 'Text them the pack price and some times.' : 'Text them to confirm a time.'}`, personOf(f));
+    sheetSet('Sent', 'Request sent', `<div class="conf"><div class="conf__big">${ask ? 'We’ll text you the price and times' : 'We’ll text you to confirm a time'}</div><p>If you need an answer sooner, text 312-286-5845.</p></div>`, `<span></span><button class="btn btn-red" type="button" data-action="overlay-close">Done</button>`);
+  };
+}
+
+/* ---- bag ---- */
+function cartLines() { return Object.entries(STATE.cart).map(([id, n]) => ({ p: PRODUCTS.find(x => x.id === id), n })).filter(l => l.p); }
+function openCart() {
+  const lines = cartLines(), total = lines.reduce((a, l) => a + l.p.price * l.n, 0);
+  sheetSet('Shop', 'Your bag', lines.length ? lines.map(l => `<div class="cart-line"><span>${esc(l.p.name)}<br><small>${money(l.p.price)} each</small></span><span class="qty"><button type="button" data-action="qty" data-p="${l.p.id}" data-n="-1" aria-label="Remove one">−</button><output>${l.n}</output><button type="button" data-action="qty" data-p="${l.p.id}" data-n="1" aria-label="Add one">+</button></span><b>${money(l.p.price * l.n)}</b></div>`).join('') + `<div class="cart-total"><span>Total</span><span>${money(total)}</span></div><p class="note" style="margin-top:12px">Pick up at the front desk before or after any class. We don't ship.</p>` : '<p class="kempty" style="border:0">Your bag is empty. <a class="u" href="#shop" data-action="overlay-close">See the shop</a></p>',
+    lines.length ? `<span class="small">Pick up at the desk</span><button class="btn btn-red" type="button" data-action="checkout">Check out</button>` : `<span></span><button class="btn btn-line" type="button" data-action="overlay-close">Close</button>`);
+  if (!$('#sheet').classList.contains('on')) openOverlay('sheet');
+}
+function openCheckout() {
+  const lines = cartLines(), total = lines.reduce((a, l) => a + l.p.price * l.n, 0), count = lines.reduce((a, l) => a + l.n, 0);
+  sheetSet('Shop', 'Check out', `<div class="summary"><div class="summary__name">${count} item${count === 1 ? '' : 's'}, ${money(total)}</div><div><small>${lines.map(l => l.n + ' x ' + esc(l.p.name)).join(', ')}</small></div></div><form id="co-form" novalidate>${detailsFields()}</form><p class="note" style="margin-top:16px">${DEMO}</p>`,
+    `<span class="small">Pay when you pick up</span><button class="btn btn-red" type="button" id="co-go">Place order, ${money(total)}</button>`);
+  $('#co-go').onclick = () => {
+    const form = $('#co-form'); if (!validate(form)) return;
+    const f = new FormData(form);
+    inboxAdd('Pickup order', money(total) + ', ' + count + ' item' + (count === 1 ? '' : 's'), lines.map(l => l.n + ' x ' + l.p.name).join(', ') + '. Hold at the desk.', personOf(f));
+    STATE.cart = {}; save(); renderCartBadge();
+    sheetSet('Done', 'Order placed', `<div class="conf"><div class="conf__big">Pick it up at the front desk</div><p>We'll have it ready before your next class.</p></div>`, `<span></span><button class="btn btn-red" type="button" data-action="overlay-close">Done</button>`);
+  };
+}
+
+/* ---- forms on the page ---- */
+const EV_FORM = $('#ev-form').innerHTML;
+/* an event type's own button: put that type in the form and move to it */
+function pickEvent(type) {
+  const form = $('#ev-form');
+  if (!form.querySelector('[name=type]')) form.innerHTML = EV_FORM;
+  form.querySelector('[name=type]').value = type;
+  form.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  form.querySelector('[name=name]').focus({ preventScroll: true });
+  toast(type + ' selected. Add your details and a date.');
+}
+
+$('#ev-form').addEventListener('submit', e => {
+  e.preventDefault(); const form = e.target; if (!validate(form)) return;
+  const f = new FormData(form);
+  inboxAdd('Event inquiry', `${f.get('type')}${f.get('guests') ? ', ' + f.get('guests') + ' guests' : ''}`, `${f.get('date') || 'No date given'}.${f.get('notes') ? ' ' + f.get('notes') : ''} Reply with availability and a quote.`, { name: f.get('name'), email: f.get('email') });
+  form.innerHTML = `<h2 class="h-m" style="margin-bottom:14px">Inquiry sent</h2><div class="ok-box">Susan will reply with availability and a quote. If it's urgent, text 312-286-5845.</div>`;
+});
+$('#contact-form').addEventListener('submit', e => {
+  e.preventDefault(); const form = e.target; if (!validate(form)) return;
+  const f = new FormData(form);
+  const msg = String(f.get('msg')).trim();
+  inboxAdd('Message', msg.length > 80 ? msg.slice(0, 77) + '...' : msg, msg.length > 80 ? msg : 'Reply to them.', { name: f.get('name'), contact: f.get('contact') });
+  form.innerHTML = `<h3 class="h-m" style="margin-bottom:14px">Message sent</h3><div class="ok-box">We'll reply to ${esc(f.get('contact'))}.</div>`;
+});
+$('#ev-form').setAttribute('novalidate', ''); $('#contact-form').setAttribute('novalidate', '');
+
+/* ---- start ---- */
+function refreshAll() { renderToday(); if (currentPage === 'schedule') renderSchedule(); renderClassList(); renderFinder(); }
+function init() {
+  seedSamples();
+  renderTiles(); renderClassList(); renderNames(); renderQuotes(); renderShop(); renderCartBadge(); renderFaq(); renderNewFaq(); renderHours(); renderRates(); renderFinder(); renderInbox(); renderPricing();
+  renderCalc(); $('#calc-range').addEventListener('input', renderCalc);
+  renderToday(); setInterval(() => { if (currentPage === 'home') renderToday(); }, 60000);
+  route();
+}
+init();
+
+/* for the test harness */
+window.__lpp = { SCHEDULE, STATE, save, renderSchedule, chicagoNow };
+
+})();
+</script>
+</body>
+</html>

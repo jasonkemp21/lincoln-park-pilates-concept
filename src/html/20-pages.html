@@ -1,0 +1,350 @@
+<!-- NEW HERE -->
+<section class="page" data-page="new">
+  <div class="wrap phead">
+    <h1 class="h-xl">Your first class</h1>
+    <p class="lead">You don't need to be flexible, strong or experienced. Bring water, wear something you can move in, and get here ten minutes early.</p>
+  </div>
+
+  <div class="wrap">
+    <div class="duo">
+      <div class="duo__offer">
+        <h2 class="h-m">The intro pack</h2>
+        <div class="duo__price">$39<small>for 3 classes</small></div>
+        <p>For new clients. Use the three classes on any format with any instructor.</p>
+        <button class="btn btn-white" type="button" data-action="buy" data-plan="intro3">Get the intro pack</button>
+      </div>
+      <div class="duo__new">
+        <h2 class="h-m">Just want one class?</h2>
+        <p>A single drop-in is $40. Code NEW25 takes $25 off your first class or package at checkout.</p>
+        <a class="btn btn-line" href="#schedule">Pick a class</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="wrap">
+      <div class="cols cols-top">
+        <div>
+          <h2 class="h-l">What happens</h2>
+          <ol class="steps" style="margin-top:32px">
+            <li><b>Book, then check your email.</b><span>Your confirmation has the door code. Entrances are on Southport and on Clybourn, and the studio is on the second floor.</span></li>
+            <li><b>Arrive ten minutes early.</b><span>Check in at the desk and put your things in a locker. Go barefoot or wear grip socks, which the desk sells. No shoes in the studio.</span></li>
+            <li><b>Your instructor sets up your reformer.</b><span>Tell them it's your first time. They'll show you the springs, straps and footbar before class starts.</span></li>
+            <li><b>Class is 45 minutes.</b><span>The room is kept at 75 to 85 degrees. That is warm enough to sweat and well short of hot yoga.</span></li>
+            <li><b>Shower here if you like.</b><span>Towels, shampoo and conditioner are provided. You can also <a class="u" href="#sauna">book the infrared sauna</a> for afterwards.</span></li>
+          </ol>
+        </div>
+        <div class="photo r-45" style="position:sticky;top:calc(var(--head) + 24px)"><img src="img/golden.webp" alt="A late-afternoon class on the reformers" loading="lazy" style="object-position:78% 50%"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec sec-wall">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <h2 class="h-l">Which class first?</h2>
+          <p class="lead grey">Answer three questions and we'll point you to one.</p>
+        </div>
+      </div>
+      <div class="finder">
+        <form id="finder">
+          <fieldset>
+            <legend>Have you been on a reformer before?</legend>
+            <div class="opts">
+              <label class="opt"><input type="radio" name="exp" value="never" checked><span>Never</span></label>
+              <label class="opt"><input type="radio" name="exp" value="few"><span>A few times</span></label>
+              <label class="opt"><input type="radio" name="exp" value="regular"><span>Regularly</span></label>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend>What do you want out of it?</legend>
+            <div class="opts">
+              <label class="opt"><input type="radio" name="goal" value="learn" checked><span>Learn the technique</span></label>
+              <label class="opt"><input type="radio" name="goal" value="strong"><span>Get stronger</span></label>
+              <label class="opt"><input type="radio" name="goal" value="tone"><span>Sculpt and tone</span></label>
+              <label class="opt"><input type="radio" name="goal" value="move"><span>Move better</span></label>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend>How hard should it be?</legend>
+            <div class="opts">
+              <label class="opt"><input type="radio" name="hard" value="easy" checked><span>Ease me in</span></label>
+              <label class="opt"><input type="radio" name="hard" value="mid"><span>Moderate</span></label>
+              <label class="opt"><input type="radio" name="hard" value="hard"><span>As hard as it gets</span></label>
+            </div>
+          </fieldset>
+        </form>
+        <div class="finder__out" id="finder-out" aria-live="polite"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="wrap">
+      <div class="sec-head"><h2 class="h-l">First-timer questions</h2><a class="u" href="#faq">All questions</a></div>
+      <div class="qa" id="new-faq"></div>
+    </div>
+  </div>
+</section>
+
+<!-- CLASSES -->
+<section class="page" data-page="classes">
+  <div class="wrap phead">
+    <h1 class="h-xl">Classes</h1>
+    <p class="lead">Five formats, all on the reformer, with up to twelve people in the room. New to the machine? Start with Intro, Form Focus or Flow.</p>
+  </div>
+  <div class="wrap"><div id="cl-list"></div></div>
+
+  <div class="sec" id="sec-private" style="scroll-margin-top:var(--head)">
+    <div class="wrap">
+      <div class="cols cols-top">
+        <div class="photo r-43"><img src="img/private.webp" alt="An instructor adjusting a client's position on the tower reformer" loading="lazy"></div>
+        <div>
+          <h2 class="h-l" style="margin-top:-.12em">Private training</h2>
+          <p class="lead" style="margin-top:18px">One client and one instructor on the tower reformer. Your first session covers a movement assessment, your health history and your goals. Your trainer builds the sessions from there.</p>
+          <div class="rows" id="training-rates" style="margin-top:28px"></div>
+          <p class="note" style="margin-top:14px">Sessions changed or cancelled with less than 24 hours' notice are forfeited.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SCHEDULE -->
+<section class="page" data-page="schedule">
+  <div class="wrap phead">
+    <h1 class="h-xl">Schedule</h1>
+    <p class="lead">Pick a class and book it here with a quick sign-up. New clients can use the $39 intro pack. Members can book with their WellnessLiving account.</p>
+  </div>
+  <div class="wrap">
+    <div class="sbar">
+      <div class="days" id="days"></div>
+      <div class="filters">
+        <div class="sel"><select id="f-class" aria-label="Filter by class"><option value="">All classes</option></select></div>
+        <div class="sel"><select id="f-inst" aria-label="Filter by instructor"><option value="">All instructors</option></select></div>
+        <div class="sel"><select id="f-time" aria-label="Filter by time of day"><option value="">Any time</option><option value="am">Morning</option><option value="mid">Midday</option><option value="pm">Afternoon and evening</option></select></div>
+      </div>
+    </div>
+    <div id="sched"></div>
+    <div class="legend">
+      <div><b>Twelve spots a class</b>Weekend mornings fill first.</div>
+      <div><b>Full class?</b>Join the waitlist. You get an email as soon as you're in.</div>
+      <div><b>Cancelling</b>Free up to 12 hours before. After that it's a $25 fee.</div>
+      <div><b>The room</b>Kept at 75 to 85 degrees. Bring water.</div>
+    </div>
+  </div>
+  <div class="end"></div>
+</section>
+
+<!-- PRICING -->
+<section class="page" data-page="pricing">
+  <div class="wrap phead">
+    <h1 class="h-xl">Pricing</h1>
+    <p class="lead">The same prices you'd pay at the front desk. If you're new, start with the intro pack.</p>
+    <div class="jump" id="jump" style="margin-top:28px">
+      <button type="button" data-jump="pg-new">New here</button>
+      <button type="button" data-jump="pg-member">Memberships</button>
+      <button type="button" data-jump="pg-pack">Class packs</button>
+      <button type="button" data-jump="pg-training">Private training</button>
+      <button type="button" data-jump="pg-sauna">Sauna</button>
+      <button type="button" data-jump="pg-calc">Which is cheapest for me?</button>
+    </div>
+  </div>
+  <div class="wrap" id="price-body"></div>
+
+  <div class="sec" id="pg-calc" style="scroll-margin-top:var(--head)">
+    <div class="wrap">
+      <div class="panel">
+        <div class="sec-head">
+          <div>
+            <h2 class="h-l">Which is cheapest for me?</h2>
+            <p class="lead grey">Set how many classes a week you'd really take. The list sorts by what each class ends up costing you.</p>
+          </div>
+        </div>
+        <div class="calc">
+          <div>
+            <div class="calc__n" id="calc-n">2</div>
+            <div class="calc__unit"><b>classes a week</b>, <span id="calc-month">about 9 a month</span></div>
+            <input type="range" id="calc-range" min="1" max="6" value="2" step="1" aria-label="Classes per week">
+            <div class="calc__scale"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6+</span></div>
+            <p class="note" style="margin-top:18px">Memberships assume you use every class in the month. The intro pack is left out because you can only buy it once.</p>
+          </div>
+          <div>
+            <p class="calc__best">Cheapest without paying for a year up front <b id="calc-best"></b><span class="grey" id="calc-best-note"></span></p>
+            <div class="btn-row" id="calc-go" style="margin:0 0 22px"></div>
+            <table class="ctable" id="calc-table"><thead><tr><th>Plan</th><th class="num">Price</th><th class="num">Per class</th></tr></thead><tbody></tbody></table>
+            <p class="calc__also" id="calc-also"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="sec-head"><h2 class="h-l">Policies</h2></div>
+    <div class="policies">
+      <div><h3>Cancelling a class</h3><p>Free up to 12 hours before class. After that, or if you don't show, it's a $25 fee. If we change the instructor within 12 hours, text us and we'll cancel it at no charge.</p></div>
+      <div><h3>Cancelling a membership</h3><p>Email <a class="tel" href="mailto:info@lincolnparkpilates.com">info@lincolnparkpilates.com</a> with 30 days' notice. Plans with a 3-month minimum can be cancelled with 30 days' notice once the three months are up.</p></div>
+      <div><h3>Unused classes</h3><p>Membership classes are for the month they come in and don't roll over. If you miss one, you can swap it for a sauna session, once.</p></div>
+      <div><h3>Bringing a friend</h3><p>Members can bring a first-time Chicago friend for $15 and any other guest for $25.</p></div>
+      <div><h3>Referrals</h3><p>Refer a friend who becomes a member and get $100 off, applied in their second month.</p></div>
+      <div><h3>Small classes</h3><p>A class with three or fewer people booked may be cancelled before it starts. We'll email or text you.</p></div>
+    </div>
+  </div>
+  <div class="end"></div>
+</section>
+
+<!-- THE STUDIO -->
+<section class="page" data-page="studio">
+  <div class="wrap phead">
+    <h1 class="h-xl">The studio</h1>
+    <p class="lead">5,500 square feet on the second floor at Southport and Dickens, with two studios, a lounge, locker rooms and an infrared sauna.</p>
+  </div>
+  <div class="wrap">
+    <div class="mosaic">
+      <div class="photo"><img src="img/room.webp" alt="A full class on the reformers under string lights" loading="lazy"></div>
+      <div class="photo r-43"><img src="img/studio.webp" alt="The reformer studio seen from the back of the room" loading="lazy"></div>
+      <div class="photo r-43"><img src="img/barre.webp" alt="A barre class in the second studio" loading="lazy"></div>
+    </div>
+    <dl class="facts" style="margin-top:44px">
+      <div><dt>Reformer studio</dt><dd>Twelve reformers, with mirrors and windows</dd></div>
+      <div><dt>Second studio</dt><dd>An open floor with a barre, used for mat work and for events of up to 35 people</dd></div>
+      <div><dt>Locker rooms</dt><dd>Four showers in the women's, two in the men's. Towels, shampoo and conditioner provided. Lockers have locks</dd></div>
+      <div><dt>Temperature</dt><dd>Studios are kept at 75 to 85 degrees</dd></div>
+      <div><dt>Front desk</dt><dd>Grip socks and stretch and recovery props for sale. <a class="u" href="#shop">See the shop</a></dd></div>
+    </dl>
+  </div>
+
+  <div class="sec" id="sec-sauna" style="scroll-margin-top:var(--head)">
+    <div class="wrap">
+      <div class="cols cols-top">
+        <div>
+          <h2 class="h-l">Infrared sauna</h2>
+          <p class="lead" style="margin-top:18px">Infrared heat warms you directly instead of heating the air, so the cabin stays comfortable while you sweat. Book a session after class or on its own.</p>
+          <div class="btn-row" style="margin-top:24px"><button class="btn btn-red" type="button" data-action="inq-sauna">Book a sauna session</button></div>
+        </div>
+        <div>
+          <div class="rows" id="sauna-rates"></div>
+          <p class="note" style="margin-top:14px">Members who miss a membership class can swap it for one sauna session, once.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec sec-wall">
+    <div class="wrap">
+      <div class="sec-head"><div><h2 class="h-l">Who teaches here</h2><p class="lead grey">Pick a name to see their classes this week.</p></div></div>
+      <div class="names" id="names-2"></div>
+    </div>
+  </div>
+
+  <div class="sec" id="sec-visit" style="scroll-margin-top:var(--head)">
+    <div class="wrap">
+      <div class="cols cols-top">
+        <div>
+          <h2 class="h-l">Getting here</h2>
+          <p class="lead" style="margin-top:18px">2105 N Southport Ave, Suite 200<br>Chicago, IL 60614</p>
+          <dl class="facts">
+            <div><dt>Getting in</dt><dd>Entrances on Southport and on Clybourn. Take the stairs to the second floor. Your booking email has the door code</dd></div>
+            <div><dt>Parking</dt><dd>Free street parking on Southport and on Dickens</dd></div>
+            <div><dt>Transit</dt><dd>Clybourn Metra and the Armitage Brown Line stop are both walkable</dd></div>
+            <div><dt>Text</dt><dd><a class="tel" href="sms:+13122865845">312-286-5845</a></dd></div>
+            <div><dt>Email</dt><dd><a class="tel" href="mailto:info@lincolnparkpilates.com">info@lincolnparkpilates.com</a></dd></div>
+            <div><dt>Instagram</dt><dd><a class="u" href="https://www.instagram.com/lincolnparkpilates" target="_blank" rel="noopener">@lincolnparkpilates</a></dd></div>
+          </dl>
+          <div class="btn-row" style="margin-top:28px"><a class="btn btn-ink" href="https://www.google.com/maps/search/?api=1&query=Lincoln+Park+Pilates+2105+N+Southport+Ave+Chicago+IL+60614" target="_blank" rel="noopener">Get directions</a></div>
+        </div>
+        <div>
+          <h3 class="h-m">Class hours this week</h3>
+          <div class="hours" id="hours"></div>
+          <p class="note" style="margin-top:12px">The front desk is staffed around classes. Outside those hours, text us.</p>
+          <form class="panel" id="contact-form" style="margin-top:36px">
+            <h3 class="h-m" style="margin-bottom:18px">Send us a message</h3>
+            <div class="form-grid">
+              <label class="field"><span>Name</span><input name="name" required autocomplete="name"></label>
+              <label class="field"><span>Email or phone</span><input name="contact" required></label>
+              <label class="field span2"><span>Message</span><textarea name="msg" required></textarea></label>
+            </div>
+            <button class="btn btn-ink" type="submit" style="margin-top:16px">Send message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EVENTS -->
+<section class="page" data-page="events">
+  <div class="wrap phead">
+    <h1 class="h-xl">Parties and events</h1>
+    <p class="lead">Rent one studio or the whole floor. We host birthdays, showers, team outings and shoots, with a class or without one.</p>
+  </div>
+  <div class="wrap">
+    <div class="cols cols-top">
+      <div>
+        <div class="photo r-43"><img src="img/party.webp" alt="A shower hosted in the studio lounge" loading="lazy"></div>
+        <div class="elist">
+          <div><h3>Private Pilates party</h3><span>Up to 12 on reformers</span><p>A reformer class for your group with one of our instructors, then the lounge is yours. Popular for birthdays and bachelorettes.</p><button class="u" type="button" data-action="ev-pick" data-type="Private Pilates party">Ask about a date</button></div>
+          <div><h3>Showers and birthdays</h3><span>Up to 35 guests</span><p>The second studio and lounge, set up how you want them. Add a mat class if you like.</p><button class="u" type="button" data-action="ev-pick" data-type="Birthday or shower">Ask about a date</button></div>
+          <div><h3>Company events</h3><span>Either studio</span><p>A team class or a networking evening.</p><button class="u" type="button" data-action="ev-pick" data-type="Company event">Ask about a date</button></div>
+          <div><h3>Filming</h3><span>Half or full day</span><p>We host commercial shoots. Tell us the crew size and what you need in frame.</p><button class="u" type="button" data-action="ev-pick" data-type="Filming">Ask about a date</button></div>
+        </div>
+      </div>
+      <form class="panel" id="ev-form" style="position:sticky;top:calc(var(--head) + 24px)">
+        <h2 class="h-m" style="margin-bottom:6px">Ask about a date</h2>
+        <p class="grey" style="margin-bottom:20px">Susan replies with availability and a quote.</p>
+        <div class="form-grid">
+          <label class="field"><span>Your name</span><input name="name" required autocomplete="name"></label>
+          <label class="field"><span>Email</span><input name="email" type="email" required autocomplete="email"></label>
+          <label class="field"><span>Type of event</span><select name="type"><option>Private Pilates party</option><option>Birthday or shower</option><option>Company event</option><option>Filming</option><option>Something else</option></select></label>
+          <label class="field"><span>Guests</span><input name="guests" type="number" min="1" max="60" inputmode="numeric"></label>
+          <label class="field span2"><span>Date you have in mind</span><input name="date" type="date"></label>
+          <label class="field span2"><span>Anything we should know</span><textarea name="notes"></textarea></label>
+        </div>
+        <button class="btn btn-red btn-wide" type="submit" style="margin-top:18px">Send inquiry</button>
+        <p class="note" style="margin-top:12px;text-align:center">Or text Susan at <a class="tel" href="sms:+13122865845">312-286-5845</a></p>
+      </form>
+    </div>
+  </div>
+  <div class="end"></div>
+</section>
+
+<!-- FAQ -->
+<section class="page" data-page="faq">
+  <div class="wrap phead"><h1 class="h-xl">Questions</h1></div>
+  <div class="wrap">
+    <div class="faq">
+      <div class="faq__side">
+        <input type="search" id="faq-q" placeholder="Search questions" aria-label="Search questions">
+        <div class="cats" id="faq-cats"></div>
+        <p class="note">Still stuck? Text <a class="tel" href="sms:+13122865845">312-286-5845</a> or email <a class="tel" href="mailto:info@lincolnparkpilates.com">info@lincolnparkpilates.com</a>.</p>
+      </div>
+      <div class="qa" id="faq-list"></div>
+    </div>
+  </div>
+  <div class="end"></div>
+</section>
+
+<!-- SHOP -->
+<section class="page" data-page="shop">
+  <div class="wrap phead">
+    <h1 class="h-xl">Shop</h1>
+    <p class="lead">Stretch and recovery props, sold at the front desk. Order here and pick up before or after class.</p>
+  </div>
+  <div class="wrap"><div class="rows" id="shop"></div><p class="note" style="margin-top:16px">Grip socks are sold at the front desk too.</p></div>
+  <div class="end"></div>
+</section>
+
+
+<!-- FRONT DESK: the staff side. Not in the menu. On the real site it sits at /admin behind a login. -->
+<section class="page adm" data-page="admin">
+  <div class="adm__bar">
+    <div class="wrap">
+      <a class="logo" href="#home">Lincoln Park <span>Pilates</span></a>
+      <div class="adm__right"><a class="u" href="#home">Back to site</a><button class="u" type="button" id="adm-out" data-action="adm" data-do="out" hidden>Sign out</button></div>
+    </div>
+  </div>
+  <div id="adm-root"></div>
+  <div class="end"></div>
+</section>
